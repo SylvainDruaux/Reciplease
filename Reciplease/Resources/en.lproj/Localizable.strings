@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  Reciplease
+
+  Created by Sylvain Druaux on 08/03/2023.
+  
+*/
+
+"about_title" = "About";
+"about_description" = "Reciplease makes cooking easy and convenient by suggesting recipes based on the ingredients you have in your fridge.
+
+No more staring at an empty fridge wondering what to cook for dinner.
+
+With Reciplease, you can quickly and easily find delicious recipes that use the ingredients you already have.
+
+Thank you for choosing our app!";
+
+"appearance_title" = "Appearance";
+"light_mode_title" = "Light mode";
+"dark_mode_title" = "Dark mode";
+"device_mode_title" = "Use device settings";

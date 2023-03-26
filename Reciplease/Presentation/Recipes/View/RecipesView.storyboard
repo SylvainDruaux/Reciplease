@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="FuzzyBubbles-Bold.ttf">
+            <string>FuzzyBubbles-Bold</string>
+        </array>
+        <array key="IMFellEnglish-Regular.ttf">
+            <string>IM_FELL_English_Roman</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Recipes-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="RecipesViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" userLabel="View">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-xJ-csP">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <color key="separatorColor" name="SeparatorColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="150" id="ZE2-H9-mZC" customClass="RecipesTableViewCell" customModule="Reciplease" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZE2-H9-mZC" id="dOT-ko-5v4">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jBe-Zg-0kZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozzarella, Basil, Large tomato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xg-3i-JeE" userLabel="IngredientNamesLabel">
+                                                    <rect key="frame" x="29.999999999999986" y="116" width="251.66666666666663" height="20"/>
+                                                    <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="16"/>
+                                                    <color key="textColor" name="TextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywe-3A-sci" userLabel="TitleLabel">
+                                                    <rect key="frame" x="29.999999999999996" y="85" width="48.666666666666657" height="28"/>
+                                                    <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="22"/>
+                                                    <color key="textColor" name="TextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWI-c6-0N0">
+                                                    <rect key="frame" x="287" y="15" width="96" height="70"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-uN-enw">
+                                                            <rect key="frame" x="4" y="4" width="88" height="62"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FYv-LJ-S1g">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="88" height="26"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2p-ea-mYz">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="39" height="26"/>
+                                                                            <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="16"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wineglass.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kMP-yk-3lO">
+                                                                            <rect key="frame" x="49" y="-0.66666666666666785" width="39" height="27.666666666666668"/>
+                                                                            <color key="tintColor" name="TextColor"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZeG-tB-o0R">
+                                                                    <rect key="frame" x="0.0" y="36" width="88" height="26"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnG-BL-6Sk">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="39" height="26"/>
+                                                                            <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qn6-Sh-5qR">
+                                                                            <rect key="frame" x="49" y="0.99999999999999822" width="39" height="24.666666666666664"/>
+                                                                            <color key="tintColor" name="TextColor"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="5V0-q6-yf4"/>
+                                                        <constraint firstItem="SBi-uN-enw" firstAttribute="top" secondItem="VWI-c6-0N0" secondAttribute="top" constant="4" id="Vew-LV-tti"/>
+                                                        <constraint firstItem="SBi-uN-enw" firstAttribute="leading" secondItem="VWI-c6-0N0" secondAttribute="leading" constant="4" id="agX-yc-4Zm"/>
+                                                        <constraint firstAttribute="bottom" secondItem="SBi-uN-enw" secondAttribute="bottom" constant="4" id="hHq-wz-GRq"/>
+                                                        <constraint firstAttribute="width" constant="96" id="qp5-Qf-62p"/>
+                                                        <constraint firstAttribute="trailing" secondItem="SBi-uN-enw" secondAttribute="trailing" constant="4" id="rMZ-f9-kar"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                            <color key="value" name="TextColor"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1xg-3i-JeE" firstAttribute="leading" secondItem="dOT-ko-5v4" secondAttribute="leadingMargin" constant="10" id="02D-hL-hKI"/>
+                                                <constraint firstItem="VWI-c6-0N0" firstAttribute="top" secondItem="dOT-ko-5v4" secondAttribute="topMargin" constant="4" id="3QI-aF-Ov2"/>
+                                                <constraint firstItem="VWI-c6-0N0" firstAttribute="trailing" secondItem="dOT-ko-5v4" secondAttribute="trailingMargin" constant="10" id="7yk-QG-2p6"/>
+                                                <constraint firstAttribute="bottom" secondItem="jBe-Zg-0kZ" secondAttribute="bottom" id="875-Hy-4KI"/>
+                                                <constraint firstAttribute="trailing" secondItem="jBe-Zg-0kZ" secondAttribute="trailing" id="8fH-fL-XL4"/>
+                                                <constraint firstItem="jBe-Zg-0kZ" firstAttribute="leading" secondItem="dOT-ko-5v4" secondAttribute="leading" id="Qze-hk-Zxf"/>
+                                                <constraint firstItem="Ywe-3A-sci" firstAttribute="leading" secondItem="dOT-ko-5v4" secondAttribute="leadingMargin" constant="10" id="T6Z-LK-5fE"/>
+                                                <constraint firstItem="1xg-3i-JeE" firstAttribute="top" secondItem="Ywe-3A-sci" secondAttribute="bottom" constant="3" id="TnN-eT-meM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1xg-3i-JeE" secondAttribute="bottom" constant="3" id="cy3-Yf-9Ta"/>
+                                                <constraint firstItem="jBe-Zg-0kZ" firstAttribute="top" secondItem="dOT-ko-5v4" secondAttribute="top" id="ojd-pb-irI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="BackgroundColor"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LXc-xJ-csP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="6e6-la-pm3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LXc-xJ-csP" secondAttribute="trailing" id="Cun-Ue-BKg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LXc-xJ-csP" secondAttribute="bottom" id="PBv-dD-MhA"/>
+                            <constraint firstItem="LXc-xJ-csP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PDZ-Qp-5fq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recipes" id="BdB-wx-8aS"/>
+                    <connections>
+                        <outlet property="recipesTableView" destination="LXc-xJ-csP" id="1FS-68-usC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="-28"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="timer" catalog="system" width="128" height="123"/>
+        <image name="wineglass.fill" catalog="system" width="95" height="128"/>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SeparatorColor">
+            <color red="0.77600002288818359" green="0.77600002288818359" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.21600000560283661" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

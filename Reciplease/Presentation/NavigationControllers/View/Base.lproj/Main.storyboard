@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hGU-cm-QFl">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="DDu-dg-4xB">
+            <objects>
+                <tabBarController id="hGU-cm-QFl" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dk5-UZ-mnB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="TextColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="N2K-Pt-3if" kind="relationship" relationship="viewControllers" id="tA8-ok-dDa"/>
+                        <segue destination="k5m-ji-Fpw" kind="relationship" relationship="viewControllers" id="ehv-C2-lZQ"/>
+                        <segue destination="4y1-u5-lrU" kind="relationship" relationship="viewControllers" id="RY7-30-vCX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kBV-Y4-MWd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2408" y="-825"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="DYG-Cx-h5c">
+            <objects>
+                <navigationController title="Search" id="N2K-Pt-3if" customClass="SearchNavigationController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Mq5-lZ-k8u"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y1R-X8-i8v">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="TextColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="30"/>
+                            <color key="textColor" name="TextColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acv-8G-HaV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1340" y="-1248"/>
+        </scene>
+        <!--Faorites-->
+        <scene sceneID="uXF-XR-sD2">
+            <objects>
+                <navigationController title="Faorites" id="k5m-ji-Fpw" customClass="FavoritesNavigationController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="46L-1n-56h">
+                        <color key="badgeColor" name="TextColor"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MbN-dR-igL">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="TextColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="30"/>
+                            <color key="textColor" name="TextColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p6l-8D-iNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-346" y="-825"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="iBi-NN-4zF">
+            <objects>
+                <navigationController id="4y1-u5-lrU" customClass="SettingsNavigationController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="Bwp-bY-VWP"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SKa-px-lue">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="TextColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="30"/>
+                            <color key="textColor" name="TextColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Huf-yk-91i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1341" y="-381"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="TextColor">
+            <color red="0.21600000560283661" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

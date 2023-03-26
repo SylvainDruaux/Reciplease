@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="FuzzyBubbles-Regular.ttf">
+            <string>FuzzyBubbles-Regular</string>
+        </array>
+        <array key="IMFellEnglish-Regular.ttf">
+            <string>IM_FELL_English_Roman</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--My ingredients-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="FridgeIngredientsViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TvO-UZ-mtE">
+                                <rect key="frame" x="0.0" y="59" width="393" height="659"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FridgeIngredientCell" id="wlF-gs-7eB" customClass="FridgeIngredientsTableViewCell" customModule="Reciplease" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wlF-gs-7eB" id="cpM-OO-2qu">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Apple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dry-Wy-Hun">
+                                                    <rect key="frame" x="36" y="11" width="321" height="30"/>
+                                                    <fontDescription key="fontDescription" name="FuzzyBubbles-Regular" family="Fuzzy Bubbles" pointSize="24"/>
+                                                    <color key="textColor" name="TextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dry-Wy-Hun" secondAttribute="trailing" constant="16" id="FJ9-LG-1AZ"/>
+                                                <constraint firstItem="dry-Wy-Hun" firstAttribute="leading" secondItem="cpM-OO-2qu" secondAttribute="leadingMargin" constant="16" id="Y6H-Sr-5m0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dry-Wy-Hun" secondAttribute="bottom" id="dde-ju-QaQ"/>
+                                                <constraint firstItem="dry-Wy-Hun" firstAttribute="top" secondItem="cpM-OO-2qu" secondAttribute="topMargin" id="pZC-k1-f6A"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="BackgroundColor"/>
+                                        <connections>
+                                            <outlet property="fridgeIngredientLabel" destination="dry-Wy-Hun" id="XUb-oh-pPv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gt-0P-LMb">
+                                <rect key="frame" x="70" y="738" width="253" height="60"/>
+                                <color key="backgroundColor" red="0.2125999033" green="0.61108750099999998" blue="0.46389836070000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Z9M-fm-ILo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="26"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Search for recipes">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ecr-sc-tVy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6Gt-0P-LMb" secondAttribute="trailing" constant="70" id="4Zo-80-MEN"/>
+                            <constraint firstItem="6Gt-0P-LMb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="7Qx-Qo-TVc"/>
+                            <constraint firstItem="TvO-UZ-mtE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8lx-ZO-m7B"/>
+                            <constraint firstItem="TvO-UZ-mtE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="VR8-Zs-fhG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TvO-UZ-mtE" secondAttribute="trailing" id="ZOz-SS-5Kf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="6Gt-0P-LMb" secondAttribute="bottom" constant="20" id="mR8-W4-tBp"/>
+                            <constraint firstItem="6Gt-0P-LMb" firstAttribute="top" secondItem="TvO-UZ-mtE" secondAttribute="bottom" constant="20" id="uEJ-T1-v4l"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My ingredients" id="Ox5-yb-EC4"/>
+                    <connections>
+                        <outlet property="fridgeIngredientsTableView" destination="TvO-UZ-mtE" id="n7T-fU-YRd"/>
+                        <outlet property="searchButton" destination="6Gt-0P-LMb" id="qVt-Pj-WlV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21" y="-65"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.21600000560283661" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
