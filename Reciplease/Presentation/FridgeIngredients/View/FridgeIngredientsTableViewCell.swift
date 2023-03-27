@@ -14,4 +14,9 @@ class FridgeIngredientsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
     }
+    
+    func configure(with model: FridgeIngredientModel) {
+        guard let name = model.name else { return }
+        fridgeIngredientLabel.text = "- \(name.capitalized)"
+    }
 }

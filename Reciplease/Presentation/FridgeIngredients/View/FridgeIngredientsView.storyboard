@@ -93,11 +93,22 @@
                     <connections>
                         <outlet property="fridgeIngredientsTableView" destination="TvO-UZ-mtE" id="n7T-fU-YRd"/>
                         <outlet property="searchButton" destination="6Gt-0P-LMb" id="qVt-Pj-WlV"/>
+                        <segue destination="dbY-33-7Wd" kind="show" identifier="goToRecipes" id="Yem-gi-cL2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="21" y="-65"/>
+        </scene>
+        <!--RecipesVC-->
+        <scene sceneID="0ZQ-Tz-LaL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RecipesView" referencedIdentifier="RecipesVC" id="dbY-33-7Wd" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1Xs-Qp-t3c"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sK9-My-ave" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="-65"/>
         </scene>
     </scenes>
     <resources>

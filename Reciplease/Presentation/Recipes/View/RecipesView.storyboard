@@ -20,7 +20,7 @@
         <!--Recipes-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="RecipesViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipesVC" id="Y6W-OH-hqX" customClass="RecipesViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" userLabel="View">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,13 +40,13 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jBe-Zg-0kZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozzarella, Basil, Large tomato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xg-3i-JeE" userLabel="IngredientNamesLabel">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozzarella, Basil, Large tomato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xg-3i-JeE" userLabel="Ingredient Names Label">
                                                     <rect key="frame" x="29.999999999999986" y="116" width="251.66666666666663" height="20"/>
                                                     <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="16"/>
                                                     <color key="textColor" name="TextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywe-3A-sci" userLabel="TitleLabel">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywe-3A-sci" userLabel="Title Label">
                                                     <rect key="frame" x="29.999999999999996" y="85" width="48.666666666666657" height="28"/>
                                                     <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="22"/>
                                                     <color key="textColor" name="TextColor"/>
@@ -128,6 +128,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="BackgroundColor"/>
+                                        <connections>
+                                            <outlet property="ingredientNamesLabel" destination="1xg-3i-JeE" id="Jvw-bg-fzP"/>
+                                            <outlet property="recipeImage" destination="jBe-Zg-0kZ" id="jJ8-2e-9Gy"/>
+                                            <outlet property="titleLabel" destination="Ywe-3A-sci" id="pki-WP-jnY"/>
+                                            <outlet property="totalTimeLabel" destination="fnG-BL-6Sk" id="6Lh-8a-LZp"/>
+                                            <outlet property="yieldLabel" destination="U2p-ea-mYz" id="Cao-iq-lNP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
