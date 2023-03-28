@@ -15,12 +15,12 @@ final class FridgeIngredientsViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel = IngredientViewModel()
+    private var fridgeIngredientsData: FridgeIngredientModel = []
+    private let fridgeIngredientRepository = FridgeIngredientRepository()
     
     private var menuButton: UIBarButtonItem!
     private var menu: UIMenu!
     private let searchController = UISearchController(searchResultsController: ResultsViewController())
-    
-    private var fridgeIngredientsData: [FridgeIngredientModel] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -40,11 +40,10 @@ final class FridgeIngredientsViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func searchButtonPressed(_ sender: UIButton) {
-        // Save fridge ingredient list in coredata (as previous list) for next time you open the app.
-        print(fridgeIngredientsData[0].name ?? "Whoops")
+        fridgeIngredientRepository.saveFridgeIngredients(fridgeIngredientsData)
         performSegue(withIdentifier: "goToRecipes", sender: self)
     }
-    
+        
     private func clearList() {
         guard !fridgeIngredientsData.isEmpty else { return }
         fridgeIngredientsData.removeAll()
@@ -53,8 +52,17 @@ final class FridgeIngredientsViewController: UIViewController {
     }
     
     private func loadPreviousList() {
-        guard !fridgeIngredientsData.isEmpty else { return }
-        // load previous list of fridge ingredients if the app has been closed before
+        self.fridgeIngredientsData.removeAll()
+        guard let previousIngredients = self.fridgeIngredientRepository.getFridgeIngredients() else { return }
+        self.fridgeIngredientsData = previousIngredients.map { $0.name ?? "" }
+        UIView.transition(
+            with: self.fridgeIngredientsTableView,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: {
+                self.fridgeIngredientsTableView.reloadData()
+        })
+        self.showSearchButton()
     }
     
     private func showSearchButton() {
@@ -106,7 +114,13 @@ extension FridgeIngredientsViewController {
             title: "Load previous List",
             image: UIImage(systemName: "restart"),
             handler: { _ in
-                self.loadPreviousList()
+                if !self.fridgeIngredientsData.isEmpty {
+                    self.showAlertWithAction(title: "Warning", message: "If you continue, you will lose the current list.") {
+                        self.loadPreviousList()
+                    }
+                } else {
+                    self.loadPreviousList()
+                }
             }
         )
         let addItem = UIAction(
@@ -196,10 +210,8 @@ extension FridgeIngredientsViewController: ResultsViewControllerDelegate {
         searchController.searchBar.resignFirstResponder()
         searchController.dismiss(animated: true)
         
-        if !fridgeIngredientsData.contains(where: { fridgeIngredientModel in
-            name == fridgeIngredientModel.name
-        }) {
-            fridgeIngredientsData.append(FridgeIngredientModel(id: UUID(), name: name))
+        if !fridgeIngredientsData.contains(name) {
+            fridgeIngredientsData.append(name)
             fridgeIngredientsTableView.reloadData()
             if !searchButton.isEnabled { showSearchButton() }
         }

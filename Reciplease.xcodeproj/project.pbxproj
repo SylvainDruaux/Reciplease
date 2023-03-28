@@ -35,6 +35,10 @@
 		E407356C29B8E4B600631329 /* AppearanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407356B29B8E4B600631329 /* AppearanceTableViewCell.swift */; };
 		E407356E29B8E57B00631329 /* AppearanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407356D29B8E57B00631329 /* AppearanceViewModel.swift */; };
 		E407357A29B9119D00631329 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E407357C29B9119D00631329 /* Localizable.strings */; };
+		E437B53129D2E9B700EAAEAC /* FridgeIngredientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437B53029D2E9B700EAAEAC /* FridgeIngredientRepository.swift */; };
+		E437B53329D2ECDA00EAAEAC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437B53229D2ECDA00EAAEAC /* CoreDataStack.swift */; };
+		E437B53629D302B000EAAEAC /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E437B53429D302B000EAAEAC /* CoreDataStorage.xcdatamodeld */; };
+		E437B53A29D3337200EAAEAC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437B53929D3337200EAAEAC /* UIViewController+Extension.swift */; };
 		E460811229D18FE100F67633 /* IngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460811129D18FE100F67633 /* IngredientViewModel.swift */; };
 		E460812529D1D56F00F67633 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460812429D1D56F00F67633 /* Box.swift */; };
 		E4923E3529D08D14000306EE /* FridgeIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4923E3129D08D14000306EE /* FridgeIngredientsViewController.swift */; };
@@ -113,6 +117,10 @@
 		E407356D29B8E57B00631329 /* AppearanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewModel.swift; sourceTree = "<group>"; };
 		E407357729B9044000631329 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		E407357B29B9119D00631329 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E437B53029D2E9B700EAAEAC /* FridgeIngredientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientRepository.swift; sourceTree = "<group>"; };
+		E437B53229D2ECDA00EAAEAC /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E437B53529D302B000EAAEAC /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
+		E437B53929D3337200EAAEAC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		E460811129D18FE100F67633 /* IngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewModel.swift; sourceTree = "<group>"; };
 		E460812429D1D56F00F67633 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		E4923E3129D08D14000306EE /* FridgeIngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FridgeIngredientsViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +317,7 @@
 		4FB0996A29B2560D0055ED74 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				E437B53029D2E9B700EAAEAC /* FridgeIngredientRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -324,6 +333,8 @@
 		4FB0996C29B256290055ED74 /* PersistentStorages */ = {
 			isa = PBXGroup;
 			children = (
+				E437B53229D2ECDA00EAAEAC /* CoreDataStack.swift */,
+				E437B53429D302B000EAAEAC /* CoreDataStorage.xcdatamodeld */,
 			);
 			path = PersistentStorages;
 			sourceTree = "<group>";
@@ -502,6 +513,7 @@
 		E400B7E129B64EB700CC82C2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E437B53929D3337200EAAEAC /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -848,10 +860,13 @@
 				4FB0992C29B24ED30055ED74 /* AppDelegate.swift in Sources */,
 				E407356A29B8D4BD00631329 /* AppearanceViewController.swift in Sources */,
 				E407356C29B8E4B600631329 /* AppearanceTableViewCell.swift in Sources */,
+				E437B53329D2ECDA00EAAEAC /* CoreDataStack.swift in Sources */,
 				E407356429B88E8F00631329 /* AppearanceOption.swift in Sources */,
 				E400B7FC29B6593C00CC82C2 /* RecipeDetailsTableViewCell.swift in Sources */,
 				E460811229D18FE100F67633 /* IngredientViewModel.swift in Sources */,
 				E400B7FA29B657DC00CC82C2 /* RecipesTableViewCell.swift in Sources */,
+				E437B53A29D3337200EAAEAC /* UIViewController+Extension.swift in Sources */,
+				E437B53629D302B000EAAEAC /* CoreDataStorage.xcdatamodeld in Sources */,
 				4FB0997829B2600B0055ED74 /* AppConfigurations.swift in Sources */,
 				E4923E3829D08D15000306EE /* ResultsViewController.swift in Sources */,
 				E493C17029B77C8000003E63 /* SettingsViewModel.swift in Sources */,
@@ -870,6 +885,7 @@
 				E400B7D429B63DE700CC82C2 /* SearchNavigationController.swift in Sources */,
 				E400B7D629B642FC00CC82C2 /* FavoritesNavigationController.swift in Sources */,
 				E400B7DA29B643E300CC82C2 /* SettingsViewController.swift in Sources */,
+				E437B53129D2E9B700EAAEAC /* FridgeIngredientRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1225,6 +1241,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E437B53429D302B000EAAEAC /* CoreDataStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E437B53529D302B000EAAEAC /* CoreDataStorage.xcdatamodel */,
+			);
+			currentVersion = E437B53529D302B000EAAEAC /* CoreDataStorage.xcdatamodel */;
+			path = CoreDataStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4FB0992029B24ED30055ED74 /* Project object */;
 }

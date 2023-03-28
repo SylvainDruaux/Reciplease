@@ -7,9 +7,4 @@
 
 import Foundation
 
-struct FridgeIngredientModel: Equatable, Identifiable {
-    typealias Identifier = UUID
-    
-    let id: Identifier
-    let name: String?
-}
+typealias FridgeIngredientModel = [String]
