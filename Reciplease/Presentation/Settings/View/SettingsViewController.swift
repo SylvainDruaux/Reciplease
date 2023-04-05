@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
 
-    @IBOutlet var settingsTableView: UITableView!
+    @IBOutlet private var settingsTableView: UITableView!
     
     private var viewModel = SettingViewModel().cellsViewModel
     

@@ -11,9 +11,9 @@ protocol AppearanceViewControllerDelegate: AnyObject {
     func didSelectStyle(_ appearanceViewController: AppearanceViewController)
 }
 
-class AppearanceViewController: UIViewController {
+final class AppearanceViewController: UIViewController {
 
-    @IBOutlet var appearanceTableView: UITableView!
+    @IBOutlet private var appearanceTableView: UITableView!
     
     private var viewModel = AppearanceViewModel().cellsViewModel
     private let userInterfaceStyle = UserPreferences.userInterfaceStyle

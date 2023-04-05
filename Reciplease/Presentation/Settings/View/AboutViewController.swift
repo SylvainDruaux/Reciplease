@@ -7,9 +7,9 @@
 
 import UIKit
 
-class AboutViewController: UIViewController {
+final class AboutViewController: UIViewController {
     
-    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

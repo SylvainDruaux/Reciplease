@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsNavigationController: UINavigationController {
+final class SettingsNavigationController: UINavigationController {
 
     private static let storyboardName = "SettingsView"
     

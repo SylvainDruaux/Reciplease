@@ -1,5 +1,5 @@
 //
-//  FridgeIngredientRepository.swift
+//  FridgeIngredientsStorage.swift
 //  Reciplease
 //
 //  Created by Sylvain Druaux on 28/03/2023.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class FridgeIngredientRepository {
+final class FridgeIngredientsStorage: FridgeIngredientsStorageProtocol {
 
     private let coreDataStack: CoreDataStack
 
@@ -16,7 +16,7 @@ class FridgeIngredientRepository {
         self.coreDataStack = coreDataStack
     }
     
-    func saveFridgeIngredients(_ fridgeIngredients: FridgeIngredientModel) {
+    func saveFridgeIngredients(_ fridgeIngredients: FridgeIngredients) {
         deleteAllFridgeIngredients()
         
         let context = CoreDataStack.shared.viewContext
@@ -60,5 +60,4 @@ class FridgeIngredientRepository {
             print("Error deleting all ingredients: \(error)")
         }
     }
-    
 }

@@ -7,11 +7,11 @@
 
 import UIKit
 
-class SettingsTableViewCell: UITableViewCell {
+final class SettingsTableViewCell: UITableViewCell {
 
-    @IBOutlet var iconImageView: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var detailsLabel: UILabel!
+    @IBOutlet private var iconImageView: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var detailsLabel: UILabel!
     
     func configure(with model: SettingCellViewModel) {
         iconImageView.image = UIImage(systemName: model.icon)

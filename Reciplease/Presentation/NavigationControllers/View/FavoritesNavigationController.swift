@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesNavigationController: UINavigationController {
+final class FavoritesNavigationController: UINavigationController {
     
     private static let storyboardName = "RecipesView"
     

@@ -7,11 +7,11 @@
 
 import Foundation
 
-class IngredientViewModel {
+final class IngredientViewModel {
     let ingredients: Box<IngredientResponse> = Box([])
     
     func fetchIngredients(startingWith query: String) {
-        IngredientViewService.shared.getIngredients(query: query) { [weak self] result in
+        IngredientRepository.shared.getIngredients(query: query) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

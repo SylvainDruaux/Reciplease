@@ -7,9 +7,9 @@
 
 import UIKit
 
-class AppearanceTableViewCell: UITableViewCell {
+final class AppearanceTableViewCell: UITableViewCell {
 
-    @IBOutlet var appearanceLabel: UILabel!
+    @IBOutlet private var appearanceLabel: UILabel!
         
     func configure(with model: AppearanceCellViewModel) {
         appearanceLabel.text = model.name

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchNavigationController: UINavigationController {
+final class SearchNavigationController: UINavigationController {
     
     private static let storyboardName = "FridgeIngredientsView"
     

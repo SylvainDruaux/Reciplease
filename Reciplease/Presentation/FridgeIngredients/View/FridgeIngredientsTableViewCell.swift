@@ -7,8 +7,8 @@
 
 import UIKit
 
-class FridgeIngredientsTableViewCell: UITableViewCell {
-    @IBOutlet var fridgeIngredientLabel: UILabel!
+final class FridgeIngredientsTableViewCell: UITableViewCell {
+    @IBOutlet private var fridgeIngredientLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
