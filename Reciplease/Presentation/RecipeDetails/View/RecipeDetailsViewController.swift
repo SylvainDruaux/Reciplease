@@ -15,6 +15,7 @@ final class RecipeDetailsViewController: UIViewController {
     @IBOutlet private var yieldLabel: UILabel!
     @IBOutlet private var totalTimeLabel: UILabel!
     
+    private let recipeViewModel = RecipeViewModel()
     var recipe: Recipe?
     var recipeImage: UIImage?
     private var ingredientLines: [String]?
@@ -27,6 +28,7 @@ final class RecipeDetailsViewController: UIViewController {
         recipeDetailsTableView.dataSource = self
         recipeDetailsTableView.delegate = self
         
+        configureImage(with: recipeImage)
         configure(with: recipe)
     }
     
@@ -49,9 +51,19 @@ final class RecipeDetailsViewController: UIViewController {
         ingredientLines = recipe.ingredientLines
     }
     
-    private func configureImage() {
+    private func configureImage(with image: UIImage?) {
         recipeImageView.contentMode = .scaleAspectFill
         recipeImageView.image = recipeImage
+    }
+    
+    @IBAction func favoriteButton(_ sender: UIBarButtonItem) {
+        guard let recipe else { return }
+        recipeViewModel.userDidTapFavoriteButton(with: recipe)
+        if let itemImage = sender.image, itemImage.accessibilityIdentifier == "star" {
+            sender.image = UIImage(systemName: "star.fill")
+        } else {
+            sender.image = UIImage(systemName: "star")
+        }
     }
     
     @IBAction func showDirections(_ sender: UIButton) {
@@ -62,8 +74,13 @@ final class RecipeDetailsViewController: UIViewController {
 }
 
 extension RecipeDetailsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        return view
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20.0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,8 +96,6 @@ extension RecipeDetailsViewController: UITableViewDataSource, UITableViewDelegat
         
         guard let model = ingredientLines?[indexPath.row] else { return cell }
         cell.configure(with: model)
-        recipeImageView.contentMode = .scaleAspectFill
-        recipeImageView.image = recipeImage
         return cell
     }
 }

@@ -10,6 +10,14 @@ excluded:
 - Pods
 - SwiftLint/Common/3rdPartyLib
 
+nesting:
+    type_level:
+        warning: 3
+        error: 6
+    statement_level:
+        warning: 5
+        error: 10
+
 line_length:
     warning: 150
     error: 200

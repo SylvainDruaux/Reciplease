@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,10 +25,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-xJ-csP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-xJ-csP">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
-                                <color key="separatorColor" name="SeparatorColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="180" id="ZE2-H9-mZC" customClass="RecipesTableViewCell" customModule="Reciplease" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="180"/>
@@ -42,22 +42,22 @@
                                                     <color key="tintColor" name="SeparatorColor"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWI-c6-0N0">
-                                                    <rect key="frame" x="311.33333333333331" y="15" width="71.666666666666686" height="64"/>
+                                                    <rect key="frame" x="309" y="15" width="74" height="64"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-uN-enw">
-                                                            <rect key="frame" x="3.9999999999999964" y="4" width="63.666666666666657" height="56"/>
+                                                            <rect key="frame" x="4" y="4" width="66" height="56"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="FYv-LJ-S1g">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="63.666666666666664" height="25.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="25.666666666666668"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2p-ea-mYz">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="30.666666666666668" height="25.666666666666668"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="33" height="25.666666666666668"/>
                                                                             <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serving-dish" translatesAutoresizingMaskIntoConstraints="NO" id="wpL-gh-Nke">
-                                                                            <rect key="frame" x="33.666666666666686" y="0.0" width="30" height="25.666666666666668"/>
+                                                                            <rect key="frame" x="36" y="0.0" width="30" height="25.666666666666668"/>
                                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="30" id="6CI-Mk-5ze"/>
@@ -66,16 +66,16 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ZeG-tB-o0R">
-                                                                    <rect key="frame" x="0.0" y="30.666666666666664" width="63.666666666666664" height="25.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="30.666666666666664" width="66" height="25.333333333333336"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnG-BL-6Sk">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="30.666666666666668" height="25.333333333333332"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="33" height="25.333333333333332"/>
                                                                             <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qn6-Sh-5qR">
-                                                                            <rect key="frame" x="33.666666666666686" y="0.99999999999999822" width="30" height="24"/>
+                                                                            <rect key="frame" x="36" y="0.99999999999999822" width="30" height="24"/>
                                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="30" id="T2j-7H-Rig"/>
@@ -111,16 +111,16 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hp-Pv-tz6">
-                                                    <rect key="frame" x="0.0" y="131.33333333333334" width="393" height="48.666666666666657"/>
+                                                    <rect key="frame" x="0.0" y="127.66666666666667" width="393" height="52.333333333333329"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywe-3A-sci" userLabel="Title Label">
-                                                            <rect key="frame" x="10" y="3" width="373" height="23.333333333333332"/>
+                                                            <rect key="frame" x="10" y="2.9999999999999858" width="373" height="25.666666666666668"/>
                                                             <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozzarella, Basil, Large tomato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xg-3i-JeE" userLabel="Ingredient Names Label">
-                                                            <rect key="frame" x="10" y="29.333333333333314" width="373" height="16.333333333333329"/>
+                                                            <rect key="frame" x="10" y="31.666666666666671" width="373" height="17.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>

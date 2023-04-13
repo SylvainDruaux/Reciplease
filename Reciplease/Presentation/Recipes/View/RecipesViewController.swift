@@ -12,10 +12,8 @@ final class RecipesViewController: UIViewController {
     @IBOutlet private var recipesTableView: UITableView!
     
     private let recipeViewModel = RecipeViewModel()
-    private var recipesData: [Recipe]?
     private var tableViewHeight: CGFloat?
-    
-    var ingredients: String = ""
+    private var nextRecipesLink: String = ""
     
     private var detailedRecipe: Recipe?
     private var detailedRecipeImage: UIImage?
@@ -26,13 +24,14 @@ final class RecipesViewController: UIViewController {
         recipesTableView.delegate = self
         
         recipeViewModel.recipes.bind { [weak self] recipeResponse in
-            DispatchQueue.main.async {
-                guard let recipeResponse else { return }
-                let recipes = recipeResponse.toDomain().recipes
-                self?.update(with: recipes)
-            }
+            // No DispatchQueue.main.async, RecipeViewModel is @MainActor
+            guard let recipeResponse else { return }
+            let recipes = recipeResponse.toDomain().recipes
+            self?.nextRecipesLink = recipeResponse.toDomain().nextPage ?? ""
+            self?.update(with: recipes)
         }
-        recipeViewModel.fetchRecipes(with: ingredients)
+        recipeViewModel.fetchRecipes()
+        recipesTableView.tableFooterView = createActivityIndicator()
     }
     
     override func viewDidLayoutSubviews() {
@@ -41,8 +40,16 @@ final class RecipesViewController: UIViewController {
     }
     
     private func update(with recipes: [Recipe]) {
-        self.recipesData = recipes
+        if recipeViewModel.recipesData.isEmpty {
+            recipeViewModel.recipesData = recipes
+        } else {
+            recipeViewModel.recipesData += recipes
+        }
         recipesTableView.reloadData()
+    }
+    
+    func setQuery(with fridgeIngredients: String) {
+        recipeViewModel.ingredients = fridgeIngredients
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,12 +58,22 @@ final class RecipesViewController: UIViewController {
             recipeDetailsVC.recipeImage = detailedRecipeImage
         }
     }
+    
+    func createActivityIndicator() -> UIView {
+        let frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 180)
+        let footerView = UIView(frame: frame)
+        let indicator = UIActivityIndicatorView()
+        indicator.center = footerView.center
+        footerView.addSubview(indicator)
+        indicator.startAnimating()
+        return footerView
+    }
 }
 
 // MARK: - TableView DataSource & Delegate
 extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipesData?.count ?? 0
+        return recipeViewModel.recipesData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,13 +83,13 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        guard let model = recipesData?[indexPath.row] else { return cell }
+        let model = recipeViewModel.recipesData[indexPath.row]
         cell.configure(with: model)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        detailedRecipe = recipesData?[indexPath.row]
+        detailedRecipe = recipeViewModel.recipesData[indexPath.row]
         guard let cell = tableView.cellForRow(at: indexPath) as? RecipesTableViewCell else { return }
         detailedRecipeImage = cell.recipeImageView.image
         performSegue(withIdentifier: "goToRecipeDetails", sender: nil)
@@ -82,5 +99,15 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
         guard let tableViewHeight else { return 180 }
         let cellHeight = tableViewHeight / 3.5
         return cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == recipeViewModel.recipesData.count - 1 {
+            if !nextRecipesLink.isEmpty {
+                recipeViewModel.fetchNextRecipes(from: nextRecipesLink)
+            } else {
+                recipesTableView.tableFooterView = nil
+            }
+        }
     }
 }

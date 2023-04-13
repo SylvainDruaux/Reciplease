@@ -41,23 +41,23 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" name="SeparatorColor"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-js-6xf">
-                                            <rect key="frame" x="311.33333333333331" y="4" width="71.666666666666686" height="64"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-js-6xf" userLabel="TitleView">
+                                            <rect key="frame" x="309" y="4" width="74" height="64"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XH1-6K-3Ah">
-                                                    <rect key="frame" x="3.9999999999999964" y="4" width="63.666666666666657" height="56"/>
+                                                    <rect key="frame" x="4" y="4" width="66" height="56"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="lxG-3e-39G">
-                                                            <rect key="frame" x="0.0" y="0.0" width="63.666666666666664" height="25.666666666666668"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="66" height="25.666666666666668"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EE1-f4-3Dx">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="30.666666666666668" height="25.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="33" height="25.666666666666668"/>
                                                                     <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serving-dish" translatesAutoresizingMaskIntoConstraints="NO" id="o8b-u8-s0z">
-                                                                    <rect key="frame" x="33.666666666666686" y="0.0" width="30" height="25.666666666666668"/>
+                                                                    <rect key="frame" x="36" y="0.0" width="30" height="25.666666666666668"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="aqq-9Q-RvK"/>
@@ -66,16 +66,16 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="HGb-qA-ySa">
-                                                            <rect key="frame" x="0.0" y="30.666666666666664" width="63.666666666666664" height="25.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="30.666666666666664" width="66" height="25.333333333333336"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-bh-sqO">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="30.666666666666668" height="25.333333333333332"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="33" height="25.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nL0-lc-78O">
-                                                                    <rect key="frame" x="33.666666666666686" y="0.99999999999999822" width="30" height="24"/>
+                                                                    <rect key="frame" x="36" y="0.99999999999999822" width="30" height="24"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="pqi-Dc-QPK"/>
@@ -110,11 +110,11 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i70-gp-QqK">
-                                            <rect key="frame" x="0.0" y="177.66666666666666" width="393" height="43.333333333333343"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i70-gp-QqK" userLabel="SquareView">
+                                            <rect key="frame" x="0.0" y="175.33333333333334" width="393" height="45.666666666666657"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVI-0e-ohv" userLabel="Title Label">
-                                                    <rect key="frame" x="10" y="9.9999999999999982" width="373" height="23.333333333333329"/>
+                                                    <rect key="frame" x="10" y="10.000000000000002" width="373" height="25.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -140,17 +140,17 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RecipeDetailCell" id="une-Op-zAf" customClass="RecipeDetailsTableViewCell" customModule="Reciplease" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="271" width="393" height="30"/>
+                                        <rect key="frame" x="0.0" y="271" width="393" height="31.333333969116211"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="une-Op-zAf" id="TuO-Qd-PT5">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="31.333333969116211"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Z4W-go-6cB">
-                                                    <rect key="frame" x="16" y="0.0" width="361" height="20"/>
+                                                    <rect key="frame" x="16" y="0.0" width="361" height="21.333333333333332"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybA-7C-weL" userLabel="Hyphen">
-                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="21.333333333333332"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="cau-Xx-Fre"/>
                                                             </constraints>
@@ -159,7 +159,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 1/2 cups bow-tie pasta (uncooked)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5k6-g3-0xd">
-                                                            <rect key="frame" x="16" y="0.0" width="345" height="20"/>
+                                                            <rect key="frame" x="16" y="0.0" width="345" height="21.333333333333332"/>
                                                             <fontDescription key="fontDescription" name="FuzzyBubbles-Regular" family="Fuzzy Bubbles" pointSize="17"/>
                                                             <color key="textColor" name="TextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -219,7 +219,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe Details" id="c5o-0O-46t">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" id="7yi-Rs-cf0"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" id="7yi-Rs-cf0">
+                            <connections>
+                                <action selector="favoriteButton:" destination="Y6W-OH-hqX" id="xxz-NR-Ocx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="recipeDetailsTableView" destination="Obv-Bh-OFH" id="HBW-yX-Ld2"/>

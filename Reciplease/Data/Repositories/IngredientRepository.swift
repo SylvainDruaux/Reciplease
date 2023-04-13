@@ -8,9 +8,14 @@
 import Foundation
 
 final class IngredientRepository: IngredientRepositoryProtocol {
-    static var shared = IngredientRepository()
+    
+    private let restAPIClient: RestAPIClientProtocol
+    
+    init(restAPIClient: RestAPIClientProtocol = RestAPIClient()) {
+        self.restAPIClient = restAPIClient
+    }
     
     func getIngredients(query: String, completion: @escaping(Result<IngredientResponse, DataError>) -> Void) {
-        RestAPIClient.fetchData(route: .getIngredients(query: query), completion: completion)
+        restAPIClient.fetchData(route: .getIngredients(query: query), completion: completion)
     }
 }

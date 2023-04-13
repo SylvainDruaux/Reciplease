@@ -8,10 +8,10 @@
 import Foundation
 import CoreData
 
-final class CoreDataStack {
+class CoreDataStack {
     static let shared = CoreDataStack()
 
-    var viewContext: NSManagedObjectContext {
+    var viewContext: NSManagedObjectContext { // can't be NSManagedObjectContextProtocol
         return CoreDataStack.shared.persistentContainer.viewContext
     }
     
@@ -25,3 +25,5 @@ final class CoreDataStack {
         return container
     }()
 }
+
+extension NSManagedObjectContext: NSManagedObjectContextProtocol { }

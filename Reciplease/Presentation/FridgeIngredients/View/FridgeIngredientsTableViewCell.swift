@@ -10,11 +10,6 @@ import UIKit
 final class FridgeIngredientsTableViewCell: UITableViewCell {
     @IBOutlet private var fridgeIngredientLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        selectionStyle = .none
-    }
-    
     func configure(with model: String) {
         fridgeIngredientLabel.text = "- \(model.capitalized)"
     }

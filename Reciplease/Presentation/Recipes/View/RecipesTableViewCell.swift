@@ -18,23 +18,15 @@ final class RecipesTableViewCell: UITableViewCell {
     private let viewModel = RecipeViewModel()
     private lazy var totalTimeFontSize = totalTimeLabel.font.pointSize
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     func configure(with model: Recipe) {
         let imageUrl = model.imageUrl
         
         viewModel.imageData.bind { imageData in
-            DispatchQueue.main.async {
-                guard let imageData else { return }
-                guard let imageView = self.recipeImageView else { return }
-//                UIView.transition(with: imageView, duration: 0.3, options: [.transitionCrossDissolve], animations: {
-                    imageView.image = UIImage(data: imageData)
-                    imageView.contentMode = .scaleAspectFill
-//                    imageView.alpha = 1
-//                })
-            }
+            // No DispatchQueue.main.async, RecipeViewModel is @MainActor
+            guard let imageData else { return }
+            guard let imageView = self.recipeImageView else { return }
+            imageView.image = UIImage(data: imageData)
+            imageView.contentMode = .scaleAspectFill
         }
         viewModel.fetchImage(with: imageUrl)
         

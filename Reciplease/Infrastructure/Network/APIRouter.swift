@@ -15,6 +15,7 @@ enum NetworkError: Error {
 public enum APIRouter: URLRequestConvertible {
     case getIngredients(query: String)
     case getRecipes(query: String)
+    case getNextRecipes(url: String)
     case getImage(url: String)
     
     private var urlPath: String {
@@ -23,6 +24,8 @@ public enum APIRouter: URLRequestConvertible {
             return AppConfiguration.shared.foodBaseURL
         case .getRecipes:
             return AppConfiguration.shared.recipeBaseURL
+        case .getNextRecipes(let url):
+            return url
         case .getImage(let url):
             return url
         }
@@ -34,7 +37,7 @@ public enum APIRouter: URLRequestConvertible {
         case .getIngredients(let query):
             urlParams["app_id"] = AppConfiguration.shared.foodAppId
             urlParams["app_key"] = AppConfiguration.shared.foodApiKey
-            urlParams["limit"] = 10
+//            urlParams["limit"] = 10
             urlParams["q"] = query
             return urlParams
         case .getRecipes(let query):
@@ -42,6 +45,9 @@ public enum APIRouter: URLRequestConvertible {
             urlParams["app_id"] = AppConfiguration.shared.recipeAppId
             urlParams["app_key"] = AppConfiguration.shared.recipeApiKey
             urlParams["q"] = query
+            return urlParams
+        case .getNextRecipes:
+            // Parameters are embedded in the URL.
             return urlParams
         case .getImage:
             // Parameters are embedded in the URL.

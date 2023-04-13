@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Recipe {
+struct Recipe: Identifiable {
+    var id: UUID
     let label: String
     let imageUrl: String
     let sourceUrl: String

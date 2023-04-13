@@ -12,10 +12,6 @@ final class RecipeDetailsTableViewCell: UITableViewCell {
     @IBOutlet var hyphenLabel: UILabel!
     @IBOutlet var recipeIngredientLine: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     func configure(with model: String) {
         recipeIngredientLine.text = model.capitalizedSentence
         let numberOfLines = recipeIngredientLine.lines

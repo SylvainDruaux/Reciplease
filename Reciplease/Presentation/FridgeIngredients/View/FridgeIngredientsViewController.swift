@@ -15,8 +15,6 @@ final class FridgeIngredientsViewController: UIViewController {
     
     // MARK: - Properties
     private let ingredientViewModel = IngredientViewModel()
-    private var fridgeIngredientsData: FridgeIngredients = []
-    private let fridgeIngredientStorage = FridgeIngredientsStorage()
     
     private var menuButton: UIBarButtonItem!
     private var menu: UIMenu!
@@ -31,39 +29,50 @@ final class FridgeIngredientsViewController: UIViewController {
         fridgeIngredientsTableView.delegate = self
         
         ingredientViewModel.ingredients.bind { [weak self] ingredients in
-            DispatchQueue.main.async {
-                guard let resultVC = self?.searchController.searchResultsController as? ResultsViewController else { return }
-                resultVC.update(with: ingredients)
-            }
+            // No DispatchQueue.main.async, IngredientViewModel is @MainActor
+            guard let resultVC = self?.searchController.searchResultsController as? ResultsViewController else { return }
+            resultVC.update(with: ingredients)
         }
+        
+        ingredientViewModel.fridgeIngredients.bind { [weak self] fridgeIngredients in
+            // No DispatchQueue.main.async, IngredientViewModel is @MainActor
+            self?.update(with: fridgeIngredients)
+        }
+    }
+    
+    private func update(with fridgeIngredients: FridgeIngredients) {
+        if ingredientViewModel.fridgeIngredientsData.isEmpty {
+            ingredientViewModel.fridgeIngredientsData = fridgeIngredients
+        } else {
+            ingredientViewModel.fridgeIngredientsData += fridgeIngredients
+        }
+        fridgeIngredientsTableView.reloadData()
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipesVC = segue.destination as? RecipesViewController {
-            let fridgeIngredientsStr = fridgeIngredientsData.joined(separator: ", ")
-            recipesVC.ingredients = fridgeIngredientsStr
+            let fridgeIngredientsStr = ingredientViewModel.fridgeIngredientsData.joined(separator: ", ")
+            recipesVC.setQuery(with: fridgeIngredientsStr)
         }
     }
     
     // MARK: - Actions
     @IBAction private func searchButtonPressed(_ sender: UIButton) {
-        fridgeIngredientStorage.saveFridgeIngredients(fridgeIngredientsData)
+        ingredientViewModel.userDidTapSearchButton()
         performSegue(withIdentifier: "goToRecipes", sender: self)
     }
-        
+    
     private func clearList() {
-        guard !fridgeIngredientsData.isEmpty else { return }
-        fridgeIngredientsData.removeAll()
+        guard !ingredientViewModel.fridgeIngredientsData.isEmpty else { return }
+        ingredientViewModel.fridgeIngredientsData.removeAll()
         fridgeIngredientsTableView.reloadData()
         clearSearchBar()
         searchButton.hide()
     }
     
     private func loadPreviousList() {
-        fridgeIngredientsData.removeAll()
-        guard let previousIngredients = fridgeIngredientStorage.getFridgeIngredients() else { return }
-        fridgeIngredientsData = previousIngredients.map { $0.name ?? "" }
+        ingredientViewModel.userDidLoadPreviousList()
         UIView.transition(
             with: self.fridgeIngredientsTableView,
             duration: 0.3,
@@ -120,8 +129,9 @@ extension FridgeIngredientsViewController {
             title: "Load previous List",
             image: UIImage(systemName: "restart"),
             handler: { _ in
-                if !self.fridgeIngredientsData.isEmpty {
+                if !self.ingredientViewModel.fridgeIngredientsData.isEmpty {
                     self.showAlertWithAction(title: "Warning", message: "If you continue, you will lose the current list.") {
+                        self.clearList()
                         self.loadPreviousList()
                     }
                 } else {
@@ -144,11 +154,11 @@ extension FridgeIngredientsViewController {
 // MARK: - TableView DataSource & Delegate
 extension FridgeIngredientsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fridgeIngredientsData.count
+        return ingredientViewModel.fridgeIngredientsData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = fridgeIngredientsData[indexPath.row]
+        let model = ingredientViewModel.fridgeIngredientsData[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "FridgeIngredientCell", for: indexPath
         ) as? FridgeIngredientsTableViewCell else {
@@ -167,10 +177,10 @@ extension FridgeIngredientsViewController: UITableViewDataSource, UITableViewDel
         
         let delete = UIContextualAction(style: .normal, title: nil) { (_, _, completion) in
             tableView.beginUpdates()
-            self.fridgeIngredientsData.remove(at: indexPath.row)
+            self.ingredientViewModel.fridgeIngredientsData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
-            if self.fridgeIngredientsData.isEmpty { self.searchButton.hide() }
+            if self.ingredientViewModel.fridgeIngredientsData.isEmpty { self.searchButton.hide() }
             completion(true)
         }
         
@@ -211,8 +221,8 @@ extension FridgeIngredientsViewController: ResultsViewControllerDelegate {
         searchController.searchBar.resignFirstResponder()
         searchController.dismiss(animated: true)
         
-        if !fridgeIngredientsData.contains(name) {
-            fridgeIngredientsData.append(name)
+        if !ingredientViewModel.fridgeIngredientsData.contains(name) {
+            ingredientViewModel.fridgeIngredientsData.append(name)
             fridgeIngredientsTableView.reloadData()
             if !searchButton.isEnabled { searchButton.show() }
         }
