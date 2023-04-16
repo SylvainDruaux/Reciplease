@@ -15,7 +15,7 @@ final class IngredientRepository: IngredientRepositoryProtocol {
         self.restAPIClient = restAPIClient
     }
     
-    func getIngredients(query: String, completion: @escaping(Result<IngredientResponse, DataError>) -> Void) {
-        restAPIClient.fetchData(route: .getIngredients(query: query), completion: completion)
+    func getIngredients(query: String) async throws -> IngredientResponse {
+        try await restAPIClient.fetchData(route: .getIngredients(query: query))
     }
 }

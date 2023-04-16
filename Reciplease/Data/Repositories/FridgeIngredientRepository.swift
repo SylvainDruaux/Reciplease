@@ -23,12 +23,11 @@ final class FridgeIngredientRepository: FridgeIngredientRepositoryProtocol {
         }
     }
     
-    func getFridgeIngredients() async throws -> FridgeIngredients? {
+    func getFridgeIngredients() async throws -> FridgeIngredients {
         do {
             return try await dataSource.getAll()
         } catch {
-            print(error.localizedDescription)
-            return nil
+            throw error
         }
     }
     

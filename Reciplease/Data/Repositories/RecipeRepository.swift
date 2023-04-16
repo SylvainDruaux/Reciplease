@@ -18,16 +18,16 @@ final class RecipeRepository: RecipeRepositoryProtocol {
     }
     
     // MARK: - API call
-    func getRecipes(query: String, completion: @escaping(Result<RecipeResponseDTO, DataError>) -> Void) {
-        RestAPIClient.shared.fetchData(route: .getRecipes(query: query), completion: completion)
+    func getRecipes(query: String) async throws -> RecipeResponseDTO {
+        try await restAPIClient.fetchData(route: .getRecipes(query: query))
     }
     
-    func getNextRecipes(url: String, completion: @escaping(Result<RecipeResponseDTO, DataError>) -> Void) {
-        RestAPIClient.shared.fetchData(route: .getNextRecipes(url: url), completion: completion)
+    func getNextRecipes(url: String) async throws -> RecipeResponseDTO {
+        try await restAPIClient.fetchData(route: .getNextRecipes(url: url))
     }
     
-    func getImage(url: String, completion: @escaping(Result<Data, DataError>) -> Void) {
-        RestAPIClient.shared.fetchRawData(route: .getImage(url: url), completion: completion)
+    func getImage(url: String) async throws -> Data {
+        try await restAPIClient.fetchRawData(route: .getImage(url: url))
     }
     
     // MARK: - Persistent Storage
@@ -39,12 +39,11 @@ final class RecipeRepository: RecipeRepositoryProtocol {
         }
     }
     
-    func getFavoriteRecipes() async throws -> [RecipeEntity]? {
+    func getFavoriteRecipes() async throws -> [RecipeEntity] {
         do {
             return try await dataSource.getAll()
         } catch {
-            print(error.localizedDescription)
-            return nil
+            throw error
         }
     }
     

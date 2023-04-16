@@ -10,6 +10,6 @@ import Foundation
 protocol FridgeIngredientRepositoryProtocol {
     // MARK: - Persistent Storage
     func saveFridgeIngredients(_ fridgeIngredients: FridgeIngredients) async throws
-    func getFridgeIngredients() async throws -> FridgeIngredients?
+    func getFridgeIngredients() async throws -> FridgeIngredients
     func deleteFridgeIngredients() async throws
 }

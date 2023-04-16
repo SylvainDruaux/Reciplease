@@ -31,12 +31,7 @@ final class FridgeIngredientDataSource: FridgeIngredientDataSourceProtocol {
         let sortDescriptor = NSSortDescriptor(key: "index", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         let objects = try context.fetch(request)
-        var fridgeIngredients = FridgeIngredients()
-        for object in objects {
-            if let ingredientName = object.name {
-                fridgeIngredients.append(ingredientName)
-            }
-        }
+        let fridgeIngredients = objects.map { $0.name }.compactMap { $0 }
         return fridgeIngredients
     }
     

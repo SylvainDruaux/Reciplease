@@ -4,7 +4,7 @@
     "count": 3456,
     "_links": {
         "next": {
-            "href": "https://api.edamam.com/api/recipes/v2?q=tomato%2C%20mozzarella%2C%20pasta&app_key=954b195ff6c397712d16f43876657464&_cont=CHcVQBtNNQphDmgVQntAEX4BYVFtAgICR21JA2caZ1F7BgcDUXlSVTEaMFAiBQoDF2ARUTESN1J2BlcESmITBGAUYVdxAwoVLnlSVSBMPkd5BgMbUSYRVTdgMgksRlpSAAcRXTVGcV84SU4%3D&type=public&app_id=fd18fbc7",
+            "href": "https://api.edamam.com/api/recipes/v2?q=tomato%2C%20mozzarella%2C%20pasta&app_key=appkey&_cont=cont&type=public&app_id=appid",
             "title": "Next page"
         }
     },
@@ -804,7 +804,7 @@
             "_links": {
                 "self": {
                     "title": "Self",
-                    "href": "https://api.edamam.com/api/recipes/v2/0072fb0cebec867038b3e843af7da680?type=public&app_id=fd18fbc7&app_key=954b195ff6c397712d16f43876657464"
+                    "href": "https://api.edamam.com/api/recipes/v2/0072fb0cebec867038b3e843af7da680?type=public&app_id=appid&app_key=appkey"
                 }
             }
         }

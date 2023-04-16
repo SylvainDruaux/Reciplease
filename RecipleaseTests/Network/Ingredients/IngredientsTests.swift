@@ -1,5 +1,5 @@
 //
-//  IngredientRepositoryTests.swift
+//  IngredientsTests.swift
 //  RecipleaseTests
 //
 //  Created by Sylvain Druaux on 12/04/2023.
@@ -8,8 +8,8 @@
 import XCTest
 @testable import Reciplease
 
-class IngredientRepositoryTests: XCTestCase {
-    func test_fetchIngredients_Success_CorrectData() {
+class IngredientsTests: XCTestCase {
+    func test_fetchIngredients_Success_CorrectData() async throws {
         // Given
         let query = "tom"
         
@@ -18,25 +18,17 @@ class IngredientRepositoryTests: XCTestCase {
         )
         let restAPIClient = RestAPIClient(alamofireService: alamofireServiceMock)
         let ingredientRepository = IngredientRepository(restAPIClient: restAPIClient)
+        let searchIngredientsUseCase = SearchIngredientsUseCase(ingredientRepository: ingredientRepository)
 //        let ingredientViewModel = IngredientViewModel(ingredientRepository: ingredientRepository)
         
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        
         // When
-        ingredientRepository.getIngredients(query: query) { result in
-            // Then
-            switch result {
-            case .success(let ingredients):
-                XCTAssertEqual(ingredients[0], "tomato")
-            case .failure:
-                break
-            }
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 0.1)
+        let ingredients = try await searchIngredientsUseCase.getIngredients(query: query)
+        
+        // Then
+        XCTAssertEqual(ingredients[0], "tomato")
     }
     
-    func test_fetchIngredients_Failed_IncorrectResponse() {
+    func test_fetchIngredients_Failed_IncorrectResponse() async {
         // Given
         let query = "tom"
         
@@ -45,26 +37,19 @@ class IngredientRepositoryTests: XCTestCase {
         )
         let restAPIClient = RestAPIClient(alamofireService: alamofireServiceMock)
         let ingredientRepository = IngredientRepository(restAPIClient: restAPIClient)
+        let searchIngredientsUseCase = SearchIngredientsUseCase(ingredientRepository: ingredientRepository)
 //        let ingredientViewModel = IngredientViewModel(ingredientRepository: ingredientRepository)
         
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        
         // When
-        ingredientRepository.getIngredients(query: query) { result in
+        do {
+            _ = try await searchIngredientsUseCase.getIngredients(query: query)
+        } catch {
             // Then
-            switch result {
-            case .success:
-                break
-            case .failure(let error):
-                XCTFail("Error")
-                XCTAssertNotNil(error)
-            }
-            expectation.fulfill()
+            XCTFail("Error")
         }
-        wait(for: [expectation], timeout: 0.1)
     }
     
-    func test_fetchIngredients_Failed_BadData() {
+    func test_fetchIngredients_Failed_BadData() async {
         // Given
         let query = "tom"
         
@@ -73,22 +58,15 @@ class IngredientRepositoryTests: XCTestCase {
         )
         let restAPIClient = RestAPIClient(alamofireService: alamofireServiceMock)
         let ingredientRepository = IngredientRepository(restAPIClient: restAPIClient)
+        let searchIngredientsUseCase = SearchIngredientsUseCase(ingredientRepository: ingredientRepository)
 //        let ingredientViewModel = IngredientViewModel(ingredientRepository: ingredientRepository)
         
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        
         // When
-        ingredientRepository.getIngredients(query: query) { result in
+        do {
+            _ = try await searchIngredientsUseCase.getIngredients(query: query)
+        } catch {
             // Then
-            switch result {
-            case .success:
-                break
-            case .failure(let error):
-                XCTFail("Error")
-                XCTAssertNotNil(error)
-            }
-            expectation.fulfill()
+            XCTFail("Error")
         }
-        wait(for: [expectation], timeout: 0.1)
     }
 }

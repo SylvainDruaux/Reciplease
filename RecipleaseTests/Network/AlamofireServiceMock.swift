@@ -21,13 +21,15 @@ final class AlamofireServiceMock: AlamofireServiceProtocol {
         self.responseMock = responseMock
     }
     
-    func request(with route: URLRequestConvertible, completion: @escaping (AFDataResponse<Data?>) -> Void) {
-        let response = AFDataResponse<Data?>(request: nil,
-                                             response: responseMock.response,
-                                             data: responseMock.data, metrics: nil,
-                                             serializationDuration: 0,
-                                             result: .success(responseMock.data)
-        )
-        completion(response)
+    func request(with route: URLRequestConvertible) async -> AFDataResponse<Data?> {
+        return await withCheckedContinuation { continuation in
+            let response = AFDataResponse<Data?>(request: nil,
+                                                 response: responseMock.response,
+                                                 data: responseMock.data, metrics: nil,
+                                                 serializationDuration: 0,
+                                                 result: .success(responseMock.data)
+            )
+            continuation.resume(returning: response)
+        }
     }
 }

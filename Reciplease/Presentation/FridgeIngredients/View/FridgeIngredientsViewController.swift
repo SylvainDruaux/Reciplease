@@ -34,25 +34,16 @@ final class FridgeIngredientsViewController: UIViewController {
             resultVC.update(with: ingredients)
         }
         
-        ingredientViewModel.fridgeIngredients.bind { [weak self] fridgeIngredients in
+        ingredientViewModel.fridgeIngredients.bind { [weak self] _ in
             // No DispatchQueue.main.async, IngredientViewModel is @MainActor
-            self?.update(with: fridgeIngredients)
+            self?.fridgeIngredientsTableView.reloadData()
         }
-    }
-    
-    private func update(with fridgeIngredients: FridgeIngredients) {
-        if ingredientViewModel.fridgeIngredientsData.isEmpty {
-            ingredientViewModel.fridgeIngredientsData = fridgeIngredients
-        } else {
-            ingredientViewModel.fridgeIngredientsData += fridgeIngredients
-        }
-        fridgeIngredientsTableView.reloadData()
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipesVC = segue.destination as? RecipesViewController {
-            let fridgeIngredientsStr = ingredientViewModel.fridgeIngredientsData.joined(separator: ", ")
+            let fridgeIngredientsStr = ingredientViewModel.fridgeIngredients.value.joined(separator: ", ")
             recipesVC.setQuery(with: fridgeIngredientsStr)
         }
     }
@@ -64,8 +55,7 @@ final class FridgeIngredientsViewController: UIViewController {
     }
     
     private func clearList() {
-        guard !ingredientViewModel.fridgeIngredientsData.isEmpty else { return }
-        ingredientViewModel.fridgeIngredientsData.removeAll()
+        ingredientViewModel.userDidTapClearList()
         fridgeIngredientsTableView.reloadData()
         clearSearchBar()
         searchButton.hide()
@@ -128,8 +118,9 @@ extension FridgeIngredientsViewController {
         let editItem = UIAction(
             title: "Load previous List",
             image: UIImage(systemName: "restart"),
-            handler: { _ in
-                if !self.ingredientViewModel.fridgeIngredientsData.isEmpty {
+            handler: { [weak self ] _ in
+                guard let self = self else { return }
+                if !self.ingredientViewModel.fridgeIngredients.value.isEmpty {
                     self.showAlertWithAction(title: "Warning", message: "If you continue, you will lose the current list.") {
                         self.clearList()
                         self.loadPreviousList()
@@ -154,11 +145,11 @@ extension FridgeIngredientsViewController {
 // MARK: - TableView DataSource & Delegate
 extension FridgeIngredientsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ingredientViewModel.fridgeIngredientsData.count
+        return ingredientViewModel.fridgeIngredients.value.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = ingredientViewModel.fridgeIngredientsData[indexPath.row]
+        let model = ingredientViewModel.fridgeIngredients.value[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "FridgeIngredientCell", for: indexPath
         ) as? FridgeIngredientsTableViewCell else {
@@ -177,10 +168,10 @@ extension FridgeIngredientsViewController: UITableViewDataSource, UITableViewDel
         
         let delete = UIContextualAction(style: .normal, title: nil) { (_, _, completion) in
             tableView.beginUpdates()
-            self.ingredientViewModel.fridgeIngredientsData.remove(at: indexPath.row)
+            self.ingredientViewModel.fridgeIngredients.value.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
-            if self.ingredientViewModel.fridgeIngredientsData.isEmpty { self.searchButton.hide() }
+            if self.ingredientViewModel.fridgeIngredients.value.isEmpty { self.searchButton.hide() }
             completion(true)
         }
         
@@ -221,8 +212,8 @@ extension FridgeIngredientsViewController: ResultsViewControllerDelegate {
         searchController.searchBar.resignFirstResponder()
         searchController.dismiss(animated: true)
         
-        if !ingredientViewModel.fridgeIngredientsData.contains(name) {
-            ingredientViewModel.fridgeIngredientsData.append(name)
+        if !ingredientViewModel.fridgeIngredients.value.contains(name) {
+            ingredientViewModel.fridgeIngredients.value.append(name)
             fridgeIngredientsTableView.reloadData()
             if !searchButton.isEnabled { searchButton.show() }
         }

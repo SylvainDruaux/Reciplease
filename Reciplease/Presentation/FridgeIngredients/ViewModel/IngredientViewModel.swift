@@ -12,33 +12,37 @@ final class IngredientViewModel {
     let ingredients: Box<IngredientResponse> = Box([])
     let fridgeIngredients: Box<FridgeIngredients> = Box([])
     
-    var fridgeIngredientsData: FridgeIngredients = []
+    private let searchIngredientsUseCase: SearchIngredientsUseCaseProtocol
+    private let manageFridgeIngredientsUseCase: ManageFridgeIngredientsUseCaseProtocol
     
-    let ingredientRepository: IngredientRepositoryProtocol
-    private let fridgeIngredientRepository = FridgeIngredientRepository()
-    
-    init(ingredientRepository: IngredientRepositoryProtocol = IngredientRepository()) {
-        self.ingredientRepository = ingredientRepository
+    init(searchIngredientsUseCase: SearchIngredientsUseCaseProtocol = SearchIngredientsUseCase(),
+         manageFridgeIngredientsUseCase: ManageFridgeIngredientsUseCaseProtocol = ManageFridgeIngredientsUseCase()
+    ) {
+        self.searchIngredientsUseCase = searchIngredientsUseCase
+        self.manageFridgeIngredientsUseCase = manageFridgeIngredientsUseCase
     }
     
     func fetchIngredients(startingWith query: String) {
-        ingredientRepository.getIngredients(query: query) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let ingredients):
+        Task {
+            do {
+                let ingredients = try await searchIngredientsUseCase.getIngredients(query: query)
                 self.ingredients.value = ingredients
-            case .failure(let error):
-                print(error)
+            } catch {
+                print(error.localizedDescription)
             }
         }
+    }
+    
+    func userDidTapClearList() {
+        guard !fridgeIngredients.value.isEmpty else { return }
+        fridgeIngredients.value.removeAll()
     }
     
     func userDidTapSearchButton() {
         Task {
             do {
-                try await fridgeIngredientRepository.deleteFridgeIngredients()
-                try await fridgeIngredientRepository.saveFridgeIngredients(fridgeIngredientsData)
+                try await manageFridgeIngredientsUseCase.deleteFridgeIngredients()
+                try await manageFridgeIngredientsUseCase.saveFridgeIngredients(fridgeIngredients.value)
             } catch {
                 print(error.localizedDescription)
             }
@@ -48,9 +52,8 @@ final class IngredientViewModel {
     func userDidLoadPreviousList() {
         Task {
             do {
-                if let fridgeIngredients = try await fridgeIngredientRepository.getFridgeIngredients() {
-                    self.fridgeIngredients.value = fridgeIngredients
-                }
+                let fridgeIngredients = try await manageFridgeIngredientsUseCase.getFridgeIngredients()
+                self.fridgeIngredients.value = fridgeIngredients
             } catch {
                 print(error.localizedDescription)
             }

@@ -9,13 +9,12 @@ import Foundation
 
 protocol RecipeRepositoryProtocol {
     // MARK: - API call
-    func getRecipes(query: String, completion: @escaping(Result<RecipeResponseDTO, DataError>) -> Void)
-    func getNextRecipes(url: String, completion: @escaping(Result<RecipeResponseDTO, DataError>) -> Void)
-    func getImage(url: String, completion: @escaping(Result<Data, DataError>) -> Void)
+    func getRecipes(query: String) async throws -> RecipeResponseDTO
+    func getNextRecipes(url: String) async throws -> RecipeResponseDTO
+    func getImage(url: String) async throws -> Data
     
     // MARK: - Persistent Storage
     func createFavoriteRecipe(_ recipe: Recipe) async throws
-//    func getFavoriteRecipes() async throws -> [Recipe]?
-    func getFavoriteRecipes() async throws -> [RecipeEntity]?
+    func getFavoriteRecipes() async throws -> [RecipeEntity]
     func deleteFavoriteRecipe(_ id: UUID) async throws
 }

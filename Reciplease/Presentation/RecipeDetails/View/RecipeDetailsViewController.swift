@@ -56,7 +56,7 @@ final class RecipeDetailsViewController: UIViewController {
         recipeImageView.image = recipeImage
     }
     
-    @IBAction func favoriteButton(_ sender: UIBarButtonItem) {
+    @IBAction private func favoriteButton(_ sender: UIBarButtonItem) {
         guard let recipe else { return }
         recipeViewModel.userDidTapFavoriteButton(with: recipe)
         if let itemImage = sender.image, itemImage.accessibilityIdentifier == "star" {
@@ -66,7 +66,7 @@ final class RecipeDetailsViewController: UIViewController {
         }
     }
     
-    @IBAction func showDirections(_ sender: UIButton) {
+    @IBAction private func showDirections(_ sender: UIButton) {
         guard let recipe else { return }
         recipeURL = URL(string: recipe.sourceUrl)
         performSegue(withIdentifier: "goToWebPage", sender: nil)

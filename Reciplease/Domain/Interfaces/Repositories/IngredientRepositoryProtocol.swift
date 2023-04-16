@@ -8,5 +8,5 @@
 import Foundation
 
 protocol IngredientRepositoryProtocol {
-    func getIngredients(query: String, completion: @escaping(Result<IngredientResponse, DataError>) -> Void)
+    func getIngredients(query: String) async throws -> IngredientResponse
 }

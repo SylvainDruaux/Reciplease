@@ -15,59 +15,44 @@ enum DataError: Error {
 }
 
 final class RestAPIClient: RestAPIClientProtocol {
-    
-    static let shared = RestAPIClient()
+
     var alamofireService: AlamofireServiceProtocol
     
     init(alamofireService: AlamofireServiceProtocol = AlamofireService()) {
         self.alamofireService = alamofireService
     }
     
-    func fetchData<T: Decodable>(route: APIRouter, completion: @escaping(Result<T, DataError>) -> Void) {
-        alamofireService.request(with: route) { response in
-            let result = response.result
-            switch result {
-            case .success(let data):
-                guard let data = data else {
-                    completion(.failure(.noData))
-                    return
-                }
-                do {
-                    let decodedData = try JSONDecoder().decode(T.self, from: data)
-                    completion(.success(decodedData))
-                } catch let DecodingError.dataCorrupted(context) {
-                    print(context)
-                } catch let DecodingError.keyNotFound(key, context) {
-                    print("Key '\(key)' not found:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                } catch let DecodingError.valueNotFound(value, context) {
-                    print("Value '\(value)' not found:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                } catch let DecodingError.typeMismatch(type, context) {
-                    print("Type '\(type)' mismatch:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                } catch {
-                    completion(.failure(.decodingError(error)))
-                }
-            case .failure(let error):
-                completion(.failure(.apiError(error.localizedDescription)))
+    func fetchData<T: Decodable>(route: APIRouter) async throws -> T {
+        let result = await alamofireService.request(with: route).result
+        switch result {
+        case .success(let data):
+            guard let data = data else { throw DataError.noData }
+            do {
+                return try JSONDecoder().decode(T.self, from: data)
+            } catch DecodingError.dataCorrupted(let context) {
+                fatalError("Data Corrupted or invalid JSON: \(context)")
+            } catch DecodingError.keyNotFound(let key, let context) {
+                fatalError("Key '\(key.stringValue)' not found: \(context.debugDescription)")
+            } catch DecodingError.valueNotFound(let value, let context) {
+                fatalError("Value '\(value)' not found: \(context.debugDescription)")
+            } catch DecodingError.typeMismatch(let type, let context) {
+                fatalError("Type '\(type)' mismatch: \(context.debugDescription)")
+            } catch {
+                throw DataError.decodingError(error)
             }
+        case .failure(let error):
+            throw DataError.apiError(error.localizedDescription)
         }
     }
-    
-    func fetchRawData(route: APIRouter, completion: @escaping(Result<Data, DataError>) -> Void) {
-        alamofireService.request(with: route) { response in
-            let result = response.result
-            switch result {
-            case .success(let data):
-                guard let data = data else {
-                    completion(.failure(.noData))
-                    return
-                }
-                completion(.success(data))
-            case .failure(let error):
-                completion(.failure(.apiError(error.localizedDescription)))
-            }
+        
+    func fetchRawData(route: APIRouter) async throws -> Data {
+        let result = await alamofireService.request(with: route).result
+        switch result {
+        case .success(let data):
+            guard let data = data else { throw DataError.noData }
+            return data
+        case .failure(let error):
+            throw DataError.apiError(error.localizedDescription)
         }
     }
 }
