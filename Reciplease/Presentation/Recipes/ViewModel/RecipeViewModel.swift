@@ -11,7 +11,7 @@ import Foundation
 final class RecipeViewModel {
     let recipes: Box<[Recipe]> = Box([])
     let imageData: Box<Data?> = Box(nil)
-    var viewModelError: Box<String> = Box("")
+    var errorDescription: Box<String> = Box("")
     var nextRecipesLink: String = ""
     
     private let fetchRecipesPageUseCase: FetchRecipesPageUseCaseProtocol
@@ -34,7 +34,7 @@ final class RecipeViewModel {
                 self.recipes.value = recipesPage.recipes
                 self.nextRecipesLink = recipesPage.nextPage ?? ""
             } catch {
-                self.viewModelError.value = error.localizedDescription
+                self.errorDescription.value = error.localizedDescription
             }
         }
     }
@@ -46,7 +46,7 @@ final class RecipeViewModel {
                 self.recipes.value += recipesPage.recipes
                 self.nextRecipesLink = recipesPage.nextPage ?? ""
             } catch {
-                self.viewModelError.value = error.localizedDescription
+                self.errorDescription.value = error.localizedDescription
             }
         }
     }
@@ -57,7 +57,7 @@ final class RecipeViewModel {
                 let imageData = try await fetchRecipeImageUseCase.execute(url: url)
                 self.imageData.value = imageData
             } catch {
-                self.viewModelError.value = error.localizedDescription
+                self.errorDescription.value = error.localizedDescription
             }
         }
     }

@@ -23,7 +23,7 @@ final class FavoriteRecipesViewController: UIViewController {
         favoriteRecipesTableView.dataSource = self
         favoriteRecipesTableView.delegate = self
         
-        favoriteRecipeViewModel.viewModelError.bind { [weak self] error in
+        favoriteRecipeViewModel.errorDescription.bind { [weak self] error in
             if !error.isEmpty {
                 self?.presentAlert(error)
             }
@@ -81,7 +81,13 @@ extension FavoriteRecipesViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let tableViewHeight else { return 180 }
-        let cellHeight = tableViewHeight / 3.5
+        let screenHeight = UIScreen.main.bounds.height
+        var cellHeight: CGFloat
+        if screenHeight <= 780 {
+            cellHeight = tableViewHeight / 2.5
+        } else {
+            cellHeight = tableViewHeight / 3.5
+        }
         return cellHeight
     }
 }

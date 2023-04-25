@@ -11,7 +11,7 @@ import Foundation
 final class FavoriteRecipeViewModel {
     let recipes: Box<[Recipe]> = Box([])
     let isFavorite: Box<Bool> = Box(false)
-    var viewModelError: Box<String> = Box("")
+    var errorDescription: Box<String> = Box("")
     
     private let saveFavoriteRecipesUseCase: SaveFavoriteRecipesUseCaseProtocol
     private let fetchFavoriteRecipesUseCase: FetchFavoriteRecipesUseCaseProtocol
@@ -38,7 +38,7 @@ final class FavoriteRecipeViewModel {
                     self.isFavorite.value = false
                 }
             } catch {
-                self.viewModelError.value = error.localizedDescription
+                self.errorDescription.value = error.localizedDescription
             }
         }
     }
@@ -49,7 +49,7 @@ final class FavoriteRecipeViewModel {
                 let favoriteRecipes = try await fetchFavoriteRecipesUseCase.execute()
                 self.recipes.value = favoriteRecipes
             } catch {
-                self.viewModelError.value = error.localizedDescription
+                self.errorDescription.value = error.localizedDescription
             }
         }
     }
@@ -64,7 +64,7 @@ final class FavoriteRecipeViewModel {
                     self.isFavorite.value = false
                 }
             } catch {
-                self.viewModelError.value = error.localizedDescription
+                self.errorDescription.value = error.localizedDescription
             }
         }
     }

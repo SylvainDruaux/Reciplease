@@ -11,7 +11,7 @@ import Foundation
 final class IngredientViewModel {
     let ingredients: Box<IngredientResponse> = Box([])
     let fridgeIngredients: Box<FridgeIngredients> = Box([])
-    var viewModelError: Box<String> = Box("")
+    var errorDescription: Box<String> = Box("")
     
     private let searchIngredientsUseCase: SearchIngredientsUseCaseProtocol
     private let saveFridgeIngredientsUseCase: SaveFridgeIngredientsUseCaseProtocol
@@ -35,7 +35,7 @@ final class IngredientViewModel {
                 let ingredients = try await searchIngredientsUseCase.execute(query: query)
                 self.ingredients.value = ingredients
             } catch {
-                self.viewModelError.value = error.localizedDescription
+                self.errorDescription.value = error.localizedDescription
             }
         }
     }
@@ -51,7 +51,7 @@ final class IngredientViewModel {
                 try await removeFridgeIngredientsUseCase.execute()
                 try await saveFridgeIngredientsUseCase.execute(fridgeIngredients.value)
             } catch {
-                self.viewModelError.value = error.localizedDescription
+                self.errorDescription.value = error.localizedDescription
             }
         }
     }
@@ -62,7 +62,7 @@ final class IngredientViewModel {
                 let fridgeIngredients = try await fetchFridgeIngredientsUseCase.execute()
                 self.fridgeIngredients.value = fridgeIngredients
             } catch {
-                self.viewModelError.value = error.localizedDescription
+                self.errorDescription.value = error.localizedDescription
             }
         }
     }

@@ -28,7 +28,7 @@ final class FridgeIngredientsViewController: UIViewController {
         fridgeIngredientsTableView.dataSource = self
         fridgeIngredientsTableView.delegate = self
         
-        ingredientViewModel.viewModelError.bind { [weak self] error in
+        ingredientViewModel.errorDescription.bind { [weak self] error in
             if !error.isEmpty {
                 self?.presentAlert(error)
             }

@@ -23,7 +23,7 @@ final class RecipesViewController: UIViewController {
         recipesTableView.dataSource = self
         recipesTableView.delegate = self
         
-        recipeViewModel.viewModelError.bind { [weak self] error in
+        recipeViewModel.errorDescription.bind { [weak self] error in
             if !error.isEmpty {
                 self?.presentAlert(error)
             }
@@ -90,7 +90,13 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let tableViewHeight else { return 180 }
-        let cellHeight = tableViewHeight / 3.5
+        let screenHeight = UIScreen.main.bounds.height
+        var cellHeight: CGFloat
+        if screenHeight <= 780 {
+            cellHeight = tableViewHeight / 2.5
+        } else {
+            cellHeight = tableViewHeight / 3.5
+        }
         return cellHeight
     }
     

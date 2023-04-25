@@ -54,7 +54,7 @@ class RecipeViewModelTests: XCTestCase {
         let expectation = expectation(description: #function)
         expectation.expectedFulfillmentCount = 2
         var bindCount = 0
-        recipeViewModel.viewModelError.bind { error in
+        recipeViewModel.errorDescription.bind { error in
             if bindCount == 1 {
                 // Then
                 XCTAssertGreaterThan(error.count, 0)
@@ -101,7 +101,7 @@ class RecipeViewModelTests: XCTestCase {
         let expectation = expectation(description: #function)
         expectation.expectedFulfillmentCount = 2
         var bindCount = 0
-        recipeViewModel.viewModelError.bind { error in
+        recipeViewModel.errorDescription.bind { error in
             if bindCount == 1 {
                 // Then
                 XCTAssertGreaterThan(error.count, 0)
@@ -148,7 +148,7 @@ class RecipeViewModelTests: XCTestCase {
         let expectation = expectation(description: #function)
         expectation.expectedFulfillmentCount = 2
         var bindCount = 0
-        recipeViewModel.viewModelError.bind { error in
+        recipeViewModel.errorDescription.bind { error in
             if bindCount == 1 {
                 // Then
                 XCTAssertGreaterThan(error.count, 0)

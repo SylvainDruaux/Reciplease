@@ -36,6 +36,14 @@ final class RecipeDetailsViewController: UIViewController {
         configure(with: recipe)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // Bug fix: the tableview doesn't take the full width of the screen despite the constraints.
+        let screenWidth = UIScreen.main.bounds.width
+        recipeDetailsTableView.frame.size.width = screenWidth
+        recipeImageView.frame.size.width = screenWidth
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipeWebPageVC = segue.destination as? RecipeWebPageViewController {
             recipeWebPageVC.recipeURL = recipeURL

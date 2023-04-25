@@ -64,7 +64,7 @@ class IngredientViewModelTests: XCTestCase {
         expectation.expectedFulfillmentCount = 2
         var bindCount = 0
         
-        ingredientViewModel.viewModelError.bind { error in
+        ingredientViewModel.errorDescription.bind { error in
             if bindCount == 1 {
                 // Then
                 XCTAssertGreaterThan(error.count, 0)
@@ -110,7 +110,7 @@ class IngredientViewModelTests: XCTestCase {
         expectation.expectedFulfillmentCount = 2
         var bindCount = 0
         
-        ingredientViewModel.viewModelError.bind { error in
+        ingredientViewModel.errorDescription.bind { error in
             if bindCount == 1 {
                 // Then
                 XCTAssertGreaterThan(error.count, 0)
@@ -153,7 +153,7 @@ class IngredientViewModelTests: XCTestCase {
         expectation.expectedFulfillmentCount = 2
         var bindCount = 0
         
-        ingredientViewModel.viewModelError.bind { error in
+        ingredientViewModel.errorDescription.bind { error in
             if bindCount == 1 {
                 // Then
                 XCTAssertGreaterThan(error.count, 0)

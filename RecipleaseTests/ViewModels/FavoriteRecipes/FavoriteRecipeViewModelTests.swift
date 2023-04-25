@@ -74,13 +74,13 @@ class FavoriteRecipeViewModelTests: XCTestCase {
         favoriteRecipeViewModel = FavoriteRecipeViewModel(
             fetchFavoriteRecipesUseCase: FetchFavoriteRecipesUseCaseMock(hasError: true)
         )
-        favoriteRecipeViewModel.viewModelError.value = ""
+        favoriteRecipeViewModel.errorDescription.value = ""
         
         let expectation = expectation(description: #function)
         expectation.expectedFulfillmentCount = 2
         var bindCount = 0
         
-        favoriteRecipeViewModel.viewModelError.bind { error in
+        favoriteRecipeViewModel.errorDescription.bind { error in
             if bindCount == 1 {
                 // Then
                 XCTAssertGreaterThan(error.count, 0)
@@ -116,13 +116,13 @@ class FavoriteRecipeViewModelTests: XCTestCase {
         favoriteRecipeViewModel = FavoriteRecipeViewModel(
             fetchFavoriteRecipesUseCase: FetchFavoriteRecipesUseCaseMock(hasError: true)
         )
-        favoriteRecipeViewModel.viewModelError.value = ""
+        favoriteRecipeViewModel.errorDescription.value = ""
         
         let expectation = expectation(description: #function)
         expectation.expectedFulfillmentCount = 2
         var bindCount = 0
         
-        favoriteRecipeViewModel.viewModelError.bind { error in
+        favoriteRecipeViewModel.errorDescription.bind { error in
             if bindCount == 1 {
                 // Then
                 XCTAssertGreaterThan(error.count, 0)
@@ -186,13 +186,13 @@ class FavoriteRecipeViewModelTests: XCTestCase {
         favoriteRecipeViewModel = FavoriteRecipeViewModel(
             fetchFavoriteRecipesUseCase: FetchFavoriteRecipesUseCaseMock(hasError: true)
         )
-        favoriteRecipeViewModel.viewModelError.value = ""
+        favoriteRecipeViewModel.errorDescription.value = ""
         
         let expectation = expectation(description: #function)
         expectation.expectedFulfillmentCount = 2
         var bindCount = 0
         
-        favoriteRecipeViewModel.viewModelError.bind { error in
+        favoriteRecipeViewModel.errorDescription.bind { error in
             if bindCount == 1 {
                 // Then
                 XCTAssertGreaterThan(error.count, 0)
