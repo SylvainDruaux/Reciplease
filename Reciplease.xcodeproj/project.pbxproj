@@ -11,7 +11,6 @@
 		4FB0993329B24ED30055ED74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0993129B24ED30055ED74 /* Main.storyboard */; };
 		4FB0993829B24ED50055ED74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0993729B24ED50055ED74 /* Assets.xcassets */; };
 		4FB0993B29B24ED50055ED74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0993929B24ED50055ED74 /* LaunchScreen.storyboard */; };
-		4FB0994629B24ED50055ED74 /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0994529B24ED50055ED74 /* RecipleaseTests.swift */; };
 		4FB0995029B24ED50055ED74 /* RecipleaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0994F29B24ED50055ED74 /* RecipleaseUITests.swift */; };
 		4FB0995229B24ED50055ED74 /* RecipleaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0995129B24ED50055ED74 /* RecipleaseUITestsLaunchTests.swift */; };
 		4FB0997829B2600B0055ED74 /* AppConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0997729B2600B0055ED74 /* AppConfigurations.swift */; };
@@ -27,7 +26,6 @@
 		E400B7D629B642FC00CC82C2 /* FavoritesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E400B7D529B642FC00CC82C2 /* FavoritesNavigationController.swift */; };
 		E400B7D829B643BD00CC82C2 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E400B7D729B643BD00CC82C2 /* SettingsNavigationController.swift */; };
 		E400B7DA29B643E300CC82C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E400B7D929B643E300CC82C2 /* SettingsViewController.swift */; };
-		E400B7FA29B657DC00CC82C2 /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E400B7F929B657DC00CC82C2 /* RecipesTableViewCell.swift */; };
 		E400B7FC29B6593C00CC82C2 /* RecipeDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E400B7FB29B6593C00CC82C2 /* RecipeDetailsTableViewCell.swift */; };
 		E407356429B88E8F00631329 /* AppearanceOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407356329B88E8F00631329 /* AppearanceOption.swift */; };
 		E407356829B8D47800631329 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407356729B8D47800631329 /* AboutViewController.swift */; };
@@ -35,9 +33,14 @@
 		E407356C29B8E4B600631329 /* AppearanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407356B29B8E4B600631329 /* AppearanceTableViewCell.swift */; };
 		E407356E29B8E57B00631329 /* AppearanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407356D29B8E57B00631329 /* AppearanceViewModel.swift */; };
 		E407357A29B9119D00631329 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E407357C29B9119D00631329 /* Localizable.strings */; };
+		E42090A329EEF1080024BFAD /* FridgeIngredientRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42090A229EEF1080024BFAD /* FridgeIngredientRepositoryTests.swift */; };
+		E42090A529EEFFDE0024BFAD /* FavoriteRecipeRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42090A429EEFFDE0024BFAD /* FavoriteRecipeRepositoryTests.swift */; };
+		E42090A729EF125F0024BFAD /* FavoriteRecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42090A629EF125F0024BFAD /* FavoriteRecipeRepository.swift */; };
+		E42090A929EF12970024BFAD /* FavoriteRecipeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42090A829EF12970024BFAD /* FavoriteRecipeRepositoryProtocol.swift */; };
 		E420DB3629DEC46000E608EB /* RestAPIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E420DB3529DEC46000E608EB /* RestAPIClientProtocol.swift */; };
-		E420DB3829DECF9F00E608EB /* SearchRecipesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E420DB3729DECF9F00E608EB /* SearchRecipesUseCase.swift */; };
-		E420DB3A29DECFB400E608EB /* ManageFavoriteRecipesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E420DB3929DECFB400E608EB /* ManageFavoriteRecipesUseCase.swift */; };
+		E420DB3829DECF9F00E608EB /* FetchRecipesPageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E420DB3729DECF9F00E608EB /* FetchRecipesPageUseCase.swift */; };
+		E420DB3A29DECFB400E608EB /* RemoveFavoriteRecipesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E420DB3929DECFB400E608EB /* RemoveFavoriteRecipesUseCase.swift */; };
+		E4265DC329F191D900397A24 /* CoreDataStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4265DC229F191D900397A24 /* CoreDataStackProtocol.swift */; };
 		E437B53329D2ECDA00EAAEAC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437B53229D2ECDA00EAAEAC /* CoreDataStack.swift */; };
 		E437B53629D302B000EAAEAC /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E437B53429D302B000EAAEAC /* CoreDataStorage.xcdatamodeld */; };
 		E437B53A29D3337200EAAEAC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437B53929D3337200EAAEAC /* UIViewController+Extension.swift */; };
@@ -47,8 +50,16 @@
 		E437B54729D3662D00EAAEAC /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437B54629D3662D00EAAEAC /* RecipeViewModel.swift */; };
 		E437B54929D4326800EAAEAC /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437B54829D4326800EAAEAC /* Double+Extension.swift */; };
 		E437B54B29D46DDB00EAAEAC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437B54A29D46DDB00EAAEAC /* UIView+Extension.swift */; };
-		E442F35829E84C140053F682 /* NSManagedObjectContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442F35729E84C140053F682 /* NSManagedObjectContextProtocol.swift */; };
-		E442F35B29E84F380053F682 /* NSManagedObjectContextMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442F35A29E84F380053F682 /* NSManagedObjectContextMock.swift */; };
+		E437E9CE29F28C6300949A05 /* FetchRecipesPageUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E9CD29F28C6300949A05 /* FetchRecipesPageUseCaseMock.swift */; };
+		E437E9D029F28CF400949A05 /* FetchNextRecipesPageUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E9CF29F28CF400949A05 /* FetchNextRecipesPageUseCaseMock.swift */; };
+		E437E9D229F28D5900949A05 /* FetchRecipeImageUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E9D129F28D5900949A05 /* FetchRecipeImageUseCaseMock.swift */; };
+		E437E9D429F296D400949A05 /* SaveFavoriteRecipesUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E9D329F296D400949A05 /* SaveFavoriteRecipesUseCaseMock.swift */; };
+		E437E9D629F29A9D00949A05 /* FetchFavoriteRecipesUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E9D529F29A9D00949A05 /* FetchFavoriteRecipesUseCaseMock.swift */; };
+		E437E9D829F29AFB00949A05 /* RemoveFavoriteRecipesUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E9D729F29AFB00949A05 /* RemoveFavoriteRecipesUseCaseMock.swift */; };
+		E44A1FEA29EFFA6B00B5FB70 /* IngredientRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A1FE929EFFA6B00B5FB70 /* IngredientRepositoryMock.swift */; };
+		E44A1FF029EFFBA800B5FB70 /* IngredientsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A1FEF29EFFBA800B5FB70 /* IngredientsUseCaseTests.swift */; };
+		E44A2F1429F59DC2005BC610 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A2F1329F59DC2005BC610 /* SettingsViewModelTests.swift */; };
+		E44A2F1629F59FD6005BC610 /* AppearanceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A2F1529F59FD6005BC610 /* AppearanceViewModelTests.swift */; };
 		E44CE10429E062CF00B865FF /* FridgeIngredientDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CE10329E062CF00B865FF /* FridgeIngredientDataSource.swift */; };
 		E44CE10629E0635F00B865FF /* FridgeIngredientRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CE10529E0635F00B865FF /* FridgeIngredientRepositoryProtocol.swift */; };
 		E44CE10A29E08E9E00B865FF /* FavoriteRecipeDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CE10929E08E9E00B865FF /* FavoriteRecipeDataSourceProtocol.swift */; };
@@ -63,19 +74,23 @@
 		E45790B829DC6D8B0058FA71 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45790B729DC6D8B0058FA71 /* UILabel+Extension.swift */; };
 		E45790BA29DC6E380058FA71 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45790B929DC6E380058FA71 /* String+Extension.swift */; };
 		E45790BF29DD86880058FA71 /* RecipeWebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45790BE29DD86880058FA71 /* RecipeWebPageViewController.swift */; };
+		E457E7B229F15CD500E12C57 /* IngredientViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457E7B129F15CD500E12C57 /* IngredientViewModelTests.swift */; };
+		E457E7B529F15D2400E12C57 /* RecipeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457E7B429F15D2400E12C57 /* RecipeViewModelTests.swift */; };
+		E457E7B829F15D5000E12C57 /* FavoriteRecipeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457E7B729F15D5000E12C57 /* FavoriteRecipeViewModelTests.swift */; };
+		E457E7BA29F15E1600E12C57 /* SaveFridgeIngredientsUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457E7B929F15E1600E12C57 /* SaveFridgeIngredientsUseCaseMock.swift */; };
+		E457E7BC29F15F2000E12C57 /* SearchIngredientsUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457E7BB29F15F2000E12C57 /* SearchIngredientsUseCaseMock.swift */; };
 		E460811229D18FE100F67633 /* IngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460811129D18FE100F67633 /* IngredientViewModel.swift */; };
 		E460812529D1D56F00F67633 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460812429D1D56F00F67633 /* Box.swift */; };
-		E4698CC429E5BA1B00B6090E /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4698CC329E5BA1B00B6090E /* StorageError.swift */; };
+		E464F11E29F285B300BBEB3A /* FetchFridgeIngredientsUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E464F11D29F285B300BBEB3A /* FetchFridgeIngredientsUseCaseMock.swift */; };
+		E464F12029F2863600BBEB3A /* RemoveFridgeIngredientsUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E464F11F29F2863600BBEB3A /* RemoveFridgeIngredientsUseCaseMock.swift */; };
 		E4698CC829E6CAA200B6090E /* AlamofireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4698CC729E6CAA200B6090E /* AlamofireService.swift */; };
 		E4698CCA29E7083700B6090E /* AlamofireServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4698CC929E7083700B6090E /* AlamofireServiceMock.swift */; };
-		E4698CCC29E70DF600B6090E /* IngredientsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4698CCB29E70DF600B6090E /* IngredientsTests.swift */; };
+		E4698CCC29E70DF600B6090E /* IngredientsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4698CCB29E70DF600B6090E /* IngredientsRepositoryTests.swift */; };
 		E4698CCE29E70F9B00B6090E /* IngredientsResponseDataFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4698CCD29E70F9B00B6090E /* IngredientsResponseDataFake.swift */; };
 		E4698CD729E716B200B6090E /* RecipesResponseDataFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4698CD629E716B200B6090E /* RecipesResponseDataFake.swift */; };
 		E4698CD829E74A1600B6090E /* EdamamFoodCorrectData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4698CD329E7160700B6090E /* EdamamFoodCorrectData.json */; };
-		E4698CD929E74A1A00B6090E /* EdamamFoodBadData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4698CD529E7167200B6090E /* EdamamFoodBadData.json */; };
-		E4698CDA29E74A1E00B6090E /* EdamamRecipeBadData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4698CD029E7110400B6090E /* EdamamRecipeBadData.json */; };
 		E4698CDB29E74A2200B6090E /* EdamamRecipeCorrectData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4698CCF29E710D100B6090E /* EdamamRecipeCorrectData.json */; };
-		E4698CE229E8140100B6090E /* RecipesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4698CE129E8140000B6090E /* RecipesTests.swift */; };
+		E4698CE229E8140100B6090E /* RecipeRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4698CE129E8140000B6090E /* RecipeRepositoryTests.swift */; };
 		E47AE10A29E9471F0099AAED /* RecipeEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE10929E9471F0099AAED /* RecipeEntity+Mapping.swift */; };
 		E47AE10C29E991BE0099AAED /* APIRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE10B29E991BE0099AAED /* APIRouterTests.swift */; };
 		E4923E3529D08D14000306EE /* FridgeIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4923E3129D08D14000306EE /* FridgeIngredientsViewController.swift */; };
@@ -93,9 +108,30 @@
 		E49B324529B527010042592C /* FuzzyBubbles-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E49B324329B508FE0042592C /* FuzzyBubbles-Bold.ttf */; };
 		E49B324629B527040042592C /* FuzzyBubbles-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E49B324229B508FE0042592C /* FuzzyBubbles-Regular.ttf */; };
 		E49B324729B527060042592C /* IMFellEnglish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E49B324129B506F60042592C /* IMFellEnglish-Regular.ttf */; };
+		E49E87DE29F1396C00E495C9 /* FridgeIngredientRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49E87DD29F1396C00E495C9 /* FridgeIngredientRepositoryMock.swift */; };
+		E49E87E029F13BAC00E495C9 /* FridgeIngredientsUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49E87DF29F13BAC00E495C9 /* FridgeIngredientsUseCasesTests.swift */; };
+		E49E87E229F13EA500E495C9 /* RecipeRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49E87E129F13EA500E495C9 /* RecipeRepositoryMock.swift */; };
+		E49E87E429F1400000E495C9 /* RecipesUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49E87E329F1400000E495C9 /* RecipesUseCasesTests.swift */; };
 		E4B8EB2E29C20C6300BA0B8C /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8EB2D29C20C6300BA0B8C /* UserPreferences.swift */; };
+		E4D3466D29F6CCA300CE5066 /* FridgeIngredientDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3466C29F6CCA300CE5066 /* FridgeIngredientDataSourceTests.swift */; };
+		E4D3467029F6CEAD00CE5066 /* FavoriteRecipeDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3466F29F6CEAD00CE5066 /* FavoriteRecipeDataSourceTests.swift */; };
+		E4D3467429F6D05500CE5066 /* FridgeIngredientDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3467329F6D05500CE5066 /* FridgeIngredientDataSourceMock.swift */; };
+		E4D3467629F6D74800CE5066 /* FavoriteRecipeDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3467529F6D74800CE5066 /* FavoriteRecipeDataSourceMock.swift */; };
 		E4DDFAA629EC3D7F00AF0F8A /* SearchIngredientsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDFAA529EC3D7F00AF0F8A /* SearchIngredientsUseCase.swift */; };
-		E4DDFAA829EC3D9E00AF0F8A /* ManageFridgeIngredientsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDFAA729EC3D9E00AF0F8A /* ManageFridgeIngredientsUseCase.swift */; };
+		E4DDFAA829EC3D9E00AF0F8A /* RemoveFridgeIngredientsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDFAA729EC3D9E00AF0F8A /* RemoveFridgeIngredientsUseCase.swift */; };
+		E4F5A73F29ED42E100325E24 /* FavoriteRecipesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F5A73E29ED42E100325E24 /* FavoriteRecipesView.storyboard */; };
+		E4F5A74429ED49BE00325E24 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5A74229ED49BE00325E24 /* RecipeTableViewCell.swift */; };
+		E4F5A74529ED49BE00325E24 /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F5A74329ED49BE00325E24 /* RecipeTableViewCell.xib */; };
+		E4F5A74729ED503C00325E24 /* FavoriteRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5A74629ED503C00325E24 /* FavoriteRecipesViewController.swift */; };
+		E4F5A74929EDA56B00325E24 /* SaveFridgeIngredientsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5A74829EDA56B00325E24 /* SaveFridgeIngredientsUseCase.swift */; };
+		E4F5A74B29EDA6A400325E24 /* FetchFridgeIngredientsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5A74A29EDA6A400325E24 /* FetchFridgeIngredientsUseCase.swift */; };
+		E4F5A75029EDACF200325E24 /* FavoriteRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5A74F29EDACF200325E24 /* FavoriteRecipeViewModel.swift */; };
+		E4F5A75329EDAD9300325E24 /* FetchNextRecipesPageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5A75229EDAD9300325E24 /* FetchNextRecipesPageUseCase.swift */; };
+		E4F5A75529EDAE3100325E24 /* FetchRecipeImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5A75429EDAE3100325E24 /* FetchRecipeImageUseCase.swift */; };
+		E4F5A75B29EDAF9900325E24 /* SaveFavoriteRecipesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5A75A29EDAF9900325E24 /* SaveFavoriteRecipesUseCase.swift */; };
+		E4F5A75D29EDAFEA00325E24 /* FetchFavoriteRecipesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5A75C29EDAFEA00325E24 /* FetchFavoriteRecipesUseCase.swift */; };
+		E4FC0F2429F1473E006F8EE4 /* FavoriteRecipeRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FC0F2329F1473E006F8EE4 /* FavoriteRecipeRepositoryMock.swift */; };
+		E4FC0F2629F148C7006F8EE4 /* FavoriteRecipesUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FC0F2529F148C7006F8EE4 /* FavoriteRecipesUseCasesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,7 +160,6 @@
 		4FB0993A29B24ED50055ED74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FB0993C29B24ED50055ED74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FB0994129B24ED50055ED74 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FB0994529B24ED50055ED74 /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		4FB0994B29B24ED50055ED74 /* RecipleaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB0994F29B24ED50055ED74 /* RecipleaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseUITests.swift; sourceTree = "<group>"; };
 		4FB0995129B24ED50055ED74 /* RecipleaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -146,7 +181,6 @@
 		E400B7D529B642FC00CC82C2 /* FavoritesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNavigationController.swift; sourceTree = "<group>"; };
 		E400B7D729B643BD00CC82C2 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		E400B7D929B643E300CC82C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		E400B7F929B657DC00CC82C2 /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
 		E400B7FB29B6593C00CC82C2 /* RecipeDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		E407356329B88E8F00631329 /* AppearanceOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceOption.swift; sourceTree = "<group>"; };
 		E407356729B8D47800631329 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -155,9 +189,14 @@
 		E407356D29B8E57B00631329 /* AppearanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewModel.swift; sourceTree = "<group>"; };
 		E407357729B9044000631329 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		E407357B29B9119D00631329 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E42090A229EEF1080024BFAD /* FridgeIngredientRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientRepositoryTests.swift; sourceTree = "<group>"; };
+		E42090A429EEFFDE0024BFAD /* FavoriteRecipeRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeRepositoryTests.swift; sourceTree = "<group>"; };
+		E42090A629EF125F0024BFAD /* FavoriteRecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeRepository.swift; sourceTree = "<group>"; };
+		E42090A829EF12970024BFAD /* FavoriteRecipeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeRepositoryProtocol.swift; sourceTree = "<group>"; };
 		E420DB3529DEC46000E608EB /* RestAPIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIClientProtocol.swift; sourceTree = "<group>"; };
-		E420DB3729DECF9F00E608EB /* SearchRecipesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipesUseCase.swift; sourceTree = "<group>"; };
-		E420DB3929DECFB400E608EB /* ManageFavoriteRecipesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFavoriteRecipesUseCase.swift; sourceTree = "<group>"; };
+		E420DB3729DECF9F00E608EB /* FetchRecipesPageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecipesPageUseCase.swift; sourceTree = "<group>"; };
+		E420DB3929DECFB400E608EB /* RemoveFavoriteRecipesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFavoriteRecipesUseCase.swift; sourceTree = "<group>"; };
+		E4265DC229F191D900397A24 /* CoreDataStackProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackProtocol.swift; sourceTree = "<group>"; };
 		E437B53229D2ECDA00EAAEAC /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E437B53529D302B000EAAEAC /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		E437B53929D3337200EAAEAC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -167,8 +206,16 @@
 		E437B54629D3662D00EAAEAC /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		E437B54829D4326800EAAEAC /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		E437B54A29D46DDB00EAAEAC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		E442F35729E84C140053F682 /* NSManagedObjectContextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContextProtocol.swift; sourceTree = "<group>"; };
-		E442F35A29E84F380053F682 /* NSManagedObjectContextMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContextMock.swift; sourceTree = "<group>"; };
+		E437E9CD29F28C6300949A05 /* FetchRecipesPageUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecipesPageUseCaseMock.swift; sourceTree = "<group>"; };
+		E437E9CF29F28CF400949A05 /* FetchNextRecipesPageUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNextRecipesPageUseCaseMock.swift; sourceTree = "<group>"; };
+		E437E9D129F28D5900949A05 /* FetchRecipeImageUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecipeImageUseCaseMock.swift; sourceTree = "<group>"; };
+		E437E9D329F296D400949A05 /* SaveFavoriteRecipesUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFavoriteRecipesUseCaseMock.swift; sourceTree = "<group>"; };
+		E437E9D529F29A9D00949A05 /* FetchFavoriteRecipesUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFavoriteRecipesUseCaseMock.swift; sourceTree = "<group>"; };
+		E437E9D729F29AFB00949A05 /* RemoveFavoriteRecipesUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFavoriteRecipesUseCaseMock.swift; sourceTree = "<group>"; };
+		E44A1FE929EFFA6B00B5FB70 /* IngredientRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRepositoryMock.swift; sourceTree = "<group>"; };
+		E44A1FEF29EFFBA800B5FB70 /* IngredientsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsUseCaseTests.swift; sourceTree = "<group>"; };
+		E44A2F1329F59DC2005BC610 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		E44A2F1529F59FD6005BC610 /* AppearanceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewModelTests.swift; sourceTree = "<group>"; };
 		E44CE10329E062CF00B865FF /* FridgeIngredientDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientDataSource.swift; sourceTree = "<group>"; };
 		E44CE10529E0635F00B865FF /* FridgeIngredientRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientRepositoryProtocol.swift; sourceTree = "<group>"; };
 		E44CE10929E08E9E00B865FF /* FavoriteRecipeDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeDataSourceProtocol.swift; sourceTree = "<group>"; };
@@ -183,19 +230,23 @@
 		E45790B729DC6D8B0058FA71 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		E45790B929DC6E380058FA71 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E45790BE29DD86880058FA71 /* RecipeWebPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeWebPageViewController.swift; sourceTree = "<group>"; };
+		E457E7B129F15CD500E12C57 /* IngredientViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewModelTests.swift; sourceTree = "<group>"; };
+		E457E7B429F15D2400E12C57 /* RecipeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModelTests.swift; sourceTree = "<group>"; };
+		E457E7B729F15D5000E12C57 /* FavoriteRecipeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeViewModelTests.swift; sourceTree = "<group>"; };
+		E457E7B929F15E1600E12C57 /* SaveFridgeIngredientsUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFridgeIngredientsUseCaseMock.swift; sourceTree = "<group>"; };
+		E457E7BB29F15F2000E12C57 /* SearchIngredientsUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIngredientsUseCaseMock.swift; sourceTree = "<group>"; };
 		E460811129D18FE100F67633 /* IngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewModel.swift; sourceTree = "<group>"; };
 		E460812429D1D56F00F67633 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		E4698CC329E5BA1B00B6090E /* StorageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
+		E464F11D29F285B300BBEB3A /* FetchFridgeIngredientsUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFridgeIngredientsUseCaseMock.swift; sourceTree = "<group>"; };
+		E464F11F29F2863600BBEB3A /* RemoveFridgeIngredientsUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFridgeIngredientsUseCaseMock.swift; sourceTree = "<group>"; };
 		E4698CC729E6CAA200B6090E /* AlamofireService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireService.swift; sourceTree = "<group>"; };
 		E4698CC929E7083700B6090E /* AlamofireServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServiceMock.swift; sourceTree = "<group>"; };
-		E4698CCB29E70DF600B6090E /* IngredientsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTests.swift; sourceTree = "<group>"; };
+		E4698CCB29E70DF600B6090E /* IngredientsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsRepositoryTests.swift; sourceTree = "<group>"; };
 		E4698CCD29E70F9B00B6090E /* IngredientsResponseDataFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsResponseDataFake.swift; sourceTree = "<group>"; };
 		E4698CCF29E710D100B6090E /* EdamamRecipeCorrectData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = EdamamRecipeCorrectData.json; sourceTree = "<group>"; };
-		E4698CD029E7110400B6090E /* EdamamRecipeBadData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = EdamamRecipeBadData.json; sourceTree = "<group>"; };
 		E4698CD329E7160700B6090E /* EdamamFoodCorrectData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EdamamFoodCorrectData.json; sourceTree = "<group>"; };
-		E4698CD529E7167200B6090E /* EdamamFoodBadData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EdamamFoodBadData.json; sourceTree = "<group>"; };
 		E4698CD629E716B200B6090E /* RecipesResponseDataFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesResponseDataFake.swift; sourceTree = "<group>"; };
-		E4698CE129E8140000B6090E /* RecipesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTests.swift; sourceTree = "<group>"; };
+		E4698CE129E8140000B6090E /* RecipeRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepositoryTests.swift; sourceTree = "<group>"; };
 		E47AE10929E9471F0099AAED /* RecipeEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeEntity+Mapping.swift"; sourceTree = "<group>"; };
 		E47AE10B29E991BE0099AAED /* APIRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouterTests.swift; sourceTree = "<group>"; };
 		E4923E3129D08D14000306EE /* FridgeIngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FridgeIngredientsViewController.swift; sourceTree = "<group>"; };
@@ -213,9 +264,30 @@
 		E49B324129B506F60042592C /* IMFellEnglish-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IMFellEnglish-Regular.ttf"; sourceTree = "<group>"; };
 		E49B324229B508FE0042592C /* FuzzyBubbles-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FuzzyBubbles-Regular.ttf"; sourceTree = "<group>"; };
 		E49B324329B508FE0042592C /* FuzzyBubbles-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FuzzyBubbles-Bold.ttf"; sourceTree = "<group>"; };
+		E49E87DD29F1396C00E495C9 /* FridgeIngredientRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientRepositoryMock.swift; sourceTree = "<group>"; };
+		E49E87DF29F13BAC00E495C9 /* FridgeIngredientsUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientsUseCasesTests.swift; sourceTree = "<group>"; };
+		E49E87E129F13EA500E495C9 /* RecipeRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepositoryMock.swift; sourceTree = "<group>"; };
+		E49E87E329F1400000E495C9 /* RecipesUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesUseCasesTests.swift; sourceTree = "<group>"; };
 		E4B8EB2D29C20C6300BA0B8C /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		E4D3466C29F6CCA300CE5066 /* FridgeIngredientDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientDataSourceTests.swift; sourceTree = "<group>"; };
+		E4D3466F29F6CEAD00CE5066 /* FavoriteRecipeDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeDataSourceTests.swift; sourceTree = "<group>"; };
+		E4D3467329F6D05500CE5066 /* FridgeIngredientDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientDataSourceMock.swift; sourceTree = "<group>"; };
+		E4D3467529F6D74800CE5066 /* FavoriteRecipeDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeDataSourceMock.swift; sourceTree = "<group>"; };
 		E4DDFAA529EC3D7F00AF0F8A /* SearchIngredientsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIngredientsUseCase.swift; sourceTree = "<group>"; };
-		E4DDFAA729EC3D9E00AF0F8A /* ManageFridgeIngredientsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFridgeIngredientsUseCase.swift; sourceTree = "<group>"; };
+		E4DDFAA729EC3D9E00AF0F8A /* RemoveFridgeIngredientsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFridgeIngredientsUseCase.swift; sourceTree = "<group>"; };
+		E4F5A73E29ED42E100325E24 /* FavoriteRecipesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteRecipesView.storyboard; sourceTree = "<group>"; };
+		E4F5A74229ED49BE00325E24 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		E4F5A74329ED49BE00325E24 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
+		E4F5A74629ED503C00325E24 /* FavoriteRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipesViewController.swift; sourceTree = "<group>"; };
+		E4F5A74829EDA56B00325E24 /* SaveFridgeIngredientsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFridgeIngredientsUseCase.swift; sourceTree = "<group>"; };
+		E4F5A74A29EDA6A400325E24 /* FetchFridgeIngredientsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFridgeIngredientsUseCase.swift; sourceTree = "<group>"; };
+		E4F5A74F29EDACF200325E24 /* FavoriteRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeViewModel.swift; sourceTree = "<group>"; };
+		E4F5A75229EDAD9300325E24 /* FetchNextRecipesPageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNextRecipesPageUseCase.swift; sourceTree = "<group>"; };
+		E4F5A75429EDAE3100325E24 /* FetchRecipeImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecipeImageUseCase.swift; sourceTree = "<group>"; };
+		E4F5A75A29EDAF9900325E24 /* SaveFavoriteRecipesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFavoriteRecipesUseCase.swift; sourceTree = "<group>"; };
+		E4F5A75C29EDAFEA00325E24 /* FetchFavoriteRecipesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFavoriteRecipesUseCase.swift; sourceTree = "<group>"; };
+		E4FC0F2329F1473E006F8EE4 /* FavoriteRecipeRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeRepositoryMock.swift; sourceTree = "<group>"; };
+		E4FC0F2529F148C7006F8EE4 /* FavoriteRecipesUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipesUseCasesTests.swift; sourceTree = "<group>"; };
 		E712861FCAFAE9467A5F6E80 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -286,9 +358,10 @@
 		4FB0994429B24ED50055ED74 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				E44A1FE829EFFA3100B5FB70 /* ViewModels */,
+				E44A1FE729EFF93800B5FB70 /* UseCases */,
 				E4698CDC29E80D5F00B6090E /* Network */,
 				E4698CDD29E80D8000B6090E /* PersistentStorage */,
-				4FB0994529B24ED50055ED74 /* RecipleaseTests.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -317,8 +390,10 @@
 			children = (
 				4FB0996129B2517D0055ED74 /* Flows */,
 				E400B7D129B63CF800CC82C2 /* NavigationControllers */,
+				E4F5A75129EDAD0900325E24 /* Cell */,
 				4FB0996329B252BF0055ED74 /* FridgeIngredients */,
 				4FB0996229B252720055ED74 /* Recipes */,
+				E4F5A74C29EDACA700325E24 /* FavoriteRecipes */,
 				E400B7C529B6381400CC82C2 /* RecipeDetails */,
 				E400B7CC29B638F300CC82C2 /* Settings */,
 				E400B7E029B64E9900CC82C2 /* Utilities */,
@@ -373,7 +448,6 @@
 		4FB0996829B255D60055ED74 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				E4698CC329E5BA1B00B6090E /* StorageError.swift */,
 				E460811529D1AB4B00F67633 /* Interfaces */,
 				4FB0997429B25A350055ED74 /* Entities */,
 				E400B7E229B64F8900CC82C2 /* UseCases */,
@@ -397,6 +471,7 @@
 				E4923E3A29D08D26000306EE /* IngredientRepository.swift */,
 				E44CE10E29E0AF0700B865FF /* FridgeIngredientRepository.swift */,
 				E437B54429D3652400EAAEAC /* RecipeRepository.swift */,
+				E42090A629EF125F0024BFAD /* FavoriteRecipeRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -415,7 +490,7 @@
 				E4A7271529E17E8D001768ED /* FridgeIngredient */,
 				E4A7271629E17E96001768ED /* FavoriteRecipe */,
 				E437B53229D2ECDA00EAAEAC /* CoreDataStack.swift */,
-				E442F35729E84C140053F682 /* NSManagedObjectContextProtocol.swift */,
+				E4265DC229F191D900397A24 /* CoreDataStackProtocol.swift */,
 				E437B53429D302B000EAAEAC /* CoreDataStorage.xcdatamodeld */,
 			);
 			path = PersistentStorages;
@@ -505,7 +580,6 @@
 			children = (
 				E400B7C129B6371800CC82C2 /* RecipesView.storyboard */,
 				E400B7C329B6374400CC82C2 /* RecipesViewController.swift */,
-				E400B7F929B657DC00CC82C2 /* RecipesTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -513,17 +587,9 @@
 		E400B7C529B6381400CC82C2 /* RecipeDetails */ = {
 			isa = PBXGroup;
 			children = (
-				E400B7C629B6382400CC82C2 /* ViewModel */,
 				E400B7C729B6382C00CC82C2 /* View */,
 			);
 			path = RecipeDetails;
-			sourceTree = "<group>";
-		};
-		E400B7C629B6382400CC82C2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E400B7C729B6382C00CC82C2 /* View */ = {
@@ -615,10 +681,10 @@
 		E400B7E229B64F8900CC82C2 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				E4DDFAA529EC3D7F00AF0F8A /* SearchIngredientsUseCase.swift */,
-				E4DDFAA729EC3D9E00AF0F8A /* ManageFridgeIngredientsUseCase.swift */,
-				E420DB3729DECF9F00E608EB /* SearchRecipesUseCase.swift */,
-				E420DB3929DECFB400E608EB /* ManageFavoriteRecipesUseCase.swift */,
+				E4F5A75629EDAE4B00325E24 /* Ingredients */,
+				E4F5A75729EDAE5600325E24 /* FridgeIngredients */,
+				E4F5A75829EDAE6800325E24 /* Recipes */,
+				E4F5A75929EDAF6E00325E24 /* FavoriteRecipes */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -632,11 +698,105 @@
 			path = DataMapping;
 			sourceTree = "<group>";
 		};
-		E442F35929E84EDA0053F682 /* FridgeIngredients */ = {
+		E44A1FE729EFF93800B5FB70 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				E44A1FEB29EFFB3000B5FB70 /* Ingredients */,
+				E44A1FEC29EFFB3800B5FB70 /* FridgeIngredients */,
+				E44A1FEE29EFFB5C00B5FB70 /* Recipes */,
+				E44A1FED29EFFB5200B5FB70 /* FavoriteRecipes */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		E44A1FE829EFFA3100B5FB70 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E457E7B029F15CBA00E12C57 /* FridgeIngredients */,
+				E457E7B329F15D1400E12C57 /* Recipes */,
+				E457E7B629F15D3E00E12C57 /* FavoriteRecipes */,
+				E44A2F1229F59D99005BC610 /* Settings */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E44A1FEB29EFFB3000B5FB70 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				E44A1FEF29EFFBA800B5FB70 /* IngredientsUseCaseTests.swift */,
+				E44A1FE929EFFA6B00B5FB70 /* IngredientRepositoryMock.swift */,
+			);
+			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		E44A1FEC29EFFB3800B5FB70 /* FridgeIngredients */ = {
+			isa = PBXGroup;
+			children = (
+				E49E87DF29F13BAC00E495C9 /* FridgeIngredientsUseCasesTests.swift */,
+				E49E87DD29F1396C00E495C9 /* FridgeIngredientRepositoryMock.swift */,
 			);
 			path = FridgeIngredients;
+			sourceTree = "<group>";
+		};
+		E44A1FED29EFFB5200B5FB70 /* FavoriteRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				E4FC0F2529F148C7006F8EE4 /* FavoriteRecipesUseCasesTests.swift */,
+				E4FC0F2329F1473E006F8EE4 /* FavoriteRecipeRepositoryMock.swift */,
+			);
+			path = FavoriteRecipes;
+			sourceTree = "<group>";
+		};
+		E44A1FEE29EFFB5C00B5FB70 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				E49E87E329F1400000E495C9 /* RecipesUseCasesTests.swift */,
+				E49E87E129F13EA500E495C9 /* RecipeRepositoryMock.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		E44A2F1229F59D99005BC610 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E44A2F1329F59DC2005BC610 /* SettingsViewModelTests.swift */,
+				E44A2F1529F59FD6005BC610 /* AppearanceViewModelTests.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E457E7B029F15CBA00E12C57 /* FridgeIngredients */ = {
+			isa = PBXGroup;
+			children = (
+				E457E7B129F15CD500E12C57 /* IngredientViewModelTests.swift */,
+				E457E7BB29F15F2000E12C57 /* SearchIngredientsUseCaseMock.swift */,
+				E457E7B929F15E1600E12C57 /* SaveFridgeIngredientsUseCaseMock.swift */,
+				E464F11D29F285B300BBEB3A /* FetchFridgeIngredientsUseCaseMock.swift */,
+				E464F11F29F2863600BBEB3A /* RemoveFridgeIngredientsUseCaseMock.swift */,
+			);
+			path = FridgeIngredients;
+			sourceTree = "<group>";
+		};
+		E457E7B329F15D1400E12C57 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				E457E7B429F15D2400E12C57 /* RecipeViewModelTests.swift */,
+				E437E9CD29F28C6300949A05 /* FetchRecipesPageUseCaseMock.swift */,
+				E437E9CF29F28CF400949A05 /* FetchNextRecipesPageUseCaseMock.swift */,
+				E437E9D129F28D5900949A05 /* FetchRecipeImageUseCaseMock.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		E457E7B629F15D3E00E12C57 /* FavoriteRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				E457E7B729F15D5000E12C57 /* FavoriteRecipeViewModelTests.swift */,
+				E437E9D329F296D400949A05 /* SaveFavoriteRecipesUseCaseMock.swift */,
+				E437E9D529F29A9D00949A05 /* FetchFavoriteRecipesUseCaseMock.swift */,
+				E437E9D729F29AFB00949A05 /* RemoveFavoriteRecipesUseCaseMock.swift */,
+			);
+			path = FavoriteRecipes;
 			sourceTree = "<group>";
 		};
 		E460811529D1AB4B00F67633 /* Interfaces */ = {
@@ -653,6 +813,7 @@
 				E45790AF29DC34970058FA71 /* IngredientRepositoryProtocol.swift */,
 				E44CE10529E0635F00B865FF /* FridgeIngredientRepositoryProtocol.swift */,
 				E45790AD29DC33EC0058FA71 /* RecipeRepositoryProtocol.swift */,
+				E42090A829EF12970024BFAD /* FavoriteRecipeRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -660,10 +821,9 @@
 		E4698CD129E7113400B6090E /* Ingredients */ = {
 			isa = PBXGroup;
 			children = (
-				E4698CCB29E70DF600B6090E /* IngredientsTests.swift */,
+				E4698CCB29E70DF600B6090E /* IngredientsRepositoryTests.swift */,
 				E4698CCD29E70F9B00B6090E /* IngredientsResponseDataFake.swift */,
 				E4698CD329E7160700B6090E /* EdamamFoodCorrectData.json */,
-				E4698CD529E7167200B6090E /* EdamamFoodBadData.json */,
 			);
 			path = Ingredients;
 			sourceTree = "<group>";
@@ -671,10 +831,9 @@
 		E4698CD229E7115F00B6090E /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
-				E4698CE129E8140000B6090E /* RecipesTests.swift */,
+				E4698CE129E8140000B6090E /* RecipeRepositoryTests.swift */,
 				E4698CD629E716B200B6090E /* RecipesResponseDataFake.swift */,
 				E4698CCF29E710D100B6090E /* EdamamRecipeCorrectData.json */,
-				E4698CD029E7110400B6090E /* EdamamRecipeBadData.json */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -693,8 +852,8 @@
 		E4698CDD29E80D8000B6090E /* PersistentStorage */ = {
 			isa = PBXGroup;
 			children = (
-				E442F35A29E84F380053F682 /* NSManagedObjectContextMock.swift */,
-				E442F35929E84EDA0053F682 /* FridgeIngredients */,
+				E4D3467229F6CFDA00CE5066 /* Repositories */,
+				E4D3467129F6CFCE00CE5066 /* DataSources */,
 			);
 			path = PersistentStorage;
 			sourceTree = "<group>";
@@ -736,6 +895,99 @@
 				E45790A729DADD660058FA71 /* FavoriteRecipeDataSource.swift */,
 			);
 			path = FavoriteRecipe;
+			sourceTree = "<group>";
+		};
+		E4D3467129F6CFCE00CE5066 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				E4D3466C29F6CCA300CE5066 /* FridgeIngredientDataSourceTests.swift */,
+				E4D3466F29F6CEAD00CE5066 /* FavoriteRecipeDataSourceTests.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		E4D3467229F6CFDA00CE5066 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E42090A229EEF1080024BFAD /* FridgeIngredientRepositoryTests.swift */,
+				E4D3467329F6D05500CE5066 /* FridgeIngredientDataSourceMock.swift */,
+				E42090A429EEFFDE0024BFAD /* FavoriteRecipeRepositoryTests.swift */,
+				E4D3467529F6D74800CE5066 /* FavoriteRecipeDataSourceMock.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E4F5A74C29EDACA700325E24 /* FavoriteRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5A74D29EDACB900325E24 /* ViewModel */,
+				E4F5A74E29EDACCF00325E24 /* View */,
+			);
+			path = FavoriteRecipes;
+			sourceTree = "<group>";
+		};
+		E4F5A74D29EDACB900325E24 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5A74F29EDACF200325E24 /* FavoriteRecipeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E4F5A74E29EDACCF00325E24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5A73E29ED42E100325E24 /* FavoriteRecipesView.storyboard */,
+				E4F5A74629ED503C00325E24 /* FavoriteRecipesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4F5A75129EDAD0900325E24 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5A74329ED49BE00325E24 /* RecipeTableViewCell.xib */,
+				E4F5A74229ED49BE00325E24 /* RecipeTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E4F5A75629EDAE4B00325E24 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				E4DDFAA529EC3D7F00AF0F8A /* SearchIngredientsUseCase.swift */,
+			);
+			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		E4F5A75729EDAE5600325E24 /* FridgeIngredients */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5A74829EDA56B00325E24 /* SaveFridgeIngredientsUseCase.swift */,
+				E4F5A74A29EDA6A400325E24 /* FetchFridgeIngredientsUseCase.swift */,
+				E4DDFAA729EC3D9E00AF0F8A /* RemoveFridgeIngredientsUseCase.swift */,
+			);
+			path = FridgeIngredients;
+			sourceTree = "<group>";
+		};
+		E4F5A75829EDAE6800325E24 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				E420DB3729DECF9F00E608EB /* FetchRecipesPageUseCase.swift */,
+				E4F5A75229EDAD9300325E24 /* FetchNextRecipesPageUseCase.swift */,
+				E4F5A75429EDAE3100325E24 /* FetchRecipeImageUseCase.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		E4F5A75929EDAF6E00325E24 /* FavoriteRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5A75A29EDAF9900325E24 /* SaveFavoriteRecipesUseCase.swift */,
+				E4F5A75C29EDAFEA00325E24 /* FetchFavoriteRecipesUseCase.swift */,
+				E420DB3929DECFB400E608EB /* RemoveFavoriteRecipesUseCase.swift */,
+			);
+			path = FavoriteRecipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -854,7 +1106,9 @@
 				E4923E3629D08D15000306EE /* FridgeIngredientsView.storyboard in Resources */,
 				4FB0993829B24ED50055ED74 /* Assets.xcassets in Resources */,
 				E400B7C229B6371800CC82C2 /* RecipesView.storyboard in Resources */,
+				E4F5A73F29ED42E100325E24 /* FavoriteRecipesView.storyboard in Resources */,
 				E49B324529B527010042592C /* FuzzyBubbles-Bold.ttf in Resources */,
+				E4F5A74529ED49BE00325E24 /* RecipeTableViewCell.xib in Resources */,
 				E493C17429B787CC00003E63 /* SF-Pro-Text-Medium.otf in Resources */,
 				4FB0993329B24ED30055ED74 /* Main.storyboard in Resources */,
 				E400B7D029B6392900CC82C2 /* SettingsView.storyboard in Resources */,
@@ -868,9 +1122,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4698CDA29E74A1E00B6090E /* EdamamRecipeBadData.json in Resources */,
 				E4698CDB29E74A2200B6090E /* EdamamRecipeCorrectData.json in Resources */,
-				E4698CD929E74A1A00B6090E /* EdamamFoodBadData.json in Resources */,
 				E4698CD829E74A1600B6090E /* EdamamFoodCorrectData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1028,14 +1280,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E45790A829DADD660058FA71 /* FavoriteRecipeDataSource.swift in Sources */,
-				E442F35829E84C140053F682 /* NSManagedObjectContextProtocol.swift in Sources */,
 				E400B7C429B6374400CC82C2 /* RecipesViewController.swift in Sources */,
 				E400B7CB29B638CD00CC82C2 /* RecipeDetailsViewController.swift in Sources */,
 				E400B7D829B643BD00CC82C2 /* SettingsNavigationController.swift in Sources */,
 				E437B53D29D34BB500EAAEAC /* UIButton+Extension.swift in Sources */,
-				E4DDFAA829EC3D9E00AF0F8A /* ManageFridgeIngredientsUseCase.swift in Sources */,
+				E4DDFAA829EC3D9E00AF0F8A /* RemoveFridgeIngredientsUseCase.swift in Sources */,
 				E493C17229B7851A00003E63 /* SettingsTableViewCell.swift in Sources */,
-				E420DB3A29DECFB400E608EB /* ManageFavoriteRecipesUseCase.swift in Sources */,
+				E4265DC329F191D900397A24 /* CoreDataStackProtocol.swift in Sources */,
+				E4F5A75529EDAE3100325E24 /* FetchRecipeImageUseCase.swift in Sources */,
+				E4F5A74929EDA56B00325E24 /* SaveFridgeIngredientsUseCase.swift in Sources */,
+				E420DB3A29DECFB400E608EB /* RemoveFavoriteRecipesUseCase.swift in Sources */,
+				E4F5A74429ED49BE00325E24 /* RecipeTableViewCell.swift in Sources */,
 				4FB0992C29B24ED30055ED74 /* AppDelegate.swift in Sources */,
 				E407356A29B8D4BD00631329 /* AppearanceViewController.swift in Sources */,
 				E407356C29B8E4B600631329 /* AppearanceTableViewCell.swift in Sources */,
@@ -1046,13 +1301,16 @@
 				E44CE10F29E0AF0700B865FF /* FridgeIngredientRepository.swift in Sources */,
 				E460811229D18FE100F67633 /* IngredientViewModel.swift in Sources */,
 				E44CE11129E0B00000B865FF /* FridgeIngredientDataSourceProtocol.swift in Sources */,
-				E400B7FA29B657DC00CC82C2 /* RecipesTableViewCell.swift in Sources */,
 				E4698CC829E6CAA200B6090E /* AlamofireService.swift in Sources */,
+				E4F5A75B29EDAF9900325E24 /* SaveFavoriteRecipesUseCase.swift in Sources */,
 				E420DB3629DEC46000E608EB /* RestAPIClientProtocol.swift in Sources */,
 				E437B53A29D3337200EAAEAC /* UIViewController+Extension.swift in Sources */,
+				E4F5A74729ED503C00325E24 /* FavoriteRecipesViewController.swift in Sources */,
 				E45790BA29DC6E380058FA71 /* String+Extension.swift in Sources */,
 				E45790B029DC34970058FA71 /* IngredientRepositoryProtocol.swift in Sources */,
 				E437B53629D302B000EAAEAC /* CoreDataStorage.xcdatamodeld in Sources */,
+				E4F5A75029EDACF200325E24 /* FavoriteRecipeViewModel.swift in Sources */,
+				E42090A929EF12970024BFAD /* FavoriteRecipeRepositoryProtocol.swift in Sources */,
 				4FB0997829B2600B0055ED74 /* AppConfigurations.swift in Sources */,
 				E437B54929D4326800EAAEAC /* Double+Extension.swift in Sources */,
 				E437B54B29D46DDB00EAAEAC /* UIView+Extension.swift in Sources */,
@@ -1060,6 +1318,7 @@
 				E4923E3829D08D15000306EE /* ResultsViewController.swift in Sources */,
 				E493C17029B77C8000003E63 /* SettingsViewModel.swift in Sources */,
 				E460812529D1D56F00F67633 /* Box.swift in Sources */,
+				E4F5A75D29EDAFEA00325E24 /* FetchFavoriteRecipesUseCase.swift in Sources */,
 				E437B54729D3662D00EAAEAC /* RecipeViewModel.swift in Sources */,
 				E45790AE29DC33EC0058FA71 /* RecipeRepositoryProtocol.swift in Sources */,
 				E45790B829DC6D8B0058FA71 /* UILabel+Extension.swift in Sources */,
@@ -1070,12 +1329,13 @@
 				E4B8EB2E29C20C6300BA0B8C /* UserPreferences.swift in Sources */,
 				E437B53F29D3565400EAAEAC /* RecipeResponseDTO+Mapping.swift in Sources */,
 				E4923E4229D08D6D000306EE /* RestAPIClient.swift in Sources */,
+				E4F5A74B29EDA6A400325E24 /* FetchFridgeIngredientsUseCase.swift in Sources */,
+				E42090A729EF125F0024BFAD /* FavoriteRecipeRepository.swift in Sources */,
 				E407356E29B8E57B00631329 /* AppearanceViewModel.swift in Sources */,
 				E493C17A29B7AB1B00003E63 /* SettingsOption.swift in Sources */,
 				E45790AA29DAE7890058FA71 /* FridgeIngredient.swift in Sources */,
-				E420DB3829DECF9F00E608EB /* SearchRecipesUseCase.swift in Sources */,
+				E420DB3829DECF9F00E608EB /* FetchRecipesPageUseCase.swift in Sources */,
 				E4923E3D29D08D26000306EE /* IngredientRepository.swift in Sources */,
-				E4698CC429E5BA1B00B6090E /* StorageError.swift in Sources */,
 				E44CE10429E062CF00B865FF /* FridgeIngredientDataSource.swift in Sources */,
 				E47AE10A29E9471F0099AAED /* RecipeEntity+Mapping.swift in Sources */,
 				E4923E4129D08D6D000306EE /* APIRouter.swift in Sources */,
@@ -1083,6 +1343,7 @@
 				E4DDFAA629EC3D7F00AF0F8A /* SearchIngredientsUseCase.swift in Sources */,
 				E400B7D429B63DE700CC82C2 /* SearchNavigationController.swift in Sources */,
 				E45790BF29DD86880058FA71 /* RecipeWebPageViewController.swift in Sources */,
+				E4F5A75329EDAD9300325E24 /* FetchNextRecipesPageUseCase.swift in Sources */,
 				E44CE10A29E08E9E00B865FF /* FavoriteRecipeDataSourceProtocol.swift in Sources */,
 				E400B7D629B642FC00CC82C2 /* FavoritesNavigationController.swift in Sources */,
 				E400B7DA29B643E300CC82C2 /* SettingsViewController.swift in Sources */,
@@ -1094,14 +1355,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E437E9CE29F28C6300949A05 /* FetchRecipesPageUseCaseMock.swift in Sources */,
+				E44A1FEA29EFFA6B00B5FB70 /* IngredientRepositoryMock.swift in Sources */,
+				E464F11E29F285B300BBEB3A /* FetchFridgeIngredientsUseCaseMock.swift in Sources */,
 				E4698CD729E716B200B6090E /* RecipesResponseDataFake.swift in Sources */,
-				E4698CCC29E70DF600B6090E /* IngredientsTests.swift in Sources */,
+				E437E9D229F28D5900949A05 /* FetchRecipeImageUseCaseMock.swift in Sources */,
+				E49E87E029F13BAC00E495C9 /* FridgeIngredientsUseCasesTests.swift in Sources */,
+				E4698CCC29E70DF600B6090E /* IngredientsRepositoryTests.swift in Sources */,
+				E4D3467629F6D74800CE5066 /* FavoriteRecipeDataSourceMock.swift in Sources */,
+				E44A2F1629F59FD6005BC610 /* AppearanceViewModelTests.swift in Sources */,
+				E4D3467429F6D05500CE5066 /* FridgeIngredientDataSourceMock.swift in Sources */,
+				E42090A529EEFFDE0024BFAD /* FavoriteRecipeRepositoryTests.swift in Sources */,
+				E457E7B229F15CD500E12C57 /* IngredientViewModelTests.swift in Sources */,
+				E437E9D829F29AFB00949A05 /* RemoveFavoriteRecipesUseCaseMock.swift in Sources */,
 				E4698CCE29E70F9B00B6090E /* IngredientsResponseDataFake.swift in Sources */,
 				E4698CCA29E7083700B6090E /* AlamofireServiceMock.swift in Sources */,
-				4FB0994629B24ED50055ED74 /* RecipleaseTests.swift in Sources */,
+				E464F12029F2863600BBEB3A /* RemoveFridgeIngredientsUseCaseMock.swift in Sources */,
+				E4D3467029F6CEAD00CE5066 /* FavoriteRecipeDataSourceTests.swift in Sources */,
+				E457E7BA29F15E1600E12C57 /* SaveFridgeIngredientsUseCaseMock.swift in Sources */,
+				E49E87E429F1400000E495C9 /* RecipesUseCasesTests.swift in Sources */,
+				E437E9D629F29A9D00949A05 /* FetchFavoriteRecipesUseCaseMock.swift in Sources */,
+				E457E7B529F15D2400E12C57 /* RecipeViewModelTests.swift in Sources */,
+				E44A2F1429F59DC2005BC610 /* SettingsViewModelTests.swift in Sources */,
+				E49E87DE29F1396C00E495C9 /* FridgeIngredientRepositoryMock.swift in Sources */,
+				E49E87E229F13EA500E495C9 /* RecipeRepositoryMock.swift in Sources */,
+				E4FC0F2429F1473E006F8EE4 /* FavoriteRecipeRepositoryMock.swift in Sources */,
+				E42090A329EEF1080024BFAD /* FridgeIngredientRepositoryTests.swift in Sources */,
+				E44A1FF029EFFBA800B5FB70 /* IngredientsUseCaseTests.swift in Sources */,
+				E4D3466D29F6CCA300CE5066 /* FridgeIngredientDataSourceTests.swift in Sources */,
+				E437E9D029F28CF400949A05 /* FetchNextRecipesPageUseCaseMock.swift in Sources */,
+				E457E7B829F15D5000E12C57 /* FavoriteRecipeViewModelTests.swift in Sources */,
+				E457E7BC29F15F2000E12C57 /* SearchIngredientsUseCaseMock.swift in Sources */,
+				E437E9D429F296D400949A05 /* SaveFavoriteRecipesUseCaseMock.swift in Sources */,
 				E47AE10C29E991BE0099AAED /* APIRouterTests.swift in Sources */,
-				E442F35B29E84F380053F682 /* NSManagedObjectContextMock.swift in Sources */,
-				E4698CE229E8140100B6090E /* RecipesTests.swift in Sources */,
+				E4FC0F2629F148C7006F8EE4 /* FavoriteRecipesUseCasesTests.swift in Sources */,
+				E4698CE229E8140100B6090E /* RecipeRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

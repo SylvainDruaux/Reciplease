@@ -9,7 +9,6 @@ import Foundation
 
 protocol FavoriteRecipeDataSourceProtocol {
     func create(recipe: Recipe) async throws
-//    func getAll() async throws -> [Recipe]
     func getAll() async throws -> [RecipeEntity]
-    func delete(_ id: UUID) async throws
+    func delete(_ id: String) async throws
 }

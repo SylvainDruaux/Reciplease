@@ -19,14 +19,20 @@ final class RecipesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
         recipesTableView.dataSource = self
         recipesTableView.delegate = self
+        
+        recipeViewModel.viewModelError.bind { [weak self] error in
+            if !error.isEmpty {
+                self?.presentAlert(error)
+            }
+        }
         
         recipeViewModel.recipes.bind { [weak self] _ in
             // No DispatchQueue.main.async, RecipeViewModel is @MainActor
             self?.recipesTableView.reloadData()
         }
-        recipeViewModel.fetchRecipes()
         recipesTableView.tableFooterView = createActivityIndicator()
     }
     
@@ -35,8 +41,8 @@ final class RecipesViewController: UIViewController {
         tableViewHeight = recipesTableView.frame.height
     }
     
-    func setQuery(with fridgeIngredients: String) {
-        recipeViewModel.ingredients = fridgeIngredients
+    func update(with fridgeIngredients: String) {
+        recipeViewModel.fetchRecipes(fridgeIngredients)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,7 +72,7 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "RecipeCell", for: indexPath
-        ) as? RecipesTableViewCell else {
+        ) as? RecipeTableViewCell else {
             return UITableViewCell()
         }
         
@@ -77,7 +83,7 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         detailedRecipe = recipeViewModel.recipes.value[indexPath.row]
-        guard let cell = tableView.cellForRow(at: indexPath) as? RecipesTableViewCell else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as? RecipeTableViewCell else { return }
         detailedRecipeImage = cell.recipeImageView.image
         performSegue(withIdentifier: "goToRecipeDetails", sender: nil)
     }

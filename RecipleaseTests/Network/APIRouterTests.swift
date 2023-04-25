@@ -10,7 +10,7 @@ import Alamofire
 @testable import Reciplease
 
 class APIRouterTests: XCTestCase {
-    func test_getIngredients() {
+    func test_getIngredients() throws {
         // Given
         let query = "tom"
         let urlBase = AppConfiguration.shared.foodBaseURL
@@ -23,17 +23,13 @@ class APIRouterTests: XCTestCase {
         let value = APIRouter.getIngredients(query: query)
         
         // Then
-        do {
-            let url = try urlBase.asURL()
-            var urlRequest = URLRequest(url: url)
-            urlRequest = try URLEncoding.default.encode(urlRequest, with: urlParams)
-            XCTAssertEqual(try value.asURLRequest(), urlRequest)
-        } catch {
-            XCTFail("Error")
-        }
+        let url = try urlBase.asURL()
+        var urlRequest = URLRequest(url: url)
+        urlRequest = try URLEncoding.default.encode(urlRequest, with: urlParams)
+        XCTAssertEqual(try value.asURLRequest(), urlRequest)
     }
     
-    func test_getRecipes() {
+    func test_getRecipes() throws {
         // Given
         let query = "tomato"
         let urlBase = AppConfiguration.shared.recipeBaseURL
@@ -47,51 +43,39 @@ class APIRouterTests: XCTestCase {
         let value = APIRouter.getRecipes(query: query)
         
         // Then
-        do {
-            let url = try urlBase.asURL()
-            var urlRequest = URLRequest(url: url)
-            urlRequest = try URLEncoding.default.encode(urlRequest, with: urlParams)
-            XCTAssertEqual(try value.asURLRequest(), urlRequest)
-        } catch {
-            XCTFail("Error")
-        }
+        let url = try urlBase.asURL()
+        var urlRequest = URLRequest(url: url)
+        urlRequest = try URLEncoding.default.encode(urlRequest, with: urlParams)
+        XCTAssertEqual(try value.asURLRequest(), urlRequest)
     }
     
-    func test_getNextRecipes() {
+    func test_getNextRecipes() throws {
         // Given
-        let url = "https://fake.com"
+        let nextRecipeUrl = "https://fake.com"
         let urlParams = [String: Any]()
 
         // When
-        let value = APIRouter.getNextRecipes(url: url)
+        let value = APIRouter.getNextRecipes(url: nextRecipeUrl)
         
         // Then
-        do {
-            let url = try url.asURL()
-            var urlRequest = URLRequest(url: url)
-            urlRequest = try URLEncoding.default.encode(urlRequest, with: urlParams)
-            XCTAssertEqual(try value.asURLRequest(), urlRequest)
-        } catch {
-            XCTFail("Error")
-        }
+        let url = try nextRecipeUrl.asURL()
+        var urlRequest = URLRequest(url: url)
+        urlRequest = try URLEncoding.default.encode(urlRequest, with: urlParams)
+        XCTAssertEqual(try value.asURLRequest(), urlRequest)
     }
     
-    func test_getImage() {
+    func test_getImage() throws {
         // Given
-        let url = "https://fake.com"
+        let imageUrl = "https://fake.com"
         let urlParams = [String: Any]()
         
         // When
-        let value = APIRouter.getImage(url: url)
+        let value = APIRouter.getImage(url: imageUrl)
         
         // Then
-        do {
-            let url = try url.asURL()
-            var urlRequest = URLRequest(url: url)
-            urlRequest = try URLEncoding.default.encode(urlRequest, with: urlParams)
-            XCTAssertEqual(try value.asURLRequest(), urlRequest)
-        } catch {
-            XCTFail("Error")
-        }
+        let url = try imageUrl.asURL()
+        var urlRequest = URLRequest(url: url)
+        urlRequest = try URLEncoding.default.encode(urlRequest, with: urlParams)
+        XCTAssertEqual(try value.asURLRequest(), urlRequest)
     }
 }

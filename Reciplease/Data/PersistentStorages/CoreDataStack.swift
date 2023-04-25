@@ -8,22 +8,27 @@
 import Foundation
 import CoreData
 
-class CoreDataStack {
-    static let shared = CoreDataStack()
+enum StorageType {
+    case persistent, inMemory
+}
 
-    var viewContext: NSManagedObjectContext { // can't be NSManagedObjectContextProtocol
-        return CoreDataStack.shared.persistentContainer.viewContext
-    }
+final class CoreDataStack: CoreDataStackProtocol {
+    static let shared = CoreDataStack()
+    let persistentContainer: NSPersistentContainer
     
-    private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "CoreDataStorage")
-        container.loadPersistentStores(completionHandler: { (_, error) in
+    init(_ storageType: StorageType = .persistent) {
+        self.persistentContainer = NSPersistentContainer(name: "CoreDataStorage")
+        if storageType == .inMemory {
+            self.persistentContainer.newBackgroundContext()
+            let description = NSPersistentStoreDescription()
+            description.url = URL(fileURLWithPath: "/dev/null")
+            self.persistentContainer.persistentStoreDescriptions = [description]
+        }
+        
+        self.persistentContainer.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        return container
-    }()
+    }
 }
-
-extension NSManagedObjectContext: NSManagedObjectContextProtocol { }

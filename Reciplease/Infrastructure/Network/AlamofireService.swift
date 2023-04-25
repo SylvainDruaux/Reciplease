@@ -9,14 +9,14 @@ import Foundation
 import Alamofire
 
 protocol AlamofireServiceProtocol {
-    func request(with route: URLRequestConvertible) async -> AFDataResponse<Data?>
+    func request(with route: URLRequestConvertible) async throws -> Data?
 }
 
 final class AlamofireService: AlamofireServiceProtocol {
-    func request(with route: URLRequestConvertible) async -> AFDataResponse<Data?> {
-        return await withCheckedContinuation { continuation in
+    func request(with route: URLRequestConvertible) async throws -> Data? {
+        return try await withCheckedThrowingContinuation { continuation in
             AF.request(route).validate().response { response in
-                continuation.resume(returning: response)
+                continuation.resume(with: response.result)
             }
         }
     }

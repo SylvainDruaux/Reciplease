@@ -15,7 +15,9 @@ final class RecipeDetailsViewController: UIViewController {
     @IBOutlet private var yieldLabel: UILabel!
     @IBOutlet private var totalTimeLabel: UILabel!
     
-    private let recipeViewModel = RecipeViewModel()
+    @IBOutlet var favoriteBarButtonItem: UIBarButtonItem!
+        
+    private let favoriteRecipeViewModel = FavoriteRecipeViewModel()
     var recipe: Recipe?
     var recipeImage: UIImage?
     private var ingredientLines: [String]?
@@ -24,10 +26,12 @@ final class RecipeDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         recipeDetailsTableView.dataSource = self
         recipeDetailsTableView.delegate = self
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configureImage(with: recipeImage)
         configure(with: recipe)
     }
@@ -40,6 +44,15 @@ final class RecipeDetailsViewController: UIViewController {
     
     private func configure(with recipe: Recipe?) {
         guard let recipe else { return }
+        favoriteRecipeViewModel.isFavorite.bind { [weak self] success in
+            if success {
+                self?.favoriteBarButtonItem.image = UIImage(systemName: "star.fill")
+            } else {
+                self?.favoriteBarButtonItem.image = UIImage(systemName: "star")
+            }
+        }
+        favoriteRecipeViewModel.isFavorite(recipe: recipe)
+        
         titleLabel.text = recipe.label
         yieldLabel.text = recipe.yield.isZero ? "N/A" : recipe.yield.decimalNotation
         totalTimeLabel.text = recipe.totalTime.isZero ? "N/A" : recipe.totalTime.timeNotation
@@ -58,12 +71,7 @@ final class RecipeDetailsViewController: UIViewController {
     
     @IBAction private func favoriteButton(_ sender: UIBarButtonItem) {
         guard let recipe else { return }
-        recipeViewModel.userDidTapFavoriteButton(with: recipe)
-        if let itemImage = sender.image, itemImage.accessibilityIdentifier == "star" {
-            sender.image = UIImage(systemName: "star.fill")
-        } else {
-            sender.image = UIImage(systemName: "star")
-        }
+        favoriteRecipeViewModel.userDidTapFavoriteButton(with: recipe)
     }
     
     @IBAction private func showDirections(_ sender: UIButton) {

@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct Recipe: Identifiable {
-    var id: UUID
+struct Recipe: Equatable {
+    var id: String {
+        return label.trimmingAllSpaces() + sourceUrl
+    }
     let label: String
     let imageUrl: String
     let sourceUrl: String
@@ -16,6 +18,10 @@ struct Recipe: Identifiable {
     let ingredientLines: [String]
     let ingredients: [String]
     let totalTime: Double
+    
+    static func == (lhs: Recipe, rhs: Recipe) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 struct RecipesPage {

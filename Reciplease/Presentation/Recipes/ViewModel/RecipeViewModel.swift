@@ -11,28 +11,30 @@ import Foundation
 final class RecipeViewModel {
     let recipes: Box<[Recipe]> = Box([])
     let imageData: Box<Data?> = Box(nil)
+    var viewModelError: Box<String> = Box("")
     var nextRecipesLink: String = ""
     
-    private let searchRecipesUseCase: SearchRecipesUseCaseProtocol
-    private let manageFavoriteRecipesUseCase: ManageFavoriteRecipesUseCaseProtocol
+    private let fetchRecipesPageUseCase: FetchRecipesPageUseCaseProtocol
+    private let fetchNextRecipesPageUseCase: FetchNextRecipesPageUseCaseProtocol
+    private let fetchRecipeImageUseCase: FetchRecipeImageUseCaseProtocol
     
-    var ingredients: String = ""
-    
-    init(searchRecipesUseCase: SearchRecipesUseCaseProtocol = SearchRecipesUseCase(),
-         manageFavoriteRecipesUseCase: ManageFavoriteRecipesUseCaseProtocol = ManageFavoriteRecipesUseCase()
+    init(fetchRecipesPageUseCase: FetchRecipesPageUseCaseProtocol = FetchRecipesPageUseCase(),
+         fetchNextRecipesPageUseCase: FetchNextRecipesPageUseCaseProtocol = FetchNextRecipesPageUseCase(),
+         fetchRecipeImageUseCase: FetchRecipeImageUseCaseProtocol = FetchRecipeImageUseCase()
     ) {
-        self.searchRecipesUseCase = searchRecipesUseCase
-        self.manageFavoriteRecipesUseCase = manageFavoriteRecipesUseCase
+        self.fetchRecipesPageUseCase = fetchRecipesPageUseCase
+        self.fetchNextRecipesPageUseCase = fetchNextRecipesPageUseCase
+        self.fetchRecipeImageUseCase = fetchRecipeImageUseCase
     }
     
-    func fetchRecipes() {
+    func fetchRecipes(_ ingredients: String) {
         Task {
             do {
-                let recipeResponse = try await searchRecipesUseCase.getRecipes(query: ingredients)
-                self.recipes.value = recipeResponse.toDomain().recipes
-                self.nextRecipesLink = recipeResponse.toDomain().nextPage ?? ""
+                let recipesPage = try await fetchRecipesPageUseCase.execute(query: ingredients)
+                self.recipes.value = recipesPage.recipes
+                self.nextRecipesLink = recipesPage.nextPage ?? ""
             } catch {
-                print(error.localizedDescription)
+                self.viewModelError.value = error.localizedDescription
             }
         }
     }
@@ -40,11 +42,11 @@ final class RecipeViewModel {
     func fetchNextRecipes() {
         Task {
             do {
-                let recipeResponse = try await searchRecipesUseCase.getNextRecipes(url: nextRecipesLink)
-                self.recipes.value += recipeResponse.toDomain().recipes
-                self.nextRecipesLink = recipeResponse.toDomain().nextPage ?? ""
+                let recipesPage = try await fetchNextRecipesPageUseCase.execute(url: nextRecipesLink)
+                self.recipes.value += recipesPage.recipes
+                self.nextRecipesLink = recipesPage.nextPage ?? ""
             } catch {
-                print(error.localizedDescription)
+                self.viewModelError.value = error.localizedDescription
             }
         }
     }
@@ -52,38 +54,10 @@ final class RecipeViewModel {
     func fetchImage(with url: String) {
         Task {
             do {
-                let imageData = try await searchRecipesUseCase.getImage(url: url)
+                let imageData = try await fetchRecipeImageUseCase.execute(url: url)
                 self.imageData.value = imageData
             } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func userDidTapFavoriteButton(with recipe: Recipe) {
-        Task {
-            do {
-                let favoriteRecipes = try await manageFavoriteRecipesUseCase.getFavoriteRecipes().map { $0.toDomain() }
-                if !favoriteRecipes.contains(where: { $0.id == recipe.id }) {
-                    try await manageFavoriteRecipesUseCase.createFavoriteRecipe(recipe)
-                    print("Recipe created: \(recipe.label)")
-                } else {
-                    try await manageFavoriteRecipesUseCase.deleteFavoriteRecipe(recipe.id)
-                    print("Recipe deleted: \(recipe.label)")
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func userDidTapFavoritesNavItem() {
-        Task {
-            do {
-                let favoriteRecipes = try await manageFavoriteRecipesUseCase.getFavoriteRecipes().map { $0.toDomain() }
-                self.recipes.value = favoriteRecipes
-            } catch {
-                print(error.localizedDescription)
+                self.viewModelError.value = error.localizedDescription
             }
         }
     }

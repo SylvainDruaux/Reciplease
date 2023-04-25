@@ -16,26 +16,14 @@ final class FridgeIngredientRepository: FridgeIngredientRepositoryProtocol {
     
     // MARK: - Persistent Storage
     func saveFridgeIngredients(_ fridgeIngredients: FridgeIngredients) async throws {
-        do {
-            try await dataSource.save(fridgeIngredients: fridgeIngredients)
-        } catch {
-            print(error.localizedDescription)
-        }
+        try await dataSource.save(fridgeIngredients: fridgeIngredients)
     }
     
     func getFridgeIngredients() async throws -> FridgeIngredients {
-        do {
-            return try await dataSource.getAll()
-        } catch {
-            throw error
-        }
+        return try await dataSource.getAll()
     }
     
     func deleteFridgeIngredients() async throws {
-        do {
-            try await dataSource.deleteAll()
-        } catch {
-            print(error.localizedDescription)
-        }
+        try await dataSource.deleteAll()
     }
 }

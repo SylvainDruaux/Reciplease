@@ -1,14 +1,13 @@
 //
-//  RecipesTableViewCell.swift
+//  RecipeTableViewCell.swift
 //  Reciplease
 //
-//  Created by Sylvain Druaux on 06/03/2023.
+//  Created by Sylvain Druaux on 17/04/2023.
 //
 
 import UIKit
-import Alamofire
 
-final class RecipesTableViewCell: UITableViewCell {
+final class RecipeTableViewCell: UITableViewCell {
     @IBOutlet var recipeImageView: UIImageView!
     @IBOutlet private var ingredientNamesLabel: UILabel!
     @IBOutlet private var titleLabel: UILabel!

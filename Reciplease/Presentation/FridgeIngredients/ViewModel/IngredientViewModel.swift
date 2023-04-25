@@ -11,24 +11,31 @@ import Foundation
 final class IngredientViewModel {
     let ingredients: Box<IngredientResponse> = Box([])
     let fridgeIngredients: Box<FridgeIngredients> = Box([])
+    var viewModelError: Box<String> = Box("")
     
     private let searchIngredientsUseCase: SearchIngredientsUseCaseProtocol
-    private let manageFridgeIngredientsUseCase: ManageFridgeIngredientsUseCaseProtocol
+    private let saveFridgeIngredientsUseCase: SaveFridgeIngredientsUseCaseProtocol
+    private let fetchFridgeIngredientsUseCase: FetchFridgeIngredientsUseCaseProtocol
+    private let removeFridgeIngredientsUseCase: RemoveFridgeIngredientsUseCaseProtocol
     
     init(searchIngredientsUseCase: SearchIngredientsUseCaseProtocol = SearchIngredientsUseCase(),
-         manageFridgeIngredientsUseCase: ManageFridgeIngredientsUseCaseProtocol = ManageFridgeIngredientsUseCase()
+         saveFridgeIngredientsUseCase: SaveFridgeIngredientsUseCaseProtocol = SaveFridgeIngredientsUseCase(),
+         fetchFridgeIngredientsUseCase: FetchFridgeIngredientsUseCaseProtocol = FetchFridgeIngredientsUseCase(),
+         removeFridgeIngredientsUseCase: RemoveFridgeIngredientsUseCaseProtocol = RemoveFridgeIngredientsUseCase()
     ) {
         self.searchIngredientsUseCase = searchIngredientsUseCase
-        self.manageFridgeIngredientsUseCase = manageFridgeIngredientsUseCase
+        self.saveFridgeIngredientsUseCase = saveFridgeIngredientsUseCase
+        self.fetchFridgeIngredientsUseCase = fetchFridgeIngredientsUseCase
+        self.removeFridgeIngredientsUseCase = removeFridgeIngredientsUseCase
     }
     
     func fetchIngredients(startingWith query: String) {
         Task {
             do {
-                let ingredients = try await searchIngredientsUseCase.getIngredients(query: query)
+                let ingredients = try await searchIngredientsUseCase.execute(query: query)
                 self.ingredients.value = ingredients
             } catch {
-                print(error.localizedDescription)
+                self.viewModelError.value = error.localizedDescription
             }
         }
     }
@@ -41,10 +48,10 @@ final class IngredientViewModel {
     func userDidTapSearchButton() {
         Task {
             do {
-                try await manageFridgeIngredientsUseCase.deleteFridgeIngredients()
-                try await manageFridgeIngredientsUseCase.saveFridgeIngredients(fridgeIngredients.value)
+                try await removeFridgeIngredientsUseCase.execute()
+                try await saveFridgeIngredientsUseCase.execute(fridgeIngredients.value)
             } catch {
-                print(error.localizedDescription)
+                self.viewModelError.value = error.localizedDescription
             }
         }
     }
@@ -52,10 +59,10 @@ final class IngredientViewModel {
     func userDidLoadPreviousList() {
         Task {
             do {
-                let fridgeIngredients = try await manageFridgeIngredientsUseCase.getFridgeIngredients()
+                let fridgeIngredients = try await fetchFridgeIngredientsUseCase.execute()
                 self.fridgeIngredients.value = fridgeIngredients
             } catch {
-                print(error.localizedDescription)
+                self.viewModelError.value = error.localizedDescription
             }
         }
     }

@@ -13,4 +13,8 @@ extension String {
         let remainingLetters = self.dropFirst().lowercased()
         return firstLetter + remainingLetters
     }
+    
+    func trimmingAllSpaces(using characterSet: CharacterSet = .whitespacesAndNewlines) -> String {
+        return components(separatedBy: characterSet).joined()
+    }
 }

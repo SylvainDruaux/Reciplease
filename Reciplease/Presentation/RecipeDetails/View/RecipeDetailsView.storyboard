@@ -226,6 +226,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="favoriteBarButtonItem" destination="7yi-Rs-cf0" id="PO6-Cp-jLt"/>
                         <outlet property="recipeDetailsTableView" destination="Obv-Bh-OFH" id="HBW-yX-Ld2"/>
                         <outlet property="recipeImageView" destination="NH7-n4-yCr" id="NLE-15-U9J"/>
                         <outlet property="titleLabel" destination="wVI-0e-ohv" id="Aaw-M1-vIt"/>

@@ -10,50 +10,59 @@ import CoreData
 
 final class FavoriteRecipeDataSource: FavoriteRecipeDataSourceProtocol {    
     private let coreDataStack: CoreDataStack
-    private let context = CoreDataStack.shared.viewContext
+    private let context: NSManagedObjectContext
 
     init(coreDataStack: CoreDataStack = .shared) {
         self.coreDataStack = coreDataStack
+        self.context = coreDataStack.persistentContainer.viewContext
     }
     
     func create(recipe: Recipe) async throws {
-        let recipeEntity = RecipeEntity(context: context)
-        recipeEntity.id = recipe.id
-        recipeEntity.imageUrl = recipe.imageUrl
-        recipeEntity.ingredientLines = recipe.ingredientLines
-        recipeEntity.ingredients = recipe.ingredients
-        recipeEntity.label = recipe.label
-        recipeEntity.sourceUrl = recipe.sourceUrl
-        recipeEntity.totalTime = recipe.totalTime
-        recipeEntity.yield = recipe.yield
-        do {
-            try context.save()
-        } catch {
-            fatalError("Error: \(error.localizedDescription)")
+        try context.performAndWait {
+            do {
+                _ = RecipeEntity(recipe: recipe, in: context)
+                try context.save()
+            } catch {
+                throw error
+            }
         }
     }
     
     func getAll() async throws -> [RecipeEntity] {
-        let request = RecipeEntity.fetchRequest()
-        return try context.fetch(request)
-    }
-    
-    func delete(_ id: UUID) async throws {
-        let recipeEntity = try getEntityById(id)!
-        context.delete(recipeEntity)
-        do {
-            try context.save()
-        } catch {
-            context.rollback()
-            fatalError("Error: \(error.localizedDescription)")
+        try context.performAndWait {
+            do {
+                let request = RecipeEntity.fetchRequest()
+                return try context.fetch(request)
+            } catch {
+                throw error
+            }
         }
     }
     
-    private func getEntityById(_ id: UUID) throws -> RecipeEntity? {
-        let request = RecipeEntity.fetchRequest()
-        request.fetchLimit = 1
-        request.predicate = NSPredicate(format: "id = %@", id.uuidString)
-        let recipeEntity = try context.fetch(request)[0]
-        return recipeEntity
+    func delete(_ id: String) async throws {
+        guard let recipeEntity = try await getEntityById(id) else { return }
+        try context.performAndWait {
+            do {
+                context.delete(recipeEntity)
+                try context.save()
+            } catch {
+                context.rollback()
+                throw error
+            }
+        }
+    }
+    
+    private func getEntityById(_ id: String) async throws -> RecipeEntity? {
+        try context.performAndWait {
+            do {
+                let request = RecipeEntity.fetchRequest()
+                request.fetchLimit = 1
+                request.predicate = NSPredicate(format: "id = %@", id)
+                let recipeEntity = try context.fetch(request).first
+                return recipeEntity
+            } catch {
+                throw error
+            }
+        }
     }
 }

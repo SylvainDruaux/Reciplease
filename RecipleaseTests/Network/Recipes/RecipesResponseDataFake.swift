@@ -13,18 +13,6 @@ class RecipesResponseDataFake {
     class RecipeError: Error {}
     static let recipeError = RecipeError()
     
-    // MARK: - Corrupted Data
-    static var recipeBadData: Data? {
-        let bundle = Bundle(for: RecipesResponseDataFake.self)
-        let url = bundle.url(forResource: "EdamamRecipeBadData", withExtension: "json")
-        do {
-            let data = try Data(contentsOf: url!)
-            return data
-        } catch {
-            return Data()
-        }
-    }
-    
     // MARK: - Correct Data
     static var recipeCorrectData: Data? {
         let bundle = Bundle(for: RecipesResponseDataFake.self)

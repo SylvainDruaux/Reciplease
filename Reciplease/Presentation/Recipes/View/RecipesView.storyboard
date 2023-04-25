@@ -8,14 +8,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="FuzzyBubbles-Bold.ttf">
-            <string>FuzzyBubbles-Bold</string>
-        </array>
-        <array key="IMFellEnglish-Regular.ttf">
-            <string>IM_FELL_English_Roman</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Recipes-->
         <scene sceneID="s0d-6b-0kx">
@@ -28,138 +20,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-xJ-csP">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="180" id="ZE2-H9-mZC" customClass="RecipesTableViewCell" customModule="Reciplease" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="180"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZE2-H9-mZC" id="dOT-ko-5v4">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="jBe-Zg-0kZ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                    <color key="tintColor" name="SeparatorColor"/>
-                                                </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWI-c6-0N0">
-                                                    <rect key="frame" x="309" y="15" width="74" height="64"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-uN-enw">
-                                                            <rect key="frame" x="4" y="4" width="66" height="56"/>
-                                                            <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="FYv-LJ-S1g">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="25.666666666666668"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2p-ea-mYz">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="33" height="25.666666666666668"/>
-                                                                            <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
-                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </label>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serving-dish" translatesAutoresizingMaskIntoConstraints="NO" id="wpL-gh-Nke">
-                                                                            <rect key="frame" x="36" y="0.0" width="30" height="25.666666666666668"/>
-                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" constant="30" id="6CI-Mk-5ze"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                    </subviews>
-                                                                </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ZeG-tB-o0R">
-                                                                    <rect key="frame" x="0.0" y="30.666666666666664" width="66" height="25.333333333333336"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnG-BL-6Sk">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="33" height="25.333333333333332"/>
-                                                                            <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
-                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qn6-Sh-5qR">
-                                                                            <rect key="frame" x="36" y="0.99999999999999822" width="30" height="24"/>
-                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" constant="30" id="T2j-7H-Rig"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                    </subviews>
-                                                                </stackView>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="U2p-ea-mYz" firstAttribute="width" secondItem="fnG-BL-6Sk" secondAttribute="width" id="P75-sG-evg"/>
-                                                            </constraints>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="64" id="5V0-q6-yf4"/>
-                                                        <constraint firstItem="SBi-uN-enw" firstAttribute="top" secondItem="VWI-c6-0N0" secondAttribute="top" constant="4" id="Vew-LV-tti"/>
-                                                        <constraint firstItem="SBi-uN-enw" firstAttribute="leading" secondItem="VWI-c6-0N0" secondAttribute="leading" constant="4" id="agX-yc-4Zm"/>
-                                                        <constraint firstAttribute="bottom" secondItem="SBi-uN-enw" secondAttribute="bottom" constant="4" id="hHq-wz-GRq"/>
-                                                        <constraint firstAttribute="trailing" secondItem="SBi-uN-enw" secondAttribute="trailing" constant="4" id="rMZ-f9-kar"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                            <integer key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                            <color key="value" name="TextColor"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hp-Pv-tz6">
-                                                    <rect key="frame" x="0.0" y="127.66666666666667" width="393" height="52.333333333333329"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywe-3A-sci" userLabel="Title Label">
-                                                            <rect key="frame" x="10" y="2.9999999999999858" width="373" height="25.666666666666668"/>
-                                                            <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="20"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozzarella, Basil, Large tomato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xg-3i-JeE" userLabel="Ingredient Names Label">
-                                                            <rect key="frame" x="10" y="31.666666666666671" width="373" height="17.666666666666671"/>
-                                                            <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="1xg-3i-JeE" secondAttribute="trailing" constant="10" id="2kf-iX-Dt4"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Ywe-3A-sci" secondAttribute="trailing" constant="10" id="4oJ-Zb-h2S"/>
-                                                        <constraint firstItem="1xg-3i-JeE" firstAttribute="top" secondItem="Ywe-3A-sci" secondAttribute="bottom" constant="3" id="7ei-Ad-0Zf"/>
-                                                        <constraint firstItem="Ywe-3A-sci" firstAttribute="leading" secondItem="8hp-Pv-tz6" secondAttribute="leading" constant="10" id="Km4-dT-Efn"/>
-                                                        <constraint firstItem="Ywe-3A-sci" firstAttribute="top" secondItem="8hp-Pv-tz6" secondAttribute="top" constant="3" id="WTt-jJ-uO2"/>
-                                                        <constraint firstAttribute="bottom" secondItem="1xg-3i-JeE" secondAttribute="bottom" constant="3" id="dqf-pc-aKK"/>
-                                                        <constraint firstItem="1xg-3i-JeE" firstAttribute="leading" secondItem="8hp-Pv-tz6" secondAttribute="leading" constant="10" id="qrz-p5-Idg"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="8hp-Pv-tz6" secondAttribute="bottom" id="2fb-uD-ZgS"/>
-                                                <constraint firstItem="VWI-c6-0N0" firstAttribute="top" secondItem="dOT-ko-5v4" secondAttribute="topMargin" constant="4" id="3QI-aF-Ov2"/>
-                                                <constraint firstItem="VWI-c6-0N0" firstAttribute="trailing" secondItem="dOT-ko-5v4" secondAttribute="trailingMargin" constant="10" id="7yk-QG-2p6"/>
-                                                <constraint firstAttribute="bottom" secondItem="jBe-Zg-0kZ" secondAttribute="bottom" id="875-Hy-4KI"/>
-                                                <constraint firstAttribute="trailing" secondItem="jBe-Zg-0kZ" secondAttribute="trailing" id="8fH-fL-XL4"/>
-                                                <constraint firstAttribute="trailing" secondItem="8hp-Pv-tz6" secondAttribute="trailing" id="BVn-QF-0CN"/>
-                                                <constraint firstItem="8hp-Pv-tz6" firstAttribute="leading" secondItem="dOT-ko-5v4" secondAttribute="leading" id="M36-HF-TRi"/>
-                                                <constraint firstItem="jBe-Zg-0kZ" firstAttribute="leading" secondItem="dOT-ko-5v4" secondAttribute="leading" id="Qze-hk-Zxf"/>
-                                                <constraint firstItem="jBe-Zg-0kZ" firstAttribute="top" secondItem="dOT-ko-5v4" secondAttribute="top" id="ojd-pb-irI"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="BackgroundColor"/>
-                                        <connections>
-                                            <outlet property="ingredientNamesLabel" destination="1xg-3i-JeE" id="Jvw-bg-fzP"/>
-                                            <outlet property="recipeImageView" destination="jBe-Zg-0kZ" id="jJ8-2e-9Gy"/>
-                                            <outlet property="titleLabel" destination="Ywe-3A-sci" id="pki-WP-jnY"/>
-                                            <outlet property="totalTimeLabel" destination="fnG-BL-6Sk" id="6Lh-8a-LZp"/>
-                                            <outlet property="yieldLabel" destination="U2p-ea-mYz" id="Cao-iq-lNP"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -193,17 +53,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholder" width="113.09999847412109" height="113.29000091552734"/>
-        <image name="serving-dish" width="32" height="32"/>
-        <image name="timer" catalog="system" width="128" height="123"/>
         <namedColor name="BackgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SeparatorColor">
-            <color red="0.77600002288818359" green="0.77600002288818359" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TextColor">
-            <color red="0.21600000560283661" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

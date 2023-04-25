@@ -28,15 +28,21 @@ final class FridgeIngredientsViewController: UIViewController {
         fridgeIngredientsTableView.dataSource = self
         fridgeIngredientsTableView.delegate = self
         
+        ingredientViewModel.viewModelError.bind { [weak self] error in
+            if !error.isEmpty {
+                self?.presentAlert(error)
+            }
+        }
+        
         ingredientViewModel.ingredients.bind { [weak self] ingredients in
             // No DispatchQueue.main.async, IngredientViewModel is @MainActor
             guard let resultVC = self?.searchController.searchResultsController as? ResultsViewController else { return }
             resultVC.update(with: ingredients)
         }
         
-        ingredientViewModel.fridgeIngredients.bind { [weak self] _ in
+        ingredientViewModel.fridgeIngredients.bind { [weak self] fridgeIngredients in
             // No DispatchQueue.main.async, IngredientViewModel is @MainActor
-            self?.fridgeIngredientsTableView.reloadData()
+            self?.updateView(fridgeIngredients)
         }
     }
     
@@ -44,7 +50,7 @@ final class FridgeIngredientsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipesVC = segue.destination as? RecipesViewController {
             let fridgeIngredientsStr = ingredientViewModel.fridgeIngredients.value.joined(separator: ", ")
-            recipesVC.setQuery(with: fridgeIngredientsStr)
+            recipesVC.update(with: fridgeIngredientsStr)
         }
     }
     
@@ -63,15 +69,6 @@ final class FridgeIngredientsViewController: UIViewController {
     
     private func loadPreviousList() {
         ingredientViewModel.userDidLoadPreviousList()
-        UIView.transition(
-            with: self.fridgeIngredientsTableView,
-            duration: 0.3,
-            options: .transitionCrossDissolve,
-            animations: {
-                self.fridgeIngredientsTableView.reloadData()
-        })
-        clearSearchBar()
-        searchButton.show()
     }
     
     private func clearSearchBar() {
@@ -139,6 +136,19 @@ extension FridgeIngredientsViewController {
         )
         menu = UIMenu(options: .displayInline, children: [addItem, editItem])
         return menu
+    }
+    
+    private func updateView(_ fridgeIngredients: FridgeIngredients) {
+        guard !fridgeIngredients.isEmpty else { return }
+        UIView.transition(
+            with: self.fridgeIngredientsTableView,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: {
+                self.fridgeIngredientsTableView.reloadData()
+        })
+        clearSearchBar()
+        searchButton.show()
     }
 }
 

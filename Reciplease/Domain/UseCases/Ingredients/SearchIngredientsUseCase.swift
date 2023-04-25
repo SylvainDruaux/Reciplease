@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchIngredientsUseCaseProtocol {
-    func getIngredients(query: String) async throws -> IngredientResponse
+    func execute(query: String) async throws -> IngredientResponse
 }
 
 final class SearchIngredientsUseCase: SearchIngredientsUseCaseProtocol {
@@ -18,7 +18,7 @@ final class SearchIngredientsUseCase: SearchIngredientsUseCaseProtocol {
         self.ingredientRepository = ingredientRepository
     }
     
-    func getIngredients(query: String) async throws -> IngredientResponse {
-        try await ingredientRepository.getIngredients(query: query)
+    func execute(query: String) async throws -> IngredientResponse {
+        return try await ingredientRepository.getIngredients(query: query)
     }
 }

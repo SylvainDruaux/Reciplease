@@ -86,8 +86,7 @@ extension RecipeResponseDTO.HitDTO {
             imageUrl = imageRegularUrl
         }
         
-        return .init(id: UUID(),
-                     label: recipe.label,
+        return .init(label: recipe.label,
                      imageUrl: imageUrl,
                      sourceUrl: recipe.url,
                      yield: recipe.yield,

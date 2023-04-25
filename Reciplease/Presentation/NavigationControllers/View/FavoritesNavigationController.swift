@@ -9,13 +9,13 @@ import UIKit
 
 final class FavoritesNavigationController: UINavigationController {
     
-    private static let storyboardName = "RecipesView"
+    private static let storyboardName = "FavoriteRecipesView"
     
     override func viewDidLoad() {
         super.viewDidLoad()        
         
         let storyboard = UIStoryboard(name: FavoritesNavigationController.storyboardName, bundle: nil)
-        guard let rootViewController = storyboard.instantiateInitialViewController() as? RecipesViewController else {
+        guard let rootViewController = storyboard.instantiateInitialViewController() as? FavoriteRecipesViewController else {
             return
         }
         self.setViewControllers([rootViewController], animated: false)

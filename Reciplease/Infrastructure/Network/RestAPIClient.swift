@@ -10,7 +10,7 @@ import Alamofire
 
 enum DataError: Error {
     case noData
-    case decodingError(Error)
+    case decodingError(String)
     case apiError(String)
 }
 
@@ -23,35 +23,29 @@ final class RestAPIClient: RestAPIClientProtocol {
     }
     
     func fetchData<T: Decodable>(route: APIRouter) async throws -> T {
-        let result = await alamofireService.request(with: route).result
-        switch result {
-        case .success(let data):
+        do {
+            let data = try await alamofireService.request(with: route)
             guard let data = data else { throw DataError.noData }
-            do {
-                return try JSONDecoder().decode(T.self, from: data)
-            } catch DecodingError.dataCorrupted(let context) {
-                fatalError("Data Corrupted or invalid JSON: \(context)")
-            } catch DecodingError.keyNotFound(let key, let context) {
-                fatalError("Key '\(key.stringValue)' not found: \(context.debugDescription)")
-            } catch DecodingError.valueNotFound(let value, let context) {
-                fatalError("Value '\(value)' not found: \(context.debugDescription)")
-            } catch DecodingError.typeMismatch(let type, let context) {
-                fatalError("Type '\(type)' mismatch: \(context.debugDescription)")
-            } catch {
-                throw DataError.decodingError(error)
-            }
-        case .failure(let error):
+            return try JSONDecoder().decode(T.self, from: data)
+        } catch DecodingError.dataCorrupted(let context) {
+            throw DataError.decodingError("Data Corrupted or invalid JSON: \(context)")
+        } catch DecodingError.keyNotFound(let key, let context) {
+            throw DataError.decodingError("Key '\(key.stringValue)' not found: \(context.debugDescription)")
+        } catch DecodingError.valueNotFound(let value, let context) {
+            throw DataError.decodingError("Value '\(value)' not found: \(context.debugDescription)")
+        } catch DecodingError.typeMismatch(let type, let context) {
+            throw DataError.decodingError("Type '\(type)' mismatch: \(context.debugDescription)")
+        } catch {
             throw DataError.apiError(error.localizedDescription)
         }
     }
         
     func fetchRawData(route: APIRouter) async throws -> Data {
-        let result = await alamofireService.request(with: route).result
-        switch result {
-        case .success(let data):
+        do {
+            let data = try await alamofireService.request(with: route)
             guard let data = data else { throw DataError.noData }
             return data
-        case .failure(let error):
+        } catch {
             throw DataError.apiError(error.localizedDescription)
         }
     }

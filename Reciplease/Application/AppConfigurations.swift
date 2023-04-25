@@ -12,8 +12,8 @@ final class AppConfiguration {
     
     private func getValue(forKey key: String) -> String {
         guard let value = Bundle.main.object(forInfoDictionaryKey: key) as? String else {
-             fatalError("Missing \(key)")
-         }
+            fatalError("Missing \(key)")
+        }
         return value
     }
     
