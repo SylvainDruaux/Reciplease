@@ -38,10 +38,9 @@ final class RecipeDetailsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // Bug fix: the tableview doesn't take the full width of the screen despite the constraints.
-        let screenWidth = UIScreen.main.bounds.width
-        recipeDetailsTableView.frame.size.width = screenWidth
-        recipeImageView.frame.size.width = screenWidth
+        // Bug fix: the ImageView doesn't take the full width of the screen despite the constraints.
+        recipeImageView.setNeedsLayout()
+        recipeImageView.layoutIfNeeded()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -42,7 +42,7 @@ enum AppearanceOption: CaseIterable {
         case .darkMode:
             return "moon.fill"
         case .deviceSettings:
-            return "square.lefthalf.filled"
+            return "circle.lefthalf.filled"
         }
     }
 }

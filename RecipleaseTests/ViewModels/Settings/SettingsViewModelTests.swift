@@ -24,7 +24,7 @@ class SettingsViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel[0].icon, "info.circle.fill")
         XCTAssertEqual(viewModel[1].title, "Appearance")
         XCTAssertEqual(viewModel[1].details, "Use device settings")
-        XCTAssertEqual(viewModel[1].icon, "square.lefthalf.filled")
+        XCTAssertEqual(viewModel[1].icon, "circle.lefthalf.filled")
     }
     
     func test_SettingsLightMode() {

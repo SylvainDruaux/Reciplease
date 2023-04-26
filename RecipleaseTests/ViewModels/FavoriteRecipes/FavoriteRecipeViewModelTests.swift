@@ -101,6 +101,7 @@ class FavoriteRecipeViewModelTests: XCTestCase {
         favoriteRecipeViewModel.recipes.bind { recipes in
             if bindCount == 1 {
                 // Then
+                guard let recipes else { return }
                 XCTAssertEqual(recipes.first?.label, "My recipe")
             }
             bindCount += 1

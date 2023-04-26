@@ -42,7 +42,7 @@
                                             <color key="tintColor" name="SeparatorColor"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-js-6xf" userLabel="TitleView">
-                                            <rect key="frame" x="309" y="4" width="74" height="64"/>
+                                            <rect key="frame" x="309" y="10" width="74" height="64"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XH1-6K-3Ah">
                                                     <rect key="frame" x="4" y="4" width="66" height="56"/>
@@ -133,7 +133,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="SBO-js-6xf" secondAttribute="trailing" constant="10" id="3EU-jF-gO1"/>
                                         <constraint firstItem="i70-gp-QqK" firstAttribute="leading" secondItem="gIb-jg-Osd" secondAttribute="leading" id="aOh-qp-3A7"/>
-                                        <constraint firstItem="SBO-js-6xf" firstAttribute="top" secondItem="gIb-jg-Osd" secondAttribute="top" constant="4" id="dur-s4-Ebd"/>
+                                        <constraint firstItem="SBO-js-6xf" firstAttribute="top" secondItem="gIb-jg-Osd" secondAttribute="top" constant="10" id="dur-s4-Ebd"/>
                                         <constraint firstAttribute="trailing" secondItem="i70-gp-QqK" secondAttribute="trailing" id="nVa-kg-FcF"/>
                                         <constraint firstAttribute="bottom" secondItem="i70-gp-QqK" secondAttribute="bottom" id="tPm-pO-LyX"/>
                                     </constraints>

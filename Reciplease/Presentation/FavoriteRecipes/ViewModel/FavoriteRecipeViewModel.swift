@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 final class FavoriteRecipeViewModel {
-    let recipes: Box<[Recipe]> = Box([])
+    let recipes: Box<[Recipe]?> = Box(nil)
     let isFavorite: Box<Bool> = Box(false)
     var errorDescription: Box<String> = Box("")
     

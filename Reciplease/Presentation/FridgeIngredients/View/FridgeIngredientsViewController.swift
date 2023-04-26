@@ -30,7 +30,7 @@ final class FridgeIngredientsViewController: UIViewController {
         
         ingredientViewModel.errorDescription.bind { [weak self] error in
             if !error.isEmpty {
-                self?.presentAlert(error)
+                self?.presentAlert(title: "Error", message: error)
             }
         }
         

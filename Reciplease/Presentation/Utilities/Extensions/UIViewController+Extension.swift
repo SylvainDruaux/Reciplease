@@ -16,14 +16,18 @@ extension UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
             return
         }
+        okAction.setValue(UIColor(named: "TextColor"), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor(named: "TextColor"), forKey: "titleTextColor")
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }
     
-    func presentAlert(_ message: String) {
-        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel))
+    func presentAlert(title: String? = nil, message: String, actionTitle: String = "OK") {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: actionTitle, style: .cancel)
+        alertAction.setValue(UIColor(named: "TextColor"), forKey: "titleTextColor")
+        alertVC.addAction(alertAction)
         self.present(alertVC, animated: true)
     }
 }
