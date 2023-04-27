@@ -10,6 +10,7 @@ import UIKit
 final class FavoriteRecipesViewController: UIViewController {
 
     @IBOutlet private var favoriteRecipesTableView: UITableView!
+    @IBOutlet var informationLabel: UILabel!
     
     private let favoriteRecipeViewModel = FavoriteRecipeViewModel()
     private var tableViewHeight: CGFloat?
@@ -33,7 +34,15 @@ final class FavoriteRecipesViewController: UIViewController {
             // No DispatchQueue.main.async, RecipeViewModel is @MainActor
             self?.favoriteRecipesTableView.reloadData()
             if let recipes, recipes.isEmpty {
-                self?.presentAlert(message: NSLocalizedString("how_to_use_favorites", comment: "Explanation on how to use favorites"))
+                self?.favoriteRecipesTableView.isHidden = true
+                self?.informationLabel.isEnabled = true
+                self?.informationLabel.isHidden = false
+                let explanation = NSLocalizedString("how_to_use_favorites", comment: "Explanation on how to use favorites")
+                self?.informationLabel.configureText(explanation)
+            } else {
+                self?.informationLabel.isHidden = true
+                self?.informationLabel.isEnabled = false
+                self?.favoriteRecipesTableView.isHidden = false
             }
         }
     }

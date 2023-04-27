@@ -65,6 +65,24 @@ class RecipeRepositoryTests: XCTestCase {
         } catch { }
     }
     
+    func test_fetchRecipes_Failed_NoData() async {
+        // Given
+        let query = "tomato, mozzarella, pasta"
+        
+        let alamofireServiceMock = AlamofireServiceMock(responseMock: ResponseMock(response: RecipesResponseDataFake.responseOK,
+                                                                                   data: RecipesResponseDataFake.recipeNoData)
+        )
+        let restAPIClient = RestAPIClient(alamofireService: alamofireServiceMock)
+        let recipeRepository = RecipeRepository(restAPIClient: restAPIClient)
+        
+        // When
+        do {
+            _ = try await recipeRepository.getRecipes(query: query)
+            // Then
+            XCTFail("Error")
+        } catch { }
+    }
+    
     func test_getNextRecipes_Success_CorectData() async throws {
         // Given
         let url = "https://fake.com"
@@ -121,6 +139,24 @@ class RecipeRepositoryTests: XCTestCase {
         } catch { }
     }
     
+    func test_getNextRecipes_Failed_NoData() async {
+        // Given
+        let url = "https://fake.com"
+        
+        let alamofireServiceMock = AlamofireServiceMock(responseMock: ResponseMock(response: RecipesResponseDataFake.responseOK,
+                                                                                   data: RecipesResponseDataFake.recipeNoData)
+        )
+        let restAPIClient = RestAPIClient(alamofireService: alamofireServiceMock)
+        let recipeRepository = RecipeRepository(restAPIClient: restAPIClient)
+        
+        // When
+        do {
+            _ = try await recipeRepository.getNextRecipes(url: url)
+            // Then
+            XCTFail("Error")
+        } catch { }
+    }
+    
     func test_getImage_Success_CorrectData() async throws {
         // Given
         let url = "https://fake.com"
@@ -136,5 +172,41 @@ class RecipeRepositoryTests: XCTestCase {
         
         // Then
         XCTAssertNotNil(imageData)
+    }
+    
+    func test_getImage_Failed_IncorrectResponse() async throws {
+        // Given
+        let url = "https://fake.com"
+        
+        let alamofireServiceMock = AlamofireServiceMock(responseMock: ResponseMock(response: RecipesResponseDataFake.responseKO,
+                                                                                   data: RecipesResponseDataFake.recipeCorrectData)
+        )
+        let restAPIClient = RestAPIClient(alamofireService: alamofireServiceMock)
+        let recipeRepository = RecipeRepository(restAPIClient: restAPIClient)
+        
+        // When
+        do {
+            _ = try await recipeRepository.getImage(url: url)
+            // Then
+            XCTFail("Error")
+        } catch { }
+    }
+    
+    func test_getImage_Failed_NoData() async throws {
+        // Given
+        let url = "https://fake.com"
+        
+        let alamofireServiceMock = AlamofireServiceMock(responseMock: ResponseMock(response: RecipesResponseDataFake.responseKO,
+                                                                                   data: RecipesResponseDataFake.recipeNoData)
+        )
+        let restAPIClient = RestAPIClient(alamofireService: alamofireServiceMock)
+        let recipeRepository = RecipeRepository(restAPIClient: restAPIClient)
+        
+        // When
+        do {
+            _ = try await recipeRepository.getImage(url: url)
+            // Then
+            XCTFail("Error")
+        } catch { }
     }
 }

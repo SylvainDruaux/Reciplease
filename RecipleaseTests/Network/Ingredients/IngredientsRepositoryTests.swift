@@ -61,4 +61,22 @@ class IngredientsRepositoryTests: XCTestCase {
             XCTFail("Error")
         } catch { }
     }
+    
+    func test_fetchIngredients_Failed_NoData() async {
+        // Given
+        let query = "tom"
+        
+        let alamofireServiceMock = AlamofireServiceMock(responseMock: ResponseMock(response: IngredientsResponseDataFake.responseOK,
+                                                                                   data: IngredientsResponseDataFake.ingredientNoData)
+        )
+        let restAPIClient = RestAPIClient(alamofireService: alamofireServiceMock)
+        let ingredientRepository = IngredientRepository(restAPIClient: restAPIClient)
+        
+        // When
+        do {
+            _ = try await ingredientRepository.getIngredients(query: query)
+            // Then
+            XCTFail("Error")
+        } catch { }
+    }
 }

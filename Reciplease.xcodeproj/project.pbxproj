@@ -112,6 +112,7 @@
 		E49E87E029F13BAC00E495C9 /* FridgeIngredientsUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49E87DF29F13BAC00E495C9 /* FridgeIngredientsUseCasesTests.swift */; };
 		E49E87E229F13EA500E495C9 /* RecipeRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49E87E129F13EA500E495C9 /* RecipeRepositoryMock.swift */; };
 		E49E87E429F1400000E495C9 /* RecipesUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49E87E329F1400000E495C9 /* RecipesUseCasesTests.swift */; };
+		E4B328E229FAD4F000C16318 /* RecipeEntity+MappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B328E129FAD4F000C16318 /* RecipeEntity+MappingTests.swift */; };
 		E4B8EB2E29C20C6300BA0B8C /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8EB2D29C20C6300BA0B8C /* UserPreferences.swift */; };
 		E4D3466D29F6CCA300CE5066 /* FridgeIngredientDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3466C29F6CCA300CE5066 /* FridgeIngredientDataSourceTests.swift */; };
 		E4D3467029F6CEAD00CE5066 /* FavoriteRecipeDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D3466F29F6CEAD00CE5066 /* FavoriteRecipeDataSourceTests.swift */; };
@@ -268,6 +269,7 @@
 		E49E87DF29F13BAC00E495C9 /* FridgeIngredientsUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientsUseCasesTests.swift; sourceTree = "<group>"; };
 		E49E87E129F13EA500E495C9 /* RecipeRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepositoryMock.swift; sourceTree = "<group>"; };
 		E49E87E329F1400000E495C9 /* RecipesUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesUseCasesTests.swift; sourceTree = "<group>"; };
+		E4B328E129FAD4F000C16318 /* RecipeEntity+MappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeEntity+MappingTests.swift"; sourceTree = "<group>"; };
 		E4B8EB2D29C20C6300BA0B8C /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		E4D3466C29F6CCA300CE5066 /* FridgeIngredientDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientDataSourceTests.swift; sourceTree = "<group>"; };
 		E4D3466F29F6CEAD00CE5066 /* FavoriteRecipeDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeDataSourceTests.swift; sourceTree = "<group>"; };
@@ -349,7 +351,6 @@
 				4FB0996829B255D60055ED74 /* Domain */,
 				4FB0996929B255EB0055ED74 /* Data */,
 				4FB0997029B256A40055ED74 /* Infrastructure */,
-				4FB0997229B257360055ED74 /* Common */,
 				4FB0997329B257490055ED74 /* Resources */,
 			);
 			path = Reciplease;
@@ -388,7 +389,6 @@
 		4FB0995F29B250CA0055ED74 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				4FB0996129B2517D0055ED74 /* Flows */,
 				E400B7D129B63CF800CC82C2 /* NavigationControllers */,
 				E4F5A75129EDAD0900325E24 /* Cell */,
 				4FB0996329B252BF0055ED74 /* FridgeIngredients */,
@@ -399,13 +399,6 @@
 				E400B7E029B64E9900CC82C2 /* Utilities */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		4FB0996129B2517D0055ED74 /* Flows */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Flows;
 			sourceTree = "<group>";
 		};
 		4FB0996229B252720055ED74 /* Recipes */ = {
@@ -513,13 +506,6 @@
 				E4698CC729E6CAA200B6090E /* AlamofireService.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		4FB0997229B257360055ED74 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		4FB0997329B257490055ED74 /* Resources */ = {
@@ -852,6 +838,7 @@
 		E4698CDD29E80D8000B6090E /* PersistentStorage */ = {
 			isa = PBXGroup;
 			children = (
+				E4B328E129FAD4F000C16318 /* RecipeEntity+MappingTests.swift */,
 				E4D3467229F6CFDA00CE5066 /* Repositories */,
 				E4D3467129F6CFCE00CE5066 /* DataSources */,
 			);
@@ -1362,6 +1349,7 @@
 				E437E9D229F28D5900949A05 /* FetchRecipeImageUseCaseMock.swift in Sources */,
 				E49E87E029F13BAC00E495C9 /* FridgeIngredientsUseCasesTests.swift in Sources */,
 				E4698CCC29E70DF600B6090E /* IngredientsRepositoryTests.swift in Sources */,
+				E4B328E229FAD4F000C16318 /* RecipeEntity+MappingTests.swift in Sources */,
 				E4D3467629F6D74800CE5066 /* FavoriteRecipeDataSourceMock.swift in Sources */,
 				E44A2F1629F59FD6005BC610 /* AppearanceViewModelTests.swift in Sources */,
 				E4D3467429F6D05500CE5066 /* FridgeIngredientDataSourceMock.swift in Sources */,

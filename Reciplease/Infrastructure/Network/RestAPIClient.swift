@@ -29,17 +29,11 @@ final class RestAPIClient: RestAPIClientProtocol {
             return try JSONDecoder().decode(T.self, from: data)
         } catch DecodingError.dataCorrupted(let context) {
             throw DataError.decodingError("Data Corrupted or invalid JSON: \(context)")
-        } catch DecodingError.keyNotFound(let key, let context) {
-            throw DataError.decodingError("Key '\(key.stringValue)' not found: \(context.debugDescription)")
-        } catch DecodingError.valueNotFound(let value, let context) {
-            throw DataError.decodingError("Value '\(value)' not found: \(context.debugDescription)")
-        } catch DecodingError.typeMismatch(let type, let context) {
-            throw DataError.decodingError("Type '\(type)' mismatch: \(context.debugDescription)")
         } catch {
             throw DataError.apiError(error.localizedDescription)
         }
     }
-        
+    
     func fetchRawData(route: APIRouter) async throws -> Data {
         do {
             let data = try await alamofireService.request(with: route)

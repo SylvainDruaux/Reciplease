@@ -32,6 +32,11 @@ class RecipesResponseDataFake {
     // MARK: - Incorrect Data
     static let recipeIncorrectData = "error".data(using: .utf8)!
     
+    // MARK: - No Data
+    static var recipeNoData: Data? {
+        return nil
+    }
+    
     // MARK: - Response
     static let responseOK = HTTPURLResponse(
         url: URL(string: "https://fake.com")!,
