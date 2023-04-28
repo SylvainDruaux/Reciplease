@@ -10,20 +10,33 @@ import WebKit
 
 class RecipeWebPageViewController: UIViewController {
     
-    @IBOutlet var webView: WKWebView!
+    @IBOutlet private var webView: WKWebView!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
     var recipeURL: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        webView.navigationDelegate = self
         initRecipeWebPage()
     }
     
     private func initRecipeWebPage() {
         guard let recipeURL else { return }
-        let config = webView.configuration
-        let prefs = config.defaultWebpagePreferences
-        prefs?.allowsContentJavaScript = true
-        webView.load(URLRequest(url: recipeURL))
+        let request = URLRequest(url: recipeURL)
+        webView.load(request)
+        webView.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+    }
+}
+
+extension RecipeWebPageViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        activityIndicator.stopAnimating()
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        activityIndicator.stopAnimating()
     }
 }

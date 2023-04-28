@@ -11,7 +11,7 @@ import Foundation
 final class RecipeViewModel {
     let recipes: Box<[Recipe]> = Box([])
     let imageData: Box<Data?> = Box(nil)
-    var errorDescription: Box<String> = Box("")
+    let errorDescription: Box<String> = Box("")
     var nextRecipesLink: String = ""
     
     private let fetchRecipesPageUseCase: FetchRecipesPageUseCaseProtocol

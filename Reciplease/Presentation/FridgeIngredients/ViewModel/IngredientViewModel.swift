@@ -11,7 +11,7 @@ import Foundation
 final class IngredientViewModel {
     let ingredients: Box<IngredientResponse> = Box([])
     let fridgeIngredients: Box<FridgeIngredients> = Box([])
-    var errorDescription: Box<String> = Box("")
+    let errorDescription: Box<String> = Box("")
     
     private let searchIngredientsUseCase: SearchIngredientsUseCaseProtocol
     private let saveFridgeIngredientsUseCase: SaveFridgeIngredientsUseCaseProtocol

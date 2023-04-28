@@ -250,23 +250,29 @@
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWX-hS-kPm">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
-                                <wkWebViewConfiguration key="configuration">
+                                <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eRI-6J-QBR">
+                                <rect key="frame" x="178" y="402.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aeS-3g-tKs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="IWX-hS-kPm" firstAttribute="top" secondItem="aeS-3g-tKs" secondAttribute="top" id="9pu-vE-ZTF"/>
                             <constraint firstItem="aeS-3g-tKs" firstAttribute="trailing" secondItem="IWX-hS-kPm" secondAttribute="trailing" id="S4D-N8-TqX"/>
+                            <constraint firstItem="eRI-6J-QBR" firstAttribute="centerX" secondItem="GXB-ca-qkW" secondAttribute="centerX" id="Wbu-mi-cZ8"/>
                             <constraint firstItem="IWX-hS-kPm" firstAttribute="leading" secondItem="aeS-3g-tKs" secondAttribute="leading" id="YTl-wr-1CV"/>
+                            <constraint firstItem="eRI-6J-QBR" firstAttribute="centerY" secondItem="GXB-ca-qkW" secondAttribute="centerY" id="d3R-Q3-01q"/>
                             <constraint firstItem="aeS-3g-tKs" firstAttribute="bottom" secondItem="IWX-hS-kPm" secondAttribute="bottom" id="h7v-Hh-M83"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gbI-cv-uO1"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="eRI-6J-QBR" id="ZiA-0w-ywa"/>
                         <outlet property="webView" destination="IWX-hS-kPm" id="zyE-5m-Q3o"/>
                     </connections>
                 </viewController>

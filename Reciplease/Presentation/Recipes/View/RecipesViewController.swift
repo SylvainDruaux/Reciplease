@@ -15,7 +15,6 @@ final class RecipesViewController: UIViewController {
     private var tableViewHeight: CGFloat?
     
     private var detailedRecipe: Recipe?
-    private var detailedRecipeImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +47,10 @@ final class RecipesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipeDetailsVC = segue.destination as? RecipeDetailsViewController {
             recipeDetailsVC.recipe = detailedRecipe
-            recipeDetailsVC.recipeImage = detailedRecipeImage
         }
     }
     
-    func createActivityIndicator() -> UIView {
+    private func createActivityIndicator() -> UIView {
         let frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 180)
         let footerView = UIView(frame: frame)
         let indicator = UIActivityIndicatorView()
@@ -83,8 +81,6 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         detailedRecipe = recipeViewModel.recipes.value[indexPath.row]
-        guard let cell = tableView.cellForRow(at: indexPath) as? RecipeTableViewCell else { return }
-        detailedRecipeImage = cell.recipeImageView.image
         performSegue(withIdentifier: "goToRecipeDetails", sender: nil)
     }
 

@@ -14,25 +14,38 @@ final class RecipeDetailsViewController: UIViewController {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var yieldLabel: UILabel!
     @IBOutlet private var totalTimeLabel: UILabel!
+    @IBOutlet private var favoriteBarButtonItem: UIBarButtonItem!
     
-    @IBOutlet var favoriteBarButtonItem: UIBarButtonItem!
-        
     private let favoriteRecipeViewModel = FavoriteRecipeViewModel()
+    private let recipeViewModel = RecipeViewModel()
     var recipe: Recipe?
-    var recipeImage: UIImage?
     private var ingredientLines: [String]?
-    private var recipeURL: URL?
     private lazy var totalTimeFontSize = totalTimeLabel.font.pointSize
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeDetailsTableView.dataSource = self
         recipeDetailsTableView.delegate = self
+        
+        favoriteRecipeViewModel.isFavorite.bind { [weak self] success in
+            if success {
+                self?.favoriteBarButtonItem.image = UIImage(systemName: "star.fill")
+            } else {
+                self?.favoriteBarButtonItem.image = UIImage(systemName: "star")
+            }
+        }
+        
+        recipeViewModel.imageData.bind { [weak self] imageData in
+            // No DispatchQueue.main.async, RecipeViewModel is @MainActor
+            guard let imageData else { return }
+            guard let imageView = self?.recipeImageView else { return }
+            imageView.image = UIImage(data: imageData)
+            imageView.contentMode = .scaleAspectFill
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureImage(with: recipeImage)
         configure(with: recipe)
     }
     
@@ -45,21 +58,15 @@ final class RecipeDetailsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipeWebPageVC = segue.destination as? RecipeWebPageViewController {
-            recipeWebPageVC.recipeURL = recipeURL
+            guard let recipe else { return }
+            recipeWebPageVC.recipeURL = URL(string: recipe.sourceUrl)
         }
     }
     
     private func configure(with recipe: Recipe?) {
         guard let recipe else { return }
-        favoriteRecipeViewModel.isFavorite.bind { [weak self] success in
-            if success {
-                self?.favoriteBarButtonItem.image = UIImage(systemName: "star.fill")
-            } else {
-                self?.favoriteBarButtonItem.image = UIImage(systemName: "star")
-            }
-        }
         favoriteRecipeViewModel.isFavorite(recipe: recipe)
-        
+        recipeViewModel.fetchImage(with: recipe.imageUrl)
         titleLabel.text = recipe.label
         yieldLabel.text = recipe.yield.isZero ? "N/A" : recipe.yield.decimalNotation
         totalTimeLabel.text = recipe.totalTime.isZero ? "N/A" : recipe.totalTime.timeNotation
@@ -71,19 +78,12 @@ final class RecipeDetailsViewController: UIViewController {
         ingredientLines = recipe.ingredientLines
     }
     
-    private func configureImage(with image: UIImage?) {
-        recipeImageView.contentMode = .scaleAspectFill
-        recipeImageView.image = recipeImage
-    }
-    
     @IBAction private func favoriteButton(_ sender: UIBarButtonItem) {
         guard let recipe else { return }
         favoriteRecipeViewModel.userDidTapFavoriteButton(with: recipe)
     }
     
     @IBAction private func showDirections(_ sender: UIButton) {
-        guard let recipe else { return }
-        recipeURL = URL(string: recipe.sourceUrl)
         performSegue(withIdentifier: "goToWebPage", sender: nil)
     }
 }

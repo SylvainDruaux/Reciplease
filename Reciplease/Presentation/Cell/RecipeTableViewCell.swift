@@ -8,7 +8,7 @@
 import UIKit
 
 final class RecipeTableViewCell: UITableViewCell {
-    @IBOutlet var recipeImageView: UIImageView!
+    @IBOutlet private var recipeImageView: UIImageView!
     @IBOutlet private var ingredientNamesLabel: UILabel!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var yieldLabel: UILabel!
@@ -17,16 +17,20 @@ final class RecipeTableViewCell: UITableViewCell {
     private let viewModel = RecipeViewModel()
     private lazy var totalTimeFontSize = totalTimeLabel.font.pointSize
     
-    func configure(with model: Recipe) {
-        let imageUrl = model.imageUrl
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        viewModel.imageData.bind { imageData in
+        viewModel.imageData.bind { [weak self] imageData in
             // No DispatchQueue.main.async, RecipeViewModel is @MainActor
             guard let imageData else { return }
-            guard let imageView = self.recipeImageView else { return }
+            guard let imageView = self?.recipeImageView else { return }
             imageView.image = UIImage(data: imageData)
             imageView.contentMode = .scaleAspectFill
         }
+    }
+    
+    func configure(with model: Recipe) {
+        let imageUrl = model.imageUrl
         viewModel.fetchImage(with: imageUrl)
         
         ingredientNamesLabel.text = model.ingredients.joined(separator: ", ")

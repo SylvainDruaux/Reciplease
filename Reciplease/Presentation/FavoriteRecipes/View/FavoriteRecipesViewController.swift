@@ -10,13 +10,12 @@ import UIKit
 final class FavoriteRecipesViewController: UIViewController {
 
     @IBOutlet private var favoriteRecipesTableView: UITableView!
-    @IBOutlet var informationLabel: UILabel!
+    @IBOutlet private var informationLabel: UILabel!
     
     private let favoriteRecipeViewModel = FavoriteRecipeViewModel()
     private var tableViewHeight: CGFloat?
     
     private var detailedRecipe: Recipe?
-    private var detailedRecipeImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +59,6 @@ final class FavoriteRecipesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipeDetailsVC = segue.destination as? RecipeDetailsViewController {
             recipeDetailsVC.recipe = detailedRecipe
-            recipeDetailsVC.recipeImage = detailedRecipeImage
-            recipeDetailsVC.favoriteBarButtonItem.image = UIImage(systemName: "star.fill")
         }
     }
 }
@@ -88,8 +85,6 @@ extension FavoriteRecipesViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let recipes = favoriteRecipeViewModel.recipes.value else { return }
         detailedRecipe = recipes[indexPath.row]
-        guard let cell = tableView.cellForRow(at: indexPath) as? RecipeTableViewCell else { return }
-        detailedRecipeImage = cell.recipeImageView.image
         performSegue(withIdentifier: "goToRecipeDetails", sender: nil)
     }
     

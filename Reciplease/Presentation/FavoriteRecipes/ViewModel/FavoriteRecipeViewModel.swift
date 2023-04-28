@@ -11,7 +11,7 @@ import Foundation
 final class FavoriteRecipeViewModel {
     let recipes: Box<[Recipe]?> = Box(nil)
     let isFavorite: Box<Bool> = Box(false)
-    var errorDescription: Box<String> = Box("")
+    let errorDescription: Box<String> = Box("")
     
     private let saveFavoriteRecipesUseCase: SaveFavoriteRecipesUseCaseProtocol
     private let fetchFavoriteRecipesUseCase: FetchFavoriteRecipesUseCaseProtocol

@@ -16,7 +16,7 @@ final class AppearanceViewController: UIViewController {
     @IBOutlet private var appearanceTableView: UITableView!
     
     private var viewModel = AppearanceViewModel().cellsViewModel
-    private let userInterfaceStyle = UserPreferences.userInterfaceStyle
+    private let userInterfaceStyle = UserPreferences.userInterfaceStyle ?? "unspecified"
     
     weak var delegate: AppearanceViewControllerDelegate?
     
