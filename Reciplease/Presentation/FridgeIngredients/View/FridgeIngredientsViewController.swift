@@ -8,14 +8,13 @@
 import UIKit
 
 final class FridgeIngredientsViewController: UIViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet private var fridgeIngredientsTableView: UITableView!
     @IBOutlet private var searchButton: UIButton!
     
     // MARK: - Properties
     private let ingredientViewModel = IngredientViewModel()
-    
     private var menuButton: UIBarButtonItem!
     private var menu: UIMenu!
     private let searchController = UISearchController(searchResultsController: ResultsViewController())
@@ -172,7 +171,7 @@ extension FridgeIngredientsViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         var actions = [UIContextualAction]()
         

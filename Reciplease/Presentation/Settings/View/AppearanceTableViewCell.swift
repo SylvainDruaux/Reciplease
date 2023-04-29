@@ -8,9 +8,11 @@
 import UIKit
 
 final class AppearanceTableViewCell: UITableViewCell {
-
+    
+    // MARK: - Outlets
     @IBOutlet private var appearanceLabel: UILabel!
-        
+    
+    // MARK: - View
     func configure(with model: AppearanceCellViewModel) {
         appearanceLabel.text = model.name
     }

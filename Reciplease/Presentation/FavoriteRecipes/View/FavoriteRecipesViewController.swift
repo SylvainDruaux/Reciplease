@@ -8,15 +8,17 @@
 import UIKit
 
 final class FavoriteRecipesViewController: UIViewController {
-
+    
+    // MARK: - Outlets
     @IBOutlet private var favoriteRecipesTableView: UITableView!
     @IBOutlet private var informationLabel: UILabel!
     
+    // MARK: - Properties
     private let favoriteRecipeViewModel = FavoriteRecipeViewModel()
     private var tableViewHeight: CGFloat?
-    
     private var detailedRecipe: Recipe?
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteRecipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
@@ -56,6 +58,7 @@ final class FavoriteRecipesViewController: UIViewController {
         tableViewHeight = favoriteRecipesTableView.frame.height
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipeDetailsVC = segue.destination as? RecipeDetailsViewController {
             recipeDetailsVC.recipe = detailedRecipe

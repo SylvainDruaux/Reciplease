@@ -13,7 +13,7 @@ final class SearchNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let storyboard = UIStoryboard(name: SearchNavigationController.storyboardName, bundle: nil)
         guard let rootViewController = storyboard.instantiateInitialViewController() as? FridgeIngredientsViewController else {
             return

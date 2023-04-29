@@ -8,11 +8,14 @@
 import UIKit
 
 final class SettingsViewController: UIViewController {
-
+    
+    // MARK: - Outlets
     @IBOutlet private var settingsTableView: UITableView!
     
+    // MARK: - Properties
     private var viewModel = SettingViewModel().cellsViewModel
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +41,8 @@ final class SettingsViewController: UIViewController {
     }
 }
 
-extension SettingsViewController: UITableViewDataSource {
+// MARK: - TableView DataSource & Delegate
+extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
     }
@@ -65,8 +69,6 @@ extension SettingsViewController: UITableViewDataSource {
         }
     }
 }
-
-extension SettingsViewController: UITableViewDelegate { }
 
 // MARK: - AppearanceViewController Delegate to update the chosen appearance
 extension SettingsViewController: AppearanceViewControllerDelegate {

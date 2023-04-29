@@ -8,15 +8,19 @@
 import UIKit
 
 final class RecipeTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
     @IBOutlet private var recipeImageView: UIImageView!
     @IBOutlet private var ingredientNamesLabel: UILabel!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var yieldLabel: UILabel!
     @IBOutlet private var totalTimeLabel: UILabel!
     
+    // MARK: - Properties
     private let viewModel = RecipeViewModel()
     private lazy var totalTimeFontSize = totalTimeLabel.font.pointSize
     
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -29,6 +33,7 @@ final class RecipeTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - View
     func configure(with model: Recipe) {
         let imageUrl = model.imageUrl
         viewModel.fetchImage(with: imageUrl)

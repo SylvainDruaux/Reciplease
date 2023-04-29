@@ -8,11 +8,13 @@
 import UIKit
 
 final class SettingsTableViewCell: UITableViewCell {
-
+    
+    // MARK: - Outlets
     @IBOutlet private var iconImageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var detailsLabel: UILabel!
     
+    // MARK: - View
     func configure(with model: SettingCellViewModel) {
         iconImageView.image = UIImage(systemName: model.icon)
         titleLabel.text = model.title

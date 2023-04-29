@@ -9,9 +9,11 @@ import UIKit
 
 final class RecipeDetailsTableViewCell: UITableViewCell {
     
+    // MARK: - Outlets
     @IBOutlet var hyphenLabel: UILabel!
     @IBOutlet var recipeIngredientLine: UILabel!
     
+    // MARK: - View
     func configure(with model: String) {
         recipeIngredientLine.text = model.capitalizedSentence
         let numberOfLines = recipeIngredientLine.lines

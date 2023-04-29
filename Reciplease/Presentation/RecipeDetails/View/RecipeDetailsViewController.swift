@@ -8,7 +8,8 @@
 import UIKit
 
 final class RecipeDetailsViewController: UIViewController {
-
+    
+    // MARK: - Outlets
     @IBOutlet private var recipeDetailsTableView: UITableView!
     @IBOutlet private var recipeImageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
@@ -16,12 +17,14 @@ final class RecipeDetailsViewController: UIViewController {
     @IBOutlet private var totalTimeLabel: UILabel!
     @IBOutlet private var favoriteBarButtonItem: UIBarButtonItem!
     
+    // MARK: - Properties
     private let favoriteRecipeViewModel = FavoriteRecipeViewModel()
     private let recipeViewModel = RecipeViewModel()
     var recipe: Recipe?
     private var ingredientLines: [String]?
     private lazy var totalTimeFontSize = totalTimeLabel.font.pointSize
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeDetailsTableView.dataSource = self
@@ -56,6 +59,7 @@ final class RecipeDetailsViewController: UIViewController {
         recipeImageView.layoutIfNeeded()
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipeWebPageVC = segue.destination as? RecipeWebPageViewController {
             guard let recipe else { return }
@@ -63,6 +67,7 @@ final class RecipeDetailsViewController: UIViewController {
         }
     }
     
+    // MARK: - View
     private func configure(with recipe: Recipe?) {
         guard let recipe else { return }
         favoriteRecipeViewModel.isFavorite(recipe: recipe)
@@ -78,6 +83,7 @@ final class RecipeDetailsViewController: UIViewController {
         ingredientLines = recipe.ingredientLines
     }
     
+    // MARK: - Actions
     @IBAction private func favoriteButton(_ sender: UIBarButtonItem) {
         guard let recipe else { return }
         favoriteRecipeViewModel.userDidTapFavoriteButton(with: recipe)
@@ -88,6 +94,7 @@ final class RecipeDetailsViewController: UIViewController {
     }
 }
 
+// MARK: - TableView DataSource & Delegate
 extension RecipeDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()

@@ -9,13 +9,15 @@ import UIKit
 
 final class RecipesViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet private var recipesTableView: UITableView!
     
+    // MARK: - Properties
     private let recipeViewModel = RecipeViewModel()
     private var tableViewHeight: CGFloat?
-    
     private var detailedRecipe: Recipe?
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         recipesTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
@@ -40,14 +42,18 @@ final class RecipesViewController: UIViewController {
         tableViewHeight = recipesTableView.frame.height
     }
     
-    func update(with fridgeIngredients: String) {
-        recipeViewModel.fetchRecipes(fridgeIngredients)
-    }
-    
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipeDetailsVC = segue.destination as? RecipeDetailsViewController {
             recipeDetailsVC.recipe = detailedRecipe
         }
+    }
+}
+
+// MARK: - View
+extension RecipesViewController {
+    func update(with fridgeIngredients: String) {
+        recipeViewModel.fetchRecipes(fridgeIngredients)
     }
     
     private func createActivityIndicator() -> UIView {
@@ -83,7 +89,7 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
         detailedRecipe = recipeViewModel.recipes.value[indexPath.row]
         performSegue(withIdentifier: "goToRecipeDetails", sender: nil)
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let tableViewHeight else { return 180 }
         let screenHeight = UIScreen.main.bounds.height

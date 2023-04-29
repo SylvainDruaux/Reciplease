@@ -12,7 +12,7 @@ protocol ResultsViewControllerDelegate: AnyObject {
 }
 
 final class ResultsViewController: UIViewController {
-
+    
     // MARK: - Properties
     weak var delegate: ResultsViewControllerDelegate?
     
@@ -24,7 +24,7 @@ final class ResultsViewController: UIViewController {
     
     private var ingredients: [String] = []
     
-    // MARK: - Methods
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
@@ -37,6 +37,7 @@ final class ResultsViewController: UIViewController {
         tableView.frame = view.bounds
     }
     
+    // MARK: - View
     func update(with ingredients: IngredientResponse) {
         tableView.isHidden = false
         self.ingredients = ingredients
@@ -44,7 +45,7 @@ final class ResultsViewController: UIViewController {
     }
 }
 
-// MARK: - tableView DataSource & Delegate
+// MARK: - TableView DataSource & Delegate
 extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients.count

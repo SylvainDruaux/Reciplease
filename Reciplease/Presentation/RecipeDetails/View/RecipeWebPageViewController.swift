@@ -10,17 +10,21 @@ import WebKit
 
 class RecipeWebPageViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet private var webView: WKWebView!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: - Properties
     var recipeURL: URL?
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self
         initRecipeWebPage()
     }
     
+    // MARK: - View
     private func initRecipeWebPage() {
         guard let recipeURL else { return }
         let request = URLRequest(url: recipeURL)
@@ -31,11 +35,12 @@ class RecipeWebPageViewController: UIViewController {
     }
 }
 
+// MARK: - WKNavigation Delegate
 extension RecipeWebPageViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         activityIndicator.stopAnimating()
     }
-
+    
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         activityIndicator.stopAnimating()
     }

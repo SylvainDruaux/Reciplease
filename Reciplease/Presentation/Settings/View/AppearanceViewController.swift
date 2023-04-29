@@ -12,14 +12,16 @@ protocol AppearanceViewControllerDelegate: AnyObject {
 }
 
 final class AppearanceViewController: UIViewController {
-
+    
+    // MARK: - Outlets
     @IBOutlet private var appearanceTableView: UITableView!
     
+    // MARK: - Properties
     private var viewModel = AppearanceViewModel().cellsViewModel
     private let userInterfaceStyle = UserPreferences.userInterfaceStyle ?? "unspecified"
-    
     weak var delegate: AppearanceViewControllerDelegate?
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +29,7 @@ final class AppearanceViewController: UIViewController {
         appearanceTableView.delegate = self
     }
     
+    // MARK: - View
     private func updateInterfaceStyle(_ newStyle: String) {
         UserPreferences.userInterfaceStyle = newStyle
     }
@@ -47,7 +50,8 @@ final class AppearanceViewController: UIViewController {
     }
 }
 
-extension AppearanceViewController: UITableViewDataSource {
+// MARK: - TableView DataSource & Delegate
+extension AppearanceViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
     }
@@ -87,5 +91,3 @@ extension AppearanceViewController: UITableViewDataSource {
         }
     }
 }
-
-extension AppearanceViewController: UITableViewDelegate { }

@@ -8,7 +8,7 @@
 import UIKit
 
 final class SettingsNavigationController: UINavigationController {
-
+    
     private static let storyboardName = "SettingsView"
     
     override func viewDidLoad() {
