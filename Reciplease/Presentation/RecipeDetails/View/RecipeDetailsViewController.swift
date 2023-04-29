@@ -77,8 +77,10 @@ final class RecipeDetailsViewController: UIViewController {
         favoriteRecipeViewModel.isFavorite(recipe: recipe)
         recipeViewModel.fetchImage(with: recipe.imageUrl)
         titleLabel.text = recipe.label
-        yieldLabel.text = recipe.yield.isZero ? "N/A" : recipe.yield.decimalNotation
-        totalTimeLabel.text = recipe.totalTime.isZero ? "N/A" : recipe.totalTime.timeNotation
+        let yieldLabelText = recipe.yield.isZero ? "N/A" : recipe.yield.decimalNotation
+        yieldLabel.text = yieldLabelText
+        let totalTimeText = recipe.totalTime.isZero ? "N/A" : recipe.totalTime.timeNotation
+        totalTimeLabel.text = totalTimeText
         if recipe.totalTime > 60 {
             totalTimeLabel.font = totalTimeLabel.font.withSize(totalTimeFontSize * 0.8)
         } else {
@@ -87,8 +89,13 @@ final class RecipeDetailsViewController: UIViewController {
         ingredientLines = recipe.ingredientLines
         
         // Accessibility
-        yieldLabel.accessibilityHint = NSLocalizedString("yieldLabel_Hint", comment: "Yield hint")
-        totalTimeLabel.accessibilityHint = NSLocalizedString("totalTimeLabel_Hint", comment: "Total time hint")
+        let yieldTitle = NSLocalizedString("yieldLabel_Title", comment: "Yield")
+        yieldLabel.accessibilityLabel = "\(yieldTitle): \(yieldLabelText)"
+        yieldLabel.accessibilityHint = yieldTitle
+        
+        let totalTimeTitle = NSLocalizedString("totalTimeLabel_Title", comment: "Total time")
+        totalTimeLabel.accessibilityLabel = "\(totalTimeTitle): \(totalTimeText)"
+        totalTimeLabel.accessibilityHint = totalTimeTitle
     }
     
     // MARK: - Actions

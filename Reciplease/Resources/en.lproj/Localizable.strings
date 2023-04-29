@@ -19,8 +19,8 @@
 // Recipe Details elements
 "favoriteBarButtonItem_Label" = "Star";
 "favoriteBarButtonItem_Hint" = "Click to add or remove a recipe from your favorites";
-"yieldLabel_Hint" = "Yield";
-"totalTimeLabel_Hint" = "Total time";
+"yieldLabel_Title" = "Yield";
+"totalTimeLabel_Title" = "Total time";
 
 // Settings Page elements
 "about_title" = "About";
