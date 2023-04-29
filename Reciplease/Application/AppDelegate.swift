@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Accessibility language (changes must be made if the app becomes multilingual)
+        accessibilityLanguage = "en-US"
+        
         let userInterfaceStyle = UserPreferences.userInterfaceStyle
         
         switch userInterfaceStyle {

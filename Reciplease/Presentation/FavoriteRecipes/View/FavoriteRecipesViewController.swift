@@ -38,7 +38,7 @@ final class FavoriteRecipesViewController: UIViewController {
                 self?.favoriteRecipesTableView.isHidden = true
                 self?.informationLabel.isEnabled = true
                 self?.informationLabel.isHidden = false
-                let explanation = NSLocalizedString("how_to_use_favorites", comment: "Explanation on how to use favorites")
+                let explanation = NSLocalizedString("informationLabel", comment: "Explanation on how to use favorites")
                 self?.informationLabel.configureText(explanation)
             } else {
                 self?.informationLabel.isHidden = true

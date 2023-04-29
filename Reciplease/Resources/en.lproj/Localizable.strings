@@ -6,6 +6,23 @@
   
 */
 
+// Search Page elements
+"searchBarPlaceholder" = "What's in your fridge?";
+"menuButton" = "Edit list";
+"clearListItem" = "Clear List";
+"loadListItem" = "Load previous List";
+"searchButton" = "Search for recipes";
+
+// Favorites Page elements
+"informationLabel" = "After searching for recipes, select the one you want to add to your favorites and click the star to add it here.";
+
+// Recipe Details elements
+"favoriteBarButtonItem_Label" = "Star";
+"favoriteBarButtonItem_Hint" = "Click to add or remove a recipe from your favorites";
+"yieldLabel_Hint" = "Yield";
+"totalTimeLabel_Hint" = "Total time";
+
+// Settings Page elements
 "about_title" = "About";
 "about_description" = "Reciplease makes cooking easy and convenient by suggesting recipes based on the ingredients you have in your fridge.
 
@@ -19,4 +36,3 @@ Thank you for choosing our app!";
 "light_mode_title" = "Light mode";
 "dark_mode_title" = "Dark mode";
 "device_mode_title" = "Use device settings";
-"how_to_use_favorites" = "After searching for recipes, select the one you want to add to your favorites and click the star to add it here.";

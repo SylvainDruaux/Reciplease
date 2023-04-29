@@ -108,10 +108,13 @@ extension FridgeIngredientsViewController {
             primaryAction: nil,
             menu: generatePullDownMenu()
         )
+        
+        // Accessibility
+        menuButton.accessibilityLabel = NSLocalizedString("menuButton", comment: "Button to edit your fridge ingredients list")
     }
     
     private func generatePullDownMenu() -> UIMenu {
-        let editItem = UIAction(
+        let loadListItem = UIAction(
             title: "Load previous List",
             image: UIImage(systemName: "restart"),
             handler: { [weak self ] _ in
@@ -126,14 +129,14 @@ extension FridgeIngredientsViewController {
                 }
             }
         )
-        let addItem = UIAction(
+        let clearListItem = UIAction(
             title: "Clear List",
             image: UIImage(systemName: "eraser"),
             handler: { _ in
                 self.clearList()
             }
         )
-        menu = UIMenu(options: .displayInline, children: [addItem, editItem])
+        menu = UIMenu(options: .displayInline, children: [clearListItem, loadListItem])
         return menu
     }
     

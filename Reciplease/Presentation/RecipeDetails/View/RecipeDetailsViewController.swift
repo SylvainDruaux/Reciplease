@@ -45,6 +45,10 @@ final class RecipeDetailsViewController: UIViewController {
             imageView.image = UIImage(data: imageData)
             imageView.contentMode = .scaleAspectFill
         }
+        
+        // Accessibility
+        favoriteBarButtonItem.accessibilityLabel = NSLocalizedString("favoriteBarButtonItem_Label", comment: "Favorites button label")
+        favoriteBarButtonItem.accessibilityHint = NSLocalizedString("favoriteBarButtonItem_Hint", comment: "Favorites button hint")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +85,10 @@ final class RecipeDetailsViewController: UIViewController {
             totalTimeLabel.font = totalTimeLabel.font.withSize(totalTimeFontSize)
         }
         ingredientLines = recipe.ingredientLines
+        
+        // Accessibility
+        yieldLabel.accessibilityHint = NSLocalizedString("yieldLabel_Hint", comment: "Yield hint")
+        totalTimeLabel.accessibilityHint = NSLocalizedString("totalTimeLabel_Hint", comment: "Total time hint")
     }
     
     // MARK: - Actions
