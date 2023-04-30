@@ -132,8 +132,8 @@ extension FridgeIngredientsViewController {
         let clearListItem = UIAction(
             title: "Clear List",
             image: UIImage(systemName: "eraser"),
-            handler: { _ in
-                self.clearList()
+            handler: { [weak self ] _ in
+                self?.clearList()
             }
         )
         menu = UIMenu(options: .displayInline, children: [clearListItem, loadListItem])
