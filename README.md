@@ -3,6 +3,8 @@
 Reciplease suggests recipes based on the ingredients in your fridge, making cooking easy and convenient. 
 No more wondering what to cook - find delicious recipes using the ingredients you you already have.
 
+|Search|Result|Details|Favorites|
+|--|--|--|--|
 |<img src="/Resources/Demo-iPhone-14-Search-Ingredients.png" width="150">|<img src="/Resources/Demo-iPhone-14-Search-Result.png" width="150">|<img src="/Resources/Demo-iPhone-14-RecipeDetails.png" width="150">|<img src="/Resources/Demo-iPhone-14-FavoriteRecipes.png" width="150">|
 |<img src="/Resources/Demo-iPhone-14-Search-Ingredients-Dark.png" width="150">|<img src="/Resources/Demo-iPhone-14-Search-Result-Dark.png" width="150">|<img src="/Resources/Demo-iPhone-14-RecipeDetails-Dark.png" width="150">|<img src="/Resources/Demo-iPhone-14-FavoriteRecipes-Dark.png" width="150">|
 
@@ -56,7 +58,7 @@ Inspired by [Oleh Kudinov's Medium article](https://tech.olx.com/clean-architect
 
 ## Demo
 
-|<img src="/Resources/Demo-iPhone-14-Reciplease.gif" width="220">|
+<img src="/Resources/Demo-iPhone-14-Reciplease.gif" width="220">
 
 ## License
 
