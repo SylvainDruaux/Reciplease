@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FOOD_DATABASE_API_KEY</key>
+	<string>$(FOOD_DATABASE_API_KEY)</string>
+	<key>FOOD_DATABASE_APP_ID</key>
+	<string>$(FOOD_DATABASE_APP_ID)</string>
+	<key>FOOD_DATABASE_BASE_URL</key>
+	<string>https://api.edamam.com/auto-complete</string>
+	<key>RECIPE_SEARCH_API_KEY</key>
+	<string>$(RECIPE_SEARCH_API_KEY)</string>
+	<key>RECIPE_SEARCH_APP_ID</key>
+	<string>$(RECIPE_SEARCH_APP_ID)</string>
+	<key>RECIPE_SEARCH_BASE_URL</key>
+	<string>https://api.edamam.com/api/recipes/v2</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SF-Pro-Text-Regular.otf</string>
+		<string>SF-Pro-Text-Medium.otf</string>
+		<string>IMFellEnglish-Regular.ttf</string>
+		<string>FuzzyBubbles-Regular.ttf</string>
+		<string>FuzzyBubbles-Bold.ttf</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

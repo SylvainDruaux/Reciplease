@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="FuzzyBubbles-Bold.ttf">
+            <string>FuzzyBubbles-Bold</string>
+        </array>
+        <array key="IMFellEnglish-Regular.ttf">
+            <string>IM_FELL_English_Roman</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="112" id="KGk-i7-Jjw" customClass="RecipeTableViewCell" customModule="Reciplease" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="185"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="398" height="185"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="e7n-oB-KyR">
+                        <rect key="frame" x="0.0" y="0.0" width="398" height="185"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <color key="tintColor" name="SeparatorColor"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ru-VT-nns">
+                        <rect key="frame" x="314" y="15" width="74" height="64"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DXE-m7-7cX">
+                                <rect key="frame" x="4" y="4" width="66" height="56"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="2GN-8q-25f">
+                                        <rect key="frame" x="0.0" y="0.0" width="66" height="25.666666666666668"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9S-0P-ush">
+                                                <rect key="frame" x="0.0" y="0.0" width="33" height="25.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serving-dish" translatesAutoresizingMaskIntoConstraints="NO" id="7SO-Eu-R6E">
+                                                <rect key="frame" x="36" y="0.0" width="30" height="25.666666666666668"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="Oc1-M0-NI8"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="n3r-l6-VS9">
+                                        <rect key="frame" x="0.0" y="30.666666666666664" width="66" height="25.333333333333336"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUZ-Nn-Olr">
+                                                <rect key="frame" x="0.0" y="0.0" width="33" height="25.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8Dw-gi-MhH">
+                                                <rect key="frame" x="36" y="0.99999999999999822" width="30" height="24"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="83T-td-H18"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="L9S-0P-ush" firstAttribute="width" secondItem="kUZ-Nn-Olr" secondAttribute="width" id="chv-AF-Vkv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="12C-yM-N5h"/>
+                            <constraint firstAttribute="bottom" secondItem="DXE-m7-7cX" secondAttribute="bottom" constant="4" id="MxE-JA-XDK"/>
+                            <constraint firstAttribute="trailing" secondItem="DXE-m7-7cX" secondAttribute="trailing" constant="4" id="bbm-G7-qrX"/>
+                            <constraint firstItem="DXE-m7-7cX" firstAttribute="leading" secondItem="8Ru-VT-nns" secondAttribute="leading" constant="4" id="yTq-QL-ojo"/>
+                            <constraint firstItem="DXE-m7-7cX" firstAttribute="top" secondItem="8Ru-VT-nns" secondAttribute="top" constant="4" id="ycf-gZ-Mla"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                <color key="value" name="TextColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2k-TH-CQn" userLabel="TitleView">
+                        <rect key="frame" x="0.0" y="132.66666666666666" width="398" height="52.333333333333343"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5U-CL-yV2" userLabel="Title Label">
+                                <rect key="frame" x="10" y="3" width="378" height="25.666666666666668"/>
+                                <fontDescription key="fontDescription" name="IM_FELL_English_Roman" family="IM FELL English" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mozzarella, Basil, Large tomato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFy-SI-9Fk" userLabel="Ingredient Names Label">
+                                <rect key="frame" x="10" y="31.666666666666686" width="378" height="17.666666666666671"/>
+                                <fontDescription key="fontDescription" name="FuzzyBubbles-Bold" family="Fuzzy Bubbles" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k5U-CL-yV2" firstAttribute="leading" secondItem="M2k-TH-CQn" secondAttribute="leading" constant="10" id="7qJ-fd-IU5"/>
+                            <constraint firstAttribute="bottom" secondItem="fFy-SI-9Fk" secondAttribute="bottom" constant="3" id="LwE-PJ-SoV"/>
+                            <constraint firstAttribute="trailing" secondItem="k5U-CL-yV2" secondAttribute="trailing" constant="10" id="QN6-wM-CM0"/>
+                            <constraint firstItem="k5U-CL-yV2" firstAttribute="top" secondItem="M2k-TH-CQn" secondAttribute="top" constant="3" id="Umh-tZ-uZ9"/>
+                            <constraint firstAttribute="trailing" secondItem="fFy-SI-9Fk" secondAttribute="trailing" constant="10" id="VoA-s2-Hq2"/>
+                            <constraint firstItem="fFy-SI-9Fk" firstAttribute="top" secondItem="k5U-CL-yV2" secondAttribute="bottom" constant="3" id="r3x-or-yLR"/>
+                            <constraint firstItem="fFy-SI-9Fk" firstAttribute="leading" secondItem="M2k-TH-CQn" secondAttribute="leading" constant="10" id="wza-Db-1CF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="M2k-TH-CQn" secondAttribute="bottom" id="0uh-j4-ZFJ"/>
+                    <constraint firstItem="e7n-oB-KyR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Wta-Sr-WTS"/>
+                    <constraint firstAttribute="bottom" secondItem="e7n-oB-KyR" secondAttribute="bottom" id="YmD-LC-emH"/>
+                    <constraint firstItem="8Ru-VT-nns" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="ZoO-ne-3Ch"/>
+                    <constraint firstItem="M2k-TH-CQn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="a9V-go-Yjz"/>
+                    <constraint firstAttribute="trailing" secondItem="M2k-TH-CQn" secondAttribute="trailing" id="aVU-hq-mYK"/>
+                    <constraint firstAttribute="trailing" secondItem="e7n-oB-KyR" secondAttribute="trailing" id="nvY-KR-j8v"/>
+                    <constraint firstItem="e7n-oB-KyR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="s1C-Wb-soD"/>
+                    <constraint firstItem="8Ru-VT-nns" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="10" id="uNm-63-roH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="BackgroundColor"/>
+            <connections>
+                <outlet property="ingredientNamesLabel" destination="fFy-SI-9Fk" id="OVu-MR-SRs"/>
+                <outlet property="recipeImageView" destination="e7n-oB-KyR" id="KCH-CG-qVZ"/>
+                <outlet property="titleLabel" destination="k5U-CL-yV2" id="lzR-gZ-vgK"/>
+                <outlet property="totalTimeLabel" destination="kUZ-Nn-Olr" id="EHF-T5-AxE"/>
+                <outlet property="yieldLabel" destination="L9S-0P-ush" id="xsQ-Xv-zcC"/>
+            </connections>
+            <point key="canvasLocation" x="-259.5419847328244" y="38.380281690140848"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="placeholder" width="113.09999847412109" height="113.29000091552734"/>
+        <image name="serving-dish" width="32" height="32"/>
+        <image name="timer" catalog="system" width="128" height="123"/>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SeparatorColor">
+            <color red="0.77600002288818359" green="0.77600002288818359" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.21600000560283661" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
