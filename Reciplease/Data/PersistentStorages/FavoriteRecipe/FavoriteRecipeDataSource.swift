@@ -18,30 +18,22 @@ final class FavoriteRecipeDataSource: FavoriteRecipeDataSourceProtocol {
     }
     
     func create(recipe: Recipe) async throws {
-        try context.performAndWait {
-            do {
-                _ = RecipeEntity(recipe: recipe, in: context)
-                try context.save()
-            } catch {
-                throw error
-            }
+        try await context.perform { [self] in
+            _ = RecipeEntity(recipe: recipe, in: context)
+            try context.save()
         }
     }
     
     func getAll() async throws -> [RecipeEntity] {
-        try context.performAndWait {
-            do {
-                let request = RecipeEntity.fetchRequest()
-                return try context.fetch(request)
-            } catch {
-                throw error
-            }
+        try await context.perform { [self] in
+            let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+            return try context.fetch(request)
         }
     }
     
     func delete(_ id: String) async throws {
         guard let recipeEntity = try await getEntityById(id) else { return }
-        try context.performAndWait {
+        try await context.perform { [self] in
             do {
                 context.delete(recipeEntity)
                 try context.save()
@@ -53,16 +45,10 @@ final class FavoriteRecipeDataSource: FavoriteRecipeDataSourceProtocol {
     }
     
     private func getEntityById(_ id: String) async throws -> RecipeEntity? {
-        try context.performAndWait {
-            do {
-                let request = RecipeEntity.fetchRequest()
-                request.fetchLimit = 1
-                request.predicate = NSPredicate(format: "id = %@", id)
-                let recipeEntity = try context.fetch(request).first
-                return recipeEntity
-            } catch {
-                throw error
-            }
+        try await context.perform { [self] in
+            let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+            request.predicate = NSPredicate(format: "id = %@", id)
+            return try context.fetch(request).first
         }
     }
 }
